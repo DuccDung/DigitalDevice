@@ -1,0 +1,5 @@
+wwwroot\images\icon_badroom.png
+wwwroot\images\icon_bathroom.png
+wwwroot\images\icon_different.png
+wwwroot\images\icon_kitchen.png
+wwwroot\images\icon_livingroom.png

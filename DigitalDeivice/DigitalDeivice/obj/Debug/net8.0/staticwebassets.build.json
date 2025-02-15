@@ -1,0 +1,537 @@
+{
+  "Version": 1,
+  "Hash": "04kzZgklLzN1XZZMGgc+g1UkY9Ba29C6IkjJqwwqr2s=",
+  "Source": "DigitalDeivice",
+  "BasePath": "_content/DigitalDeivice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "DigitalDeivice\\wwwroot",
+      "Source": "DigitalDeivice",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/icon_badroom#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vvppw3ic9c",
+      "Integrity": "tYRmoTPGOirvWSRCCkFGzcOBAdJsQ0Yc7hJLxDsH9Oo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_badroom.png"
+    },
+    {
+      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/icon_bathroom#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p3hycnr5sm",
+      "Integrity": "6zxdLODF/Bf/i+K7NsXRLUxbKmK/gDYVD0JKdh6VO64=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_bathroom.png"
+    },
+    {
+      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/icon_different#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "guh2gpmbcy",
+      "Integrity": "2PoRH7YiGbU9X+40+fVuCnZIYEphAAusqKHyartPGKU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_different.png"
+    },
+    {
+      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/icon_kitchen#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vpsjo1c7gj",
+      "Integrity": "3aurL9BXW++XI8borzLtMXfBCbsio9pJSS7YCP9+bRA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_kitchen.png"
+    },
+    {
+      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/icon_livingroom#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j40uax7vmc",
+      "Integrity": "I/pNw1AoRjNzvALXaSi4olwwHUf9YCDcy4if8N857gs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon_livingroom.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/icon_badroom.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32352"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tYRmoTPGOirvWSRCCkFGzcOBAdJsQ0Yc7hJLxDsH9Oo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:37:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tYRmoTPGOirvWSRCCkFGzcOBAdJsQ0Yc7hJLxDsH9Oo="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_badroom.vvppw3ic9c.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32352"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tYRmoTPGOirvWSRCCkFGzcOBAdJsQ0Yc7hJLxDsH9Oo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:37:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vvppw3ic9c"
+        },
+        {
+          "Name": "label",
+          "Value": "images/icon_badroom.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tYRmoTPGOirvWSRCCkFGzcOBAdJsQ0Yc7hJLxDsH9Oo="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_bathroom.p3hycnr5sm.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64607"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6zxdLODF/Bf/i+K7NsXRLUxbKmK/gDYVD0JKdh6VO64=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:37:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p3hycnr5sm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/icon_bathroom.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6zxdLODF/Bf/i+K7NsXRLUxbKmK/gDYVD0JKdh6VO64="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_bathroom.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64607"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6zxdLODF/Bf/i+K7NsXRLUxbKmK/gDYVD0JKdh6VO64=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:37:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6zxdLODF/Bf/i+K7NsXRLUxbKmK/gDYVD0JKdh6VO64="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_different.guh2gpmbcy.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26054"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2PoRH7YiGbU9X+40+fVuCnZIYEphAAusqKHyartPGKU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:39:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "guh2gpmbcy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/icon_different.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2PoRH7YiGbU9X+40+fVuCnZIYEphAAusqKHyartPGKU="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_different.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26054"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2PoRH7YiGbU9X+40+fVuCnZIYEphAAusqKHyartPGKU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:39:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2PoRH7YiGbU9X+40+fVuCnZIYEphAAusqKHyartPGKU="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_kitchen.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39011"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3aurL9BXW++XI8borzLtMXfBCbsio9pJSS7YCP9+bRA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:38:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3aurL9BXW++XI8borzLtMXfBCbsio9pJSS7YCP9+bRA="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_kitchen.vpsjo1c7gj.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39011"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3aurL9BXW++XI8borzLtMXfBCbsio9pJSS7YCP9+bRA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:38:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vpsjo1c7gj"
+        },
+        {
+          "Name": "label",
+          "Value": "images/icon_kitchen.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3aurL9BXW++XI8borzLtMXfBCbsio9pJSS7YCP9+bRA="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_livingroom.j40uax7vmc.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33495"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/pNw1AoRjNzvALXaSi4olwwHUf9YCDcy4if8N857gs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:39:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j40uax7vmc"
+        },
+        {
+          "Name": "label",
+          "Value": "images/icon_livingroom.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/pNw1AoRjNzvALXaSi4olwwHUf9YCDcy4if8N857gs="
+        }
+      ]
+    },
+    {
+      "Route": "images/icon_livingroom.png",
+      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33495"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/pNw1AoRjNzvALXaSi4olwwHUf9YCDcy4if8N857gs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Feb 2025 02:39:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/pNw1AoRjNzvALXaSi4olwwHUf9YCDcy4if8N857gs="
+        }
+      ]
+    }
+  ]
+}
