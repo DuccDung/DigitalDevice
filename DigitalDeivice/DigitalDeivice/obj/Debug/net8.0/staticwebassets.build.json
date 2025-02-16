@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "04kzZgklLzN1XZZMGgc+g1UkY9Ba29C6IkjJqwwqr2s=",
+  "Hash": "9yLf7UIDkvg8E95HmweHGPNZP3TZebA9tg/F2rj9gMo=",
   "Source": "DigitalDeivice",
   "BasePath": "_content/DigitalDeivice",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DigitalDeivice\\wwwroot",
       "Source": "DigitalDeivice",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_badroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_badroom.png"
     },
     {
-      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_bathroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_bathroom.png"
     },
     {
-      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_different#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_different.png"
     },
     {
-      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_kitchen#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_kitchen.png"
     },
     {
-      "Identity": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_livingroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -125,7 +125,7 @@
   "Endpoints": [
     {
       "Route": "images/icon_badroom.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -162,7 +162,7 @@
     },
     {
       "Route": "images/icon_badroom.vvppw3ic9c.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -207,7 +207,7 @@
     },
     {
       "Route": "images/icon_bathroom.p3hycnr5sm.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -252,7 +252,7 @@
     },
     {
       "Route": "images/icon_bathroom.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -289,7 +289,7 @@
     },
     {
       "Route": "images/icon_different.guh2gpmbcy.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -334,7 +334,7 @@
     },
     {
       "Route": "images/icon_different.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -371,7 +371,7 @@
     },
     {
       "Route": "images/icon_kitchen.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -408,7 +408,7 @@
     },
     {
       "Route": "images/icon_kitchen.vpsjo1c7gj.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -453,7 +453,7 @@
     },
     {
       "Route": "images/icon_livingroom.j40uax7vmc.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -498,7 +498,7 @@
     },
     {
       "Route": "images/icon_livingroom.png",
-      "AssetFile": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {

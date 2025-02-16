@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "PackagePath": "staticwebassets\\images\\icon_badroom.png"
     },
     {
-      "Id": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "PackagePath": "staticwebassets\\images\\icon_bathroom.png"
     },
     {
-      "Id": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "PackagePath": "staticwebassets\\images\\icon_different.png"
     },
     {
-      "Id": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "PackagePath": "staticwebassets\\images\\icon_kitchen.png"
     },
     {
-      "Id": "D:\\laptrinhweb\\ASPNET\\WebAPI\\Repos\\web-api-net8\\WebApi_01\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "PackagePath": "staticwebassets\\images\\icon_livingroom.png"
     },
     {
