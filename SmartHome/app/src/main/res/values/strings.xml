@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SmartHome</string>
+    <string name="register_text">Enter to <u>Register</u></string>
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Cấp quyền Internet cho ứng dụng -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartHome"
+        tools:targetApi="31">
+        <activity
+            android:name="com.example.smarthome.View.SelectHomeActivity"
+            android:exported="false" />
+        <!-- Khai báo các Activity -->
+        <activity
+            android:name="com.example.smarthome.View.register_activity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name="com.example.smarhome.View.activity_login" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name="com.example.smarthome.View.DashBoardActivity"
+            android:exported="false" /> <!-- &lt;!&ndash; Main Activity (màn hình khởi động) &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name="com.example.smarhome.View.MainActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <!-- LoginActivity sẽ là màn hình khởi động chính -->
+        <activity
+            android:name="com.example.smarthome.View.activity_login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- MainActivity không còn là màn hình chính, chỉ mở sau khi đăng nhập -->
+        <activity
+            android:name="com.example.smarthome.View.MainActivity"
+            android:exported="true"></activity> <!-- Định nghĩa trước font nếu có -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
