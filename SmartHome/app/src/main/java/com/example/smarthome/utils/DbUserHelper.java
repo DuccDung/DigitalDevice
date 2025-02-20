@@ -8,27 +8,29 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbUserHelper extends SQLiteOpenHelper {
 
-    // Tên database
-    private static final String DATABASE_NAME = "DbUser.db";
-    private static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "DbUser.db";
+    public static final int DATABASE_VERSION = 2;
 
-    // Tên bảng
-    private static final String TABLE_USERS = "users";
+    public static final String TABLE_USERS = "users";
 
-    // Các cột trong bảng
-    private static final String COLUMN_ID = "userId";
-    private static final String COLUMN_NAME = "name";
-    private static final String COLUMN_PASSWORD = "password";
-    private static final String COLUMN_PHOTO = "photoPath";
-    private static final String COLUMN_HOME_ID = "homeId";
+    public static final String COLUMN_ID = "userId";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_PHOTO = "photoPath";
+    public static final String COLUMN_HOME_ID = "homeId";
+    public static final String COLUMN_URL_MQTT = "urlMqtt";
+    public static final String COLUMN_USER_MQTT = "userMqtt";
+    public static final String COLUMN_PASSWORD_MQTT = "passwordMqtt";
 
-    // Câu lệnh tạo bảng
     private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS + " ("
             + COLUMN_ID + " TEXT PRIMARY KEY, "
             + COLUMN_NAME + " TEXT, "
             + COLUMN_PASSWORD + " TEXT, "
             + COLUMN_PHOTO + " TEXT, "
-            + COLUMN_HOME_ID + " TEXT)";
+            + COLUMN_HOME_ID + " TEXT, "
+            + COLUMN_URL_MQTT + " TEXT, "
+            + COLUMN_USER_MQTT + " TEXT, "
+            + COLUMN_PASSWORD_MQTT + " TEXT)";
 
     public DbUserHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,11 +43,13 @@ public class DbUserHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        onCreate(db);
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE " + TABLE_USERS + " ADD COLUMN " + COLUMN_URL_MQTT + " TEXT");
+            db.execSQL("ALTER TABLE " + TABLE_USERS + " ADD COLUMN " + COLUMN_USER_MQTT + " TEXT");
+            db.execSQL("ALTER TABLE " + TABLE_USERS + " ADD COLUMN " + COLUMN_PASSWORD_MQTT + " TEXT");
+        }
     }
 
-    // Kiểm tra xem có user nào trong database chưa
     public boolean isUserExists() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERS, null);
@@ -54,8 +58,7 @@ public class DbUserHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    // Thêm user mới (Chỉ lưu 1 user duy nhất)
-    public boolean insertOrUpdateUser(String userId, String name, String password, String photoPath, String homeId) {
+    public boolean insertOrUpdateUser(String userId, String name, String password, String photoPath, String homeId, String urlMqtt, String userMqtt, String passwordMqtt) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, userId);
@@ -63,31 +66,37 @@ public class DbUserHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, password);
         values.put(COLUMN_PHOTO, photoPath);
         values.put(COLUMN_HOME_ID, homeId);
+        values.put(COLUMN_URL_MQTT, urlMqtt);
+        values.put(COLUMN_USER_MQTT, userMqtt);
+        values.put(COLUMN_PASSWORD_MQTT, passwordMqtt);
 
         if (isUserExists()) {
-            // Nếu đã có user, cập nhật user hiện tại
             int result = db.update(TABLE_USERS, values, null, null);
             db.close();
             return result > 0;
         } else {
-            // Nếu chưa có user, thêm mới
             long result = db.insert(TABLE_USERS, null, values);
             db.close();
             return result != -1;
         }
     }
 
-    // Lấy thông tin user duy nhất
     public Cursor getUser() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_USERS, null);
     }
 
-    // Xóa user (Chỉ xóa user duy nhất)
     public boolean deleteUser() {
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete(TABLE_USERS, null, null);
         db.close();
         return result > 0;
+    }
+    public boolean isUrlMqttExists() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT " + COLUMN_URL_MQTT + " FROM " + TABLE_USERS + " WHERE " + COLUMN_URL_MQTT + " IS NOT NULL AND " + COLUMN_URL_MQTT + " != ''", null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
     }
 }

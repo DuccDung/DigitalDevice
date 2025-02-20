@@ -1,4 +1,5 @@
 ﻿using DigitalDeivice.Models;
+using DigitalDeivice.Models.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -92,7 +93,34 @@ namespace DigitalDeivice.Controllers
 			return Ok("Register Success!");
 		}
 
-		//[HttpPost]
-		//[Route("CreateLeanner")]
+		[HttpGet]
+		[Route("GetHomeUsersByUserId")]
+
+		public List<Home_User> GetHomeUsersByUserId(string userId)
+		{
+			var query = from hu in _digitalDeviceContext.HomeUsers
+							join u in _digitalDeviceContext.Users on hu.UserId equals u.UserId
+							join h in _digitalDeviceContext.Homes on hu.HomeId equals h.HomeId
+							where u.UserId == userId
+							select new Home_User
+							{
+								// Home properties
+								HomeId = h.HomeId,
+								Address = h.Address,
+								UrlMqtt = h.UrlMqtt,
+								UserMQTT = h.UserMQTT,
+								PasswordMQTT = h.PasswordMQTT,
+
+								// User properties
+								UserId = u.UserId,
+								Name = h.Name,
+								Password = u.Password,
+								Phone = u.Phone,
+								PhotoPath = u.PhotoPath
+							};
+
+				return query.ToList();
+		}
 	}
+
 }

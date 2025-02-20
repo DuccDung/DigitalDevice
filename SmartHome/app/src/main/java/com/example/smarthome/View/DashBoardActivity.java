@@ -16,6 +16,7 @@ import com.example.smarthome.api_service.ApiService;
 import com.example.smarthome.api_service.DataCallback;
 import com.example.smarthome.model.DeviceFunction;
 import com.example.smarthome.model.Room;
+import com.example.smarthome.utils.DataUserLocal;
 import com.example.smarthome.utils.MqttHandler;
 import com.example.smarthome.R;
 
@@ -48,6 +49,9 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
         rcvDashboardDevice = findViewById(R.id.rcvDeviceDashBoard);
         rcvDashboardDevice.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
+        DataUserLocal dataUserLocal = new DataUserLocal(this);
+
+
         connectApiRoom(new DataCallback<List<Room>>() {
             @Override
             public void onSuccess(List<Room> data) {
@@ -60,7 +64,7 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             public void onFailure(Throwable t) {
                 Log.d("Adapter room" , t.getMessage());
             }
-        });
+        } ,dataUserLocal.getHomeId()); // homeId từ local
         connectApiDevice(new DataCallback<List<DeviceFunction>>() {
             @Override
             public void onSuccess(List<DeviceFunction> data) {
@@ -77,12 +81,12 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             public void onFailure(Throwable t) {
 
             }
-        });
+        } , "" , ""); // Xử lý lấy device trong room
 
     }
 
-    public void connectApiRoom(DataCallback<List<Room>> roomDataCallback){
-        ApiService.apiService.GetRooms("h_41924871").enqueue(new Callback<List<Room>>() {
+    public void connectApiRoom(DataCallback<List<Room>> roomDataCallback , String homeId){
+        ApiService.apiService.GetRooms(homeId).enqueue(new Callback<List<Room>>() {
             @Override
             public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
                 if(response.isSuccessful() && response.body() != null){
@@ -102,8 +106,8 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             }
         });
     };
-    public void connectApiDevice(DataCallback<List<DeviceFunction>> devicesCallback){
-        ApiService.apiService.GetDeviceFunction("r_001" , "h_41924871").enqueue(new Callback<List<DeviceFunction>>() {
+    public void connectApiDevice(DataCallback<List<DeviceFunction>> devicesCallback , String homeId , String roomId){
+        ApiService.apiService.GetDeviceFunction(roomId , homeId).enqueue(new Callback<List<DeviceFunction>>() {
             @Override
             public void onResponse(Call<List<DeviceFunction>> call, Response<List<DeviceFunction>> response) {
                 if(response.isSuccessful() && response.body() != null){

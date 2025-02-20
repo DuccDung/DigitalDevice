@@ -1,6 +1,7 @@
 package com.example.smarthome.api_service;
 
 import com.example.smarthome.model.DeviceFunction;
+import com.example.smarthome.model.HomeUser;
 import com.example.smarthome.model.Room;
 import com.example.smarthome.model.Users;
 import com.google.gson.Gson;
@@ -47,4 +48,8 @@ public interface ApiService {
 
     @GET("/api/Devices/GetDevicesByRoomID")
     Call<List<DeviceFunction>> GetDeviceFunction(@Query("RoomID") String RoomID , @Query("HomeID") String HomeID);
+
+    @GET("/api/Users/GetHomeUsersByUserId")
+    Call<List<HomeUser>> GetHomesByUserID(@Query("userId") String UserID);
+
 }

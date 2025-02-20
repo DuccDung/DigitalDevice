@@ -37,6 +37,15 @@ public class activity_login extends AppCompatActivity {
         // Khởi tạo database Sqlite
         DbUserHelper dbUserHelper = new DbUserHelper(this);
 
+        if(dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()){ // User đã tồn tại và đã chọn nhà
+            // chuyển activity
+            Intent intent = new Intent(activity_login.this , DashBoardActivity.class);
+            startActivity(intent);
+        }
+        else if(dbUserHelper.isUserExists() ){
+            Intent intent = new Intent(activity_login.this , SelectHomeActivity.class);
+            startActivity(intent);
+        }
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,19 +54,26 @@ public class activity_login extends AppCompatActivity {
                     public void onSuccess(Users data) {
                         Toast.makeText(activity_login.this, data.getName(), Toast.LENGTH_SHORT).show();
 
-                        boolean isInserted = dbUserHelper.insertOrUpdateUser(
-                                data.getUserId(), // userId
-                                data.getName(), // name
-                                data.getPassWord(), // password
-                                data.getPhotoPath(), // photoPath
-                                null // homeId
-                        );
+                        if (!dbUserHelper.isUserExists()) {
+                            boolean isInserted = dbUserHelper.insertOrUpdateUser(
+                                    data.getUserId(), // userId
+                                    data.getName(), // name
+                                    data.getPassWord(), // password
+                                    data.getPhotoPath(),
+                                    null,
+                                    null,
+                                    null,
+                                    null
+                            );
 
-                        if (isInserted) {
-                            Log.d("sqlite" , "insert user on success");
-                        } else {
-                            Log.d("sqlite" , "insert user on failure");
+                            if (isInserted) {
+                                Log.d("sqlite" , "insert user on success");
+                            } else {
+                                Log.d("sqlite" , "insert user on failure");
+                            }
                         }
+
+
 
                         // chuyển activity
                         Intent intent = new Intent(activity_login.this , DashBoardActivity.class);
