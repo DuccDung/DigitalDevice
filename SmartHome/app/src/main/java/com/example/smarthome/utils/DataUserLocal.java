@@ -65,6 +65,10 @@ public class DataUserLocal {
         updateField(context, DbUserHelper.COLUMN_URL_MQTT, urlMqtt);
         this.urlMqtt = urlMqtt;
     }
+    public void setHomeId(Context context , String homeId){
+        updateField(context ,DbUserHelper.COLUMN_HOME_ID , homeId);
+        this.homeId = homeId;
+    }
 
     public void setUserMqtt(Context context, String userMqtt) {
         updateField(context, DbUserHelper.COLUMN_USER_MQTT, userMqtt);

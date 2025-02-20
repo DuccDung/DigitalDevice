@@ -34,13 +34,12 @@ public class SelectHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_home);
         rcvChoseHouse = findViewById(R.id.rcvSelectHouses);
         rcvChoseHouse.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        HouseAdapter = new SelectHouseAdapter(this);
 
         InitData(new DataCallback<List<HomeUser>>() {
             @Override
             public void onSuccess(List<HomeUser> data) {
                 DataHouses.addAll(data);
-                HouseAdapter = new SelectHouseAdapter(DataHouses);
+                HouseAdapter = new SelectHouseAdapter(SelectHomeActivity.this , DataHouses);
                 rcvChoseHouse.setAdapter(HouseAdapter);
                 HouseAdapter.notifyDataSetChanged();
             }
@@ -48,7 +47,7 @@ public class SelectHomeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-
+                Log.e("Lỗi selectHome" ,t.getMessage());
             }
         });
     }
@@ -56,7 +55,6 @@ public class SelectHomeActivity extends AppCompatActivity {
         // Lấy userID trong sqlie
         DataUserLocal dataUserLocal = DataUserLocal.getInstance(this);
         String userId = dataUserLocal.getUserId();
-
         ApiService.apiService.GetHomesByUserID(userId).enqueue(new Callback<List<HomeUser>>() {
             @Override
             public void onResponse(Call<List<HomeUser>> call, Response<List<HomeUser>> response) {
@@ -74,8 +72,8 @@ public class SelectHomeActivity extends AppCompatActivity {
             }
         });
     }
-    public void IntentDashboard(){
-        Intent intent = new Intent(SelectHomeActivity.this , DashBoardActivity.class);
-        startActivity(intent);
-    }
+//    public void IntentDashboard(){
+//        Intent intent = new Intent(SelectHomeActivity.this , DashBoardActivity.class);
+//        startActivity(intent);
+//    }
 }

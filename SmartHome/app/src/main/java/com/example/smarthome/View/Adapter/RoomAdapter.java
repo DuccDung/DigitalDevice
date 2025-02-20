@@ -1,5 +1,6 @@
 package com.example.smarthome.View.Adapter;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,11 +51,14 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder
         roomHolder.imgRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("room" , room.getName());
+                if (onRoomClickListener != null) {
+                    Log.d("RoomAdapter", "Click detected on Room: " + room.getRoomId());
+                    onRoomClickListener.onRoomClick(room.getRoomId());
+                } else {
+                    Log.e("RoomAdapter", "onRoomClickListener is NULL!");
+                }
             }
         });
-
-
 
         OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
 

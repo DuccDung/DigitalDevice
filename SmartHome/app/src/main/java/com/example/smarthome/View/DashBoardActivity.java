@@ -30,35 +30,50 @@ import retrofit2.Response;
 public class DashBoardActivity extends AppCompatActivity implements MqttHandler.MqttListener, RoomAdapter.OnRoomClickListener {
     private RoomAdapter roomAdapter;
     private RecyclerView rcvRooms;
-
     private DashBoardDeviceAdapter dashBoardDeviceAdapter;
-    private  RecyclerView rcvDashboardDevice;
-
+    private RecyclerView rcvDashboardDevice;
     private MqttHandler mqttHandler;
     private List<DeviceFunction> devicesDashboard = new ArrayList<>();
-
+    private String roomId;
     @Override
-    public void onRoomClick(String roomId) { // xử lý click vào room
+    public void onRoomClick(String _roomId) {
+        roomId = _roomId;
+        Log.d("RoomClick", "Clicked room ID: " + _roomId);
 
+        // Gọi API lấy danh sách thiết bị trong phòng vừa chọn
+        connectApiDevice(new DataCallback<List<DeviceFunction>>() {
+            @Override
+            public void onSuccess(List<DeviceFunction> data) {
+                devicesDashboard.clear();
+                devicesDashboard.addAll(data);
+
+                ConnectMQTT();
+                dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard , mqttHandler);
+                rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
+                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        } , DataUserLocal.getInstance(DashBoardActivity.this).getHomeId() , roomId);
     }
+
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
-        rcvRooms = findViewById(R.id.rcvRoomDashboard);
-        rcvRooms.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-
-        rcvDashboardDevice = findViewById(R.id.rcvDeviceDashBoard);
-        rcvDashboardDevice.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
-        DataUserLocal dataUserLocal = new DataUserLocal(this);
+        InitializeView();
+        InitializeMQTT();
+        DataUserLocal dataUserLocal = DataUserLocal.getInstance(DashBoardActivity.this);
 
         connectApiRoom(new DataCallback<List<Room>>() {
             @Override
             public void onSuccess(List<Room> data) {
+                roomId = String.valueOf(data.get(0)); // init first data device
                 roomAdapter = new RoomAdapter(DashBoardActivity.this ,data);
                 rcvRooms.setAdapter(roomAdapter);
                 roomAdapter.notifyDataSetChanged();
@@ -85,8 +100,11 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             public void onFailure(Throwable t) {
 
             }
-        } , "" , ""); // Xử lý lấy device trong room
+        } , dataUserLocal.getHomeId() , roomId); // Xử lý lấy device trong room
 
+    }
+
+    private void InitializeMQTT() {
     }
 
     public void connectApiRoom(DataCallback<List<Room>> roomDataCallback , String homeId){
@@ -94,12 +112,13 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             @Override
             public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
                 if(response.isSuccessful() && response.body() != null){
-                    Toast.makeText(DashBoardActivity.this, "Connect Success", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(DashBoardActivity.this, "Connect Success", Toast.LENGTH_SHORT).show();
                     List<Room> rooms = response.body();
                     roomDataCallback.onSuccess(rooms);
                 }
                 else {
-                    Toast.makeText(DashBoardActivity.this, "Connect Fail", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(DashBoardActivity.this, "Connect Fail", Toast.LENGTH_SHORT).show();
+                    Log.d("Lỗi Dashboard " , "API Endpoint Issue");
                 }
             }
 
@@ -145,9 +164,6 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
         // ✅ Kết nối với MQTT broker
         mqttHandler.connect(brokerUrl, port, clientId, username, password);
 
-        // ✅ Đăng ký topic để lắng nghe dữ liệu b
-        // mqttHandler.subscribe("airConditioner_1");
-
         // ✅ Kiểm tra danh sách trước khi subscribe
         if (devicesDashboard == null || devicesDashboard.isEmpty()) {
             Log.e("MQTT", "Device list is empty, skipping subscription.");
@@ -165,10 +181,17 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
     @Override
     public void onMessageReceived(String topic, String payload) {
         runOnUiThread(() -> {
-            Log.d("MQTT", "Dữ liệu MQTT nhận được là: " + payload);
+           // Log.d("MQTT", "Dữ liệu MQTT nhận được là: " + payload);
             dashBoardDeviceAdapter.updateData(topic, payload);
         });
     }
 
+    private void InitializeView (){
+        rcvRooms = findViewById(R.id.rcvRoomDashboard);
+        rcvRooms.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rcvDashboardDevice = findViewById(R.id.rcvDeviceDashBoard);
+        rcvDashboardDevice.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
+    }
 
 }

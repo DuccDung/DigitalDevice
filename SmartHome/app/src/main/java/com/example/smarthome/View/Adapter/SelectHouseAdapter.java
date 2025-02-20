@@ -1,5 +1,7 @@
 package com.example.smarthome.View.Adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -23,15 +25,10 @@ import java.util.List;
 public class SelectHouseAdapter extends RecyclerView.Adapter<SelectHouseAdapter.ItemHouse>{
     private List<HomeUser> DataListHome = new ArrayList<>();
     private Context _context;
-    public SelectHouseAdapter(Context context){
+    public SelectHouseAdapter(Context context, List<HomeUser> data){
         _context = context;
-    }
-    public SelectHouseAdapter(List<HomeUser> data){
         DataListHome = data;
     }
-    public void intentDashboard(){
-    }
-
 
 
     @NonNull
@@ -72,9 +69,17 @@ public class SelectHouseAdapter extends RecyclerView.Adapter<SelectHouseAdapter.
 
 }
 private void AddMqttLocal(@NonNull HomeUser Home){
-    DataUserLocal userLocal = DataUserLocal.getInstance(_context);
-     userLocal.setUrlMqtt(_context , Home.getUrlMqtt());
-     userLocal.setUserMqtt(_context , Home.getUrlMqtt());
-    userLocal.setPasswordMqtt(_context , Home.getPasswordMQTT());
+        if(_context != null){
+            DataUserLocal userLocal = DataUserLocal.getInstance(_context);
+            userLocal.setHomeId(_context , Home.getHomeId());
+            userLocal.setUrlMqtt(_context , Home.getUrlMqtt());
+            userLocal.setUserMqtt(_context , Home.getUserMQTT());
+            userLocal.setPasswordMqtt(_context , Home.getPasswordMQTT());
+
+            // =====================================
+
+            Intent intent = new Intent(_context , DashBoardActivity.class);
+            _context.startActivity(intent);
+        }
 }
 }

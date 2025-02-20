@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.smarthome.api_service.ApiService;
 import com.example.smarthome.api_service.DataCallback;
 import com.example.smarthome.model.Users;
+import com.example.smarthome.utils.DataUserLocal;
 import com.example.smarthome.utils.DbUserHelper;
 import com.example.smarthome.R;
 
@@ -34,18 +35,23 @@ public class activity_login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         txtAcc = findViewById(R.id.txtAccountInput);
         txtPass = findViewById(R.id.txtPasswordInput);
-        // Khởi tạo database Sqlite
+        // Init database Sqlite
         DbUserHelper dbUserHelper = new DbUserHelper(this);
-
-        if(dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()){ // User đã tồn tại và đã chọn nhà
-            // chuyển activity
+       // check dataUserLocal
+        if(dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()){
+            // The user already exists and has selected a house.
+            // if user and home already exists then transfer activity
             Intent intent = new Intent(activity_login.this , DashBoardActivity.class);
             startActivity(intent);
         }
-        else if(dbUserHelper.isUserExists() ){
+        else if(dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists() ){
+            // if user already exist and home null then transfer SelectHomeActivity
             Intent intent = new Intent(activity_login.this , SelectHomeActivity.class);
             startActivity(intent);
         }
+
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,25 +78,19 @@ public class activity_login extends AppCompatActivity {
                                 Log.d("sqlite" , "insert user on failure");
                             }
                         }
-
-
-
                         // chuyển activity
                         Intent intent = new Intent(activity_login.this , DashBoardActivity.class);
                         startActivity(intent);
-
                     }
-
                     @Override
                     public void onFailure(Throwable t) {
-
+                        Log.d("Bug login" , t.getMessage());
                     }
                 });
-
             }
         });
     }
-
+    // login processing function
     public void login(DataCallback<Users> usersDataCallback) {
         String name = txtAcc.getText().toString();
         String pass = txtPass.getText().toString();
@@ -104,12 +104,12 @@ public class activity_login extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(activity_login.this, "connect fail", Toast.LENGTH_SHORT).show();
+                    Log.d("bug call api" , "no data!");
                 }
             }
-
             @Override
             public void onFailure(Call<Users> call, Throwable t) {
-                Toast.makeText(activity_login.this, "Lỗi" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                usersDataCallback.onFailure(t);
             }
         });
     }
