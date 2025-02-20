@@ -21,10 +21,15 @@ import java.util.List;
 import okhttp3.OkHttpClient;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder>{
-
+    public interface OnRoomClickListener {
+        void onRoomClick(String roomId);
+    }
     private List<Room> rooms;
-    public RoomAdapter(List<Room > _rooms){
-        rooms = _rooms;
+
+    private OnRoomClickListener onRoomClickListener;
+    public RoomAdapter(OnRoomClickListener listener , List<Room > _rooms){
+        this.rooms = _rooms;
+        this.onRoomClickListener = listener;
     }
 
     @NonNull

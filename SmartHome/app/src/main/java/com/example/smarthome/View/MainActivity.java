@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MqttHandler.MqttL
         connectApiRoom(new DataCallback<List<Room>>() {
             @Override
             public void onSuccess(List<Room> data) {
-                 roomAdapter = new RoomAdapter(data);
+                // roomAdapter = new RoomAdapter( , data);
                  rcvRooms.setAdapter(roomAdapter);
                  roomAdapter.notifyDataSetChanged();
             }

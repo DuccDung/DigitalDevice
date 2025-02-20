@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DashBoardActivity extends AppCompatActivity implements MqttHandler.MqttListener {
+public class DashBoardActivity extends AppCompatActivity implements MqttHandler.MqttListener, RoomAdapter.OnRoomClickListener {
     private RoomAdapter roomAdapter;
     private RecyclerView rcvRooms;
 
@@ -36,6 +36,11 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
 
     private MqttHandler mqttHandler;
     private List<DeviceFunction> devicesDashboard = new ArrayList<>();
+
+    @Override
+    public void onRoomClick(String roomId) { // xử lý click vào room
+
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -51,11 +56,10 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
 
         DataUserLocal dataUserLocal = new DataUserLocal(this);
 
-
         connectApiRoom(new DataCallback<List<Room>>() {
             @Override
             public void onSuccess(List<Room> data) {
-                roomAdapter = new RoomAdapter(data);
+                roomAdapter = new RoomAdapter(DashBoardActivity.this ,data);
                 rcvRooms.setAdapter(roomAdapter);
                 roomAdapter.notifyDataSetChanged();
             }
@@ -165,4 +169,6 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             dashBoardDeviceAdapter.updateData(topic, payload);
         });
     }
-    }
+
+
+}
