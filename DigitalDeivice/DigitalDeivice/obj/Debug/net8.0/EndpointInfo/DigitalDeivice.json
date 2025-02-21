@@ -270,6 +270,53 @@
         }
       }
     },
+    "/api/Devices/GetAllDevice": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "parameters": [
+          {
+            "name": "homeId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Device"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Rooms/GetRoomsByHomeID": {
       "get": {
         "tags": [

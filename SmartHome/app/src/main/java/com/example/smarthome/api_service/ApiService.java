@@ -1,5 +1,6 @@
 package com.example.smarthome.api_service;
 
+import com.example.smarthome.model.Device;
 import com.example.smarthome.model.DeviceFunction;
 import com.example.smarthome.model.HomeUser;
 import com.example.smarthome.model.Room;
@@ -20,7 +21,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
 
     // Base URL
-    String BASE_URL = "https://192.168.1.177:7012/";
+    String BASE_URL = "https://192.168.50.171:7012/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -52,4 +53,6 @@ public interface ApiService {
     @GET("/api/Users/GetHomeUsersByUserId")
     Call<List<HomeUser>> GetHomesByUserID(@Query("userId") String UserID);
 
+    @GET("/api/Devices/GetAllDevice")
+    Call<List<Device>> GetALlDeviceByHome(@Query("homeId") String homeId);
 }

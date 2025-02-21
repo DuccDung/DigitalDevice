@@ -30,7 +30,6 @@ public class SelectHouseAdapter extends RecyclerView.Adapter<SelectHouseAdapter.
         DataListHome = data;
     }
 
-
     @NonNull
     @Override
     public ItemHouse onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

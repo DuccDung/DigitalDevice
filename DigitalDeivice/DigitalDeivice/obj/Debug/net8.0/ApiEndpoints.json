@@ -165,6 +165,32 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
+    "Method": "GetAllDevice",
+    "RelativePath": "api/Devices/GetAllDevice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "homeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[DigitalDeivice.Models.Device, DigitalDeivice, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "GetDeviceFunction",
     "RelativePath": "api/Devices/GetDevicesByRoomID",
     "HttpMethod": "GET",

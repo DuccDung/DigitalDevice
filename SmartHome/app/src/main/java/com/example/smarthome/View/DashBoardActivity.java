@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothClass;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.example.smarthome.View.Adapter.DashBoardDeviceAdapter;
 import com.example.smarthome.View.Adapter.RoomAdapter;
 import com.example.smarthome.api_service.ApiService;
 import com.example.smarthome.api_service.DataCallback;
+import com.example.smarthome.model.Device;
 import com.example.smarthome.model.DeviceFunction;
 import com.example.smarthome.model.Room;
 import com.example.smarthome.utils.DataUserLocal;
@@ -47,7 +49,7 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
                 devicesDashboard.clear();
                 devicesDashboard.addAll(data);
 
-                ConnectMQTT();
+               // ConnectMQTT();
                 dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard , mqttHandler);
                 rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
                 dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
@@ -60,7 +62,6 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
         } , DataUserLocal.getInstance(DashBoardActivity.this).getHomeId() , roomId);
     }
 
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,45 +69,36 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
         setContentView(R.layout.dashboard_activity);
         InitializeView();
         InitializeMQTT();
-        DataUserLocal dataUserLocal = DataUserLocal.getInstance(DashBoardActivity.this);
-
-        connectApiRoom(new DataCallback<List<Room>>() {
-            @Override
-            public void onSuccess(List<Room> data) {
-                roomId = String.valueOf(data.get(0)); // init first data device
-                roomAdapter = new RoomAdapter(DashBoardActivity.this ,data);
-                rcvRooms.setAdapter(roomAdapter);
-                roomAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                Log.d("Adapter room" , t.getMessage());
-            }
-        } ,dataUserLocal.getHomeId()); // homeId từ local
-        connectApiDevice(new DataCallback<List<DeviceFunction>>() {
-            @Override
-            public void onSuccess(List<DeviceFunction> data) {
-                devicesDashboard.clear();
-                devicesDashboard.addAll(data);
-
-                ConnectMQTT();
-                dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard , mqttHandler);
-                rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
-                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-
-            }
-        } , dataUserLocal.getHomeId() , roomId); // Xử lý lấy device trong room
-
     }
-
     private void InitializeMQTT() {
-    }
+        String homeId = DataUserLocal.getInstance(this).getHomeId();
+        ApiService.apiService.GetALlDeviceByHome(homeId).enqueue(new Callback<List<Device>>() {
+            @Override
+            public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    List<Device> devices = response.body();
+                    // Khi lấy data về và connect MQTT
+                    ConnectMQTT(new DataCallback<Boolean>() {
+                        @Override
+                        public void onSuccess(Boolean data) {
+                            fetchData();
+                        }
 
+                        @Override
+                        public void onFailure(Throwable t) {
+                            Log.e("InitializeMQTT" , "fetchData");
+                        }
+                    }, devices);
+                }
+                else Log.d("in dashboard" , "bug Mqtt call api");
+            }
+
+            @Override
+            public void onFailure(Call<List<Device>> call, Throwable t) {
+                Log.e("bug mess" , t.getMessage());
+            }
+        });
+    }
     public void connectApiRoom(DataCallback<List<Room>> roomDataCallback , String homeId){
         ApiService.apiService.GetRooms(homeId).enqueue(new Callback<List<Room>>() {
             @Override
@@ -149,35 +141,33 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             }
         });
     }
-
-    private void ConnectMQTT() {
+    private void ConnectMQTT(DataCallback<Boolean> callback ,List<Device> devices) {
         // ✅ Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
         mqttHandler = new MqttHandler( this);
 
         // Thông số kết nối
-        String brokerUrl = "bbb04b2c528242358401e2add20b296a.s1.eu.hivemq.cloud";
+        String brokerUrl = DataUserLocal.getInstance(this).getUrlMqtt();
         int port = 8883;
-        String clientId = "device_13233434";
-        String username = "hivemq.webclient.1735043576854";
-        String password = "rAhT10mH$8Btos;6I,Z.";
+        String clientId = DataUserLocal.getInstance(this).getHomeId();
+        String username = DataUserLocal.getInstance(this).getUserMqtt();
+        String password = DataUserLocal.getInstance(this).getPasswordMqtt();
 
         // ✅ Kết nối với MQTT broker
         mqttHandler.connect(brokerUrl, port, clientId, username, password);
 
         // ✅ Kiểm tra danh sách trước khi subscribe
-        if (devicesDashboard == null || devicesDashboard.isEmpty()) {
+        if (devices == null || devices.isEmpty()) {
             Log.e("MQTT", "Device list is empty, skipping subscription.");
             return;
         }
         // ✅ Subscribe tất cả các device ID trong danh sách
-        for (DeviceFunction device : devicesDashboard) {
+        for (Device device : devices) {
             String topic = device.getDeviceID();
             Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
             mqttHandler.subscribe(topic);
         }
-
+        callback.onSuccess(true);
     }
-
     @Override
     public void onMessageReceived(String topic, String payload) {
         runOnUiThread(() -> {
@@ -185,13 +175,62 @@ public class DashBoardActivity extends AppCompatActivity implements MqttHandler.
             dashBoardDeviceAdapter.updateData(topic, payload);
         });
     }
-
     private void InitializeView (){
         rcvRooms = findViewById(R.id.rcvRoomDashboard);
         rcvRooms.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rcvDashboardDevice = findViewById(R.id.rcvDeviceDashBoard);
         rcvDashboardDevice.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
     }
+    private void fetchData(){
+        DataUserLocal dataUserLocal = DataUserLocal.getInstance(DashBoardActivity.this);
+        connectApiRoom(new DataCallback<List<Room>>() {
+            @Override
+            public void onSuccess(List<Room> data) {
+                roomAdapter = new RoomAdapter(DashBoardActivity.this ,data);
+                rcvRooms.setAdapter(roomAdapter);
+                roomAdapter.notifyDataSetChanged();
 
+                InitializeDeviceFirst(String.valueOf(data.get(0).getRoomId()));  // init first data device
+            }
+            @Override
+            public void onFailure(Throwable t) {
+                Log.d("Adapter room" , t.getMessage());
+            }
+        } ,dataUserLocal.getHomeId()); // homeId từ local
+        connectApiDevice(new DataCallback<List<DeviceFunction>>() {
+            @Override
+            public void onSuccess(List<DeviceFunction> data) {
+                devicesDashboard.clear();
+                devicesDashboard.addAll(data);
+
+                dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard , mqttHandler);
+                rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
+                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        } , dataUserLocal.getHomeId() , roomId); // Xử lý lấy device trong room
+    }
+    private void InitializeDeviceFirst(String RoomId){
+        DataUserLocal dataUserLocal = DataUserLocal.getInstance(DashBoardActivity.this);
+        connectApiDevice(new DataCallback<List<DeviceFunction>>() {
+            @Override
+            public void onSuccess(List<DeviceFunction> data) {
+                devicesDashboard.clear();
+                devicesDashboard.addAll(data);
+
+                dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard , mqttHandler);
+                rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
+                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        } , dataUserLocal.getHomeId() , RoomId); // Xử lý lấy device trong room
+    }
 }

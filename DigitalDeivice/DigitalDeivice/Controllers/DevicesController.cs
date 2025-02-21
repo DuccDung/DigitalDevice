@@ -61,6 +61,24 @@ namespace DigitalDeivice.Controllers
 			return Ok(devices);
 		}
 
+		[HttpGet]
+		[Route("GetAllDevice")]
+		public List<Device> GetAllDevice(String homeId)
+		{
+			var query = from home in _digitalDeviceContext.Homes
+						join room in _digitalDeviceContext.Rooms
+						on home.HomeId equals room.HomeId
+						join device in _digitalDeviceContext.Devices
+						on room.RoomId equals device.RoomId
+						where home.HomeId == homeId
+						select new Device
+						{
+							DeviceId = device.DeviceId,
+							NameDevice = device.NameDevice
+						};
+
+			return query.ToList();
+		}
 
 	}
 }
