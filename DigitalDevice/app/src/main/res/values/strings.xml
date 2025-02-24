@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DigitalDevice</string>
+    <string name="register_text">Enter to <u>Register</u></string>
+    <string name="actionHome">Dashboard</string>
+    <string name="actionMap">Map</string>
+    <string name="actionSetting">Setting</string>
+</resources>
