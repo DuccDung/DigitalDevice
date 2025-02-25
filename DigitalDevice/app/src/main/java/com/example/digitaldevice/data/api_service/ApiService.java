@@ -2,6 +2,7 @@ package com.example.digitaldevice.data.api_service;
 
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
+import com.example.digitaldevice.data.model.DeviceVehicle;
 import com.example.digitaldevice.data.model.HomeUser;
 import com.example.digitaldevice.data.model.Room;
 import com.example.digitaldevice.data.model.Users;
@@ -21,7 +22,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
 
     // Base URL
-    String BASE_URL = "https://192.168.50.216:7012/";
+    String BASE_URL = "https://192.168.40.131:7012/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -55,4 +56,8 @@ public interface ApiService {
 
     @GET("/api/Devices/GetAllDevice")
     Call<List<Device>> GetALlDeviceByHome(@Query("homeId") String homeId);
+
+    @GET("/api/Devices/GetAllVehicle")
+    Call<List<DeviceVehicle>> GetAllVehicleByHome(@Query("homeId") String homeId);
+
 }

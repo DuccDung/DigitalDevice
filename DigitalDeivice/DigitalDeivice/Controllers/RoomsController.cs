@@ -16,7 +16,7 @@ namespace DigitalDeivice.Controllers
 		[Route("GetRoomsByHomeID")]
 		public IActionResult GetRooms(String HomeID)
 		{
-			var rooms = _digitalDeviceContext.Rooms.Where(x => x.HomeId == HomeID).ToList();
+			var rooms = _digitalDeviceContext.Rooms.Where(x => x.HomeId == HomeID && x.RoomId != "r_000").ToList(); // find room by homeID and skip r_001
 			return Ok(rooms);
 		}
 		

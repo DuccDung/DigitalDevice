@@ -19,7 +19,7 @@ namespace DigitalDeivice.Controllers
 		public IActionResult GetDeviceFunction(string RoomID, string HomeID)
 		{
 			var deviceFunctions = _digitalDeviceContext.Rooms
-				.Where(r => r.RoomId == RoomID && r.HomeId == HomeID) // 🔹 Lọc theo RoomID & HomeID
+				.Where(r => r.RoomId == RoomID && r.HomeId == HomeID ) // 🔹 Lọc theo RoomID & HomeID / và loại đi room của vehicle
 				.Join(_digitalDeviceContext.Devices,
 					r => r.RoomId,
 					d => d.RoomId,
@@ -79,6 +79,24 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
+		[HttpGet]
+		[Route("GetAllVehicle")]
+		public List<Device> GetAllVehicle(string homeId)
+		{
+			var query = from home in _digitalDeviceContext.Homes
+						join room in _digitalDeviceContext.Rooms
+						on home.HomeId equals room.HomeId
+						join device in _digitalDeviceContext.Devices
+						on room.RoomId equals device.RoomId
+						where home.HomeId == homeId && room.RoomId == "r_000"
+						select new Device
+						{
+							DeviceId = device.DeviceId,
+							NameDevice = device.NameDevice,
+							PhotoPath = device.PhotoPath
+						};
 
+			return query.ToList();
+		}
 	}
 }
