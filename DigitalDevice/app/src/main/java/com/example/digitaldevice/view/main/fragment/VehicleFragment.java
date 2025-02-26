@@ -78,6 +78,6 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
 
     @Override
     public void btnDetailOnClick(@NonNull DeviceVehicle deviceVehicle) {
-        Log.d("device" , deviceVehicle.getNameDevice());
+        ((MainActivity) requireContext()).openMapFragment();
     }
 }
