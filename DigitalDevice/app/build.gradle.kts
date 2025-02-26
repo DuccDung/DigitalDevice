@@ -54,4 +54,8 @@ dependencies {
     // thư viện ViewPager
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("com.google.android.material:material:1.6.0")
+    // thư viện map
+    implementation ("com.google.android.gms:play-services-maps:19.0.0")
+
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
 }

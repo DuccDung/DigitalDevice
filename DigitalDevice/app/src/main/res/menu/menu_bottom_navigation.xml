@@ -4,8 +4,8 @@
     android:title="@string/actionHome"
     android:icon="@drawable/mn_home"
     />
-    <item android:id="@+id/itemMap"
-        android:title="@string/actionMap"
+    <item android:id="@+id/itemVehicle"
+        android:title="@string/actionVehicle"
         android:icon="@drawable/mn_location"
         />
     <item android:id="@+id/itemSetting"

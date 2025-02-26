@@ -10,25 +10,44 @@ import com.example.digitaldevice.view.main.fragment.MapFragment;
 import com.example.digitaldevice.view.main.fragment.SettingFragment;
 import com.example.digitaldevice.view.main.fragment.VehicleFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ViewPagerAdapter extends FragmentStateAdapter {
+    private final List<Fragment> fragmentList = new ArrayList<>();
+
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
+        // Ban đầu chỉ chứa 3 Fragment, không có MapFragment
+        fragmentList.add(new DashBoardFragment()); // Case 0
+        fragmentList.add(new VehicleFragment());   // Case 1
+        fragmentList.add(new SettingFragment());   // Case 2
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if(position == 0){
-            return new DashBoardFragment();
-        }
-        else if(position == 1){
-            return new VehicleFragment();
-        }
-        else return new SettingFragment();
+        return fragmentList.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return fragmentList.size();
+    }
+
+    // ✅ Thêm MapFragment (khi bấm Button từ VehicleFragment)
+    public void addMapFragment() {
+        if (fragmentList.size() == 3) { // Đảm bảo MapFragment chỉ thêm 1 lần
+            fragmentList.add(new MapFragment());
+            notifyItemInserted(3); // Cập nhật ViewPager2
+        }
+    }
+
+    // ✅ Xóa MapFragment (khi quay lại)
+    public void removeMapFragment() {
+        if (fragmentList.size() == 4) { // Kiểm tra nếu đã thêm MapFragment
+            fragmentList.remove(3);
+            notifyItemRemoved(3);
+        }
     }
 }

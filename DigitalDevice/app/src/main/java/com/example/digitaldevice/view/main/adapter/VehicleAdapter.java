@@ -10,18 +10,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.data.api_service.SSLUtils;
 import com.example.digitaldevice.data.model.DeviceFunction;
+import com.example.digitaldevice.data.model.DeviceVehicle;
 
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+
 public class VehicleAdapter  extends RecyclerView.Adapter<VehicleAdapter.VehicleHolder>{
-     private List<DeviceFunction> devicesVehicle;
+     private List<DeviceVehicle> devicesVehicle;
+     private VehicleOnClick context;
 
-    public VehicleAdapter(List<DeviceFunction> deviceVehicle) {
+    public VehicleAdapter( VehicleOnClick _context, List<DeviceVehicle> deviceVehicle) {
         this.devicesVehicle = deviceVehicle;
+        context = _context;
     }
-
+    public interface VehicleOnClick{
+        void btnDetailOnClick(DeviceVehicle deviceVehicle);
+    }
     @NonNull
     @Override
     public VehicleHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,7 +43,23 @@ public class VehicleAdapter  extends RecyclerView.Adapter<VehicleAdapter.Vehicle
     public void onBindViewHolder(@NonNull VehicleHolder holder, int position) {
         VehicleHolder vehicleHolder = (VehicleHolder) holder;
         // truyền dữ liệu liên tục
+        DeviceVehicle deviceVehicle = devicesVehicle.get(position); // deviceVehicle
 
+        holder.txtName.setText(deviceVehicle.getNameDevice());
+        OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
+
+        Glide.with(holder.itemView.getContext()).load(deviceVehicle.getPhotoPath())
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error).into(holder.imgVehicle);
+
+        // ==================================================================
+
+        holder.btnDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.btnDetailOnClick(deviceVehicle);
+            }
+        });
     }
 
     @Override
@@ -43,12 +68,14 @@ public class VehicleAdapter  extends RecyclerView.Adapter<VehicleAdapter.Vehicle
     }
 
     public class VehicleHolder extends RecyclerView.ViewHolder{
+        private TextView txtName;
         private ImageView imgVehicle;
         private TextView txtCondition;
         private TextView txtKm;
         private LinearLayout btnDetail;
         public VehicleHolder(@NonNull View itemView) {
             super(itemView);
+            txtName = itemView.findViewById(R.id.txt_Name);
             imgVehicle = itemView.findViewById(R.id.imgVehicle);
             txtCondition = itemView.findViewById(R.id.txtCondition);
             txtKm = itemView.findViewById(R.id.txtKm);

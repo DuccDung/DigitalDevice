@@ -47,7 +47,9 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
     @Override
     public void onRoomClick(String _roomId) {
         roomId = _roomId;
-        Log.d("RoomClick", "Clicked room ID: " + _roomId);
+        // cập nhật lại dữ liệu
+        devicesDashboard.clear();
+        dashBoardDeviceAdapter.notifyDataSetChanged();
 
         // Gọi API lấy danh sách thiết bị trong phòng vừa chọn
         connectApiDevice(new DataCallback<List<DeviceFunction>>() {
