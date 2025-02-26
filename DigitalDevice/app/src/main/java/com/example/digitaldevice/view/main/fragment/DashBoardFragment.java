@@ -24,6 +24,7 @@ import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.Room;
 import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.MqttHandler;
+import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.DashBoardDeviceAdapter;
 import com.example.digitaldevice.view.main.adapter.RoomAdapter;
 
@@ -86,66 +87,11 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
         super.onViewCreated(view, savedInstanceState);
 
         // khởi chạy....
-        InitializeApp();
-
-
+        this.mqttHandler = ((MainActivity) requireContext()).getMqttHandler();
+        fetchData();
     }
-    private void InitializeApp() {
-        String homeId = DataUserLocal.getInstance(requireContext()).getHomeId();
-        ApiService.apiService.GetALlDeviceByHome(homeId).enqueue(new Callback<List<Device>>() {
-            @Override
-            public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
-                if(response.isSuccessful() && response.body() != null){
-                    List<Device> devices = response.body();
-                    // Khi lấy data về và connect MQTT
-                    ConnectMQTT(new DataCallback<Boolean>() {
-                        @Override
-                        public void onSuccess(Boolean data) {
-                            fetchData();
-                        }
 
-                        @Override
-                        public void onFailure(Throwable t) {
-                            Log.e("InitializeMQTT" , "fetchData");
-                        }
-                    }, devices);
-                }
-                else Log.d("in dashboard" , "bug Mqtt call api");
-            }
 
-            @Override
-            public void onFailure(Call<List<Device>> call, Throwable t) {
-                Log.e("bug mess" , t.getMessage());
-            }
-        });
-    }
-    private void ConnectMQTT(DataCallback<Boolean> callback ,List<Device> devices) {
-        // ✅ Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
-        mqttHandler = new MqttHandler( this);
-
-        // Thông số kết nối
-        String brokerUrl = DataUserLocal.getInstance(requireContext()).getUrlMqtt();
-        int port = 8883;
-        String clientId = DataUserLocal.getInstance(requireContext()).getHomeId();
-        String username = DataUserLocal.getInstance(requireContext()).getUserMqtt();
-        String password = DataUserLocal.getInstance(requireContext()).getPasswordMqtt();
-
-        // ✅ Kết nối với MQTT broker
-        mqttHandler.connect(brokerUrl, port, clientId, username, password);
-
-        // ✅ Kiểm tra danh sách trước khi subscribe
-        if (devices == null || devices.isEmpty()) {
-            Log.e("MQTT", "Device list is empty, skipping subscription.");
-            return;
-        }
-        // ✅ Subscribe tất cả các device ID trong danh sách
-        for (Device device : devices) {
-            String topic = device.getDeviceID();
-            Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
-            mqttHandler.subscribe(topic);
-        }
-        callback.onSuccess(true);
-    }
     public void connectApiRoom(DataCallback<List<Room>> roomDataCallback , String homeId){
         ApiService.apiService.GetRooms(homeId).enqueue(new Callback<List<Room>>() {
             @Override
@@ -176,9 +122,6 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
                     Log.d("API Device" , "Success");
                     List<DeviceFunction> devices = response.body();
                     devicesCallback.onSuccess(devices);
-                }
-                else {
-                    Toast.makeText(requireContext(), "Connect Fail", Toast.LENGTH_SHORT).show();
                 }
             }
 

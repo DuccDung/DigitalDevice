@@ -5,21 +5,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.data.api_service.ApiService;
+import com.example.digitaldevice.data.api_service.DataCallback;
+import com.example.digitaldevice.data.model.Device;
+import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.MqttHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MainActivity extends AppCompatActivity  implements MqttHandler.MqttListener{
     private BottomNavigationView bottomNavigationView;
     private ViewPager2 viewPager;
     private ViewPagerAdapter viewPagerAdapter;
+    private MqttHandler mqttHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        InitializeApp(); // Khởi tạo kết nối MQTT
         initialize();
 
         // Xử lý sự kiện chọn menu trong BottomNavigationView
@@ -34,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        setUpViewPager();
+
+
     }
 
     private void setUpViewPager() {
@@ -74,5 +88,64 @@ public class MainActivity extends AppCompatActivity {
     public void closeMapFragment() {
         viewPagerAdapter.removeMapFragment();
         viewPager.setCurrentItem(1, true); // Quay về VehicleFragment
+    }
+    private void InitializeApp() {
+        String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
+        ApiService.apiService.GetALlDeviceByHome(homeId).enqueue(new Callback<List<Device>>() {
+            @Override
+            public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    // Khi lấy data về và connect MQTT
+                    ConnectMQTT(response.body());
+                }
+                else Log.d("in dashboard" , "bug call api");
+            }
+
+            @Override
+            public void onFailure(Call<List<Device>> call, Throwable t) {
+                Log.e("bug mess" , t.getMessage());
+            }
+        });
+    }
+    private void ConnectMQTT(List<Device> devices) {
+        // ✅ Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
+        mqttHandler = new MqttHandler( MainActivity.this);
+
+        // Thông số kết nối
+        String brokerUrl = DataUserLocal.getInstance(MainActivity.this).getUrlMqtt();
+        int port = 8883;
+        String clientId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
+        String username = DataUserLocal.getInstance(MainActivity.this).getUserMqtt();
+        String password = DataUserLocal.getInstance(MainActivity.this).getPasswordMqtt();
+
+        // ✅ Kết nối với MQTT broker
+        mqttHandler.connect(brokerUrl, port, clientId, username, password);
+
+        // ✅ Kiểm tra danh sách trước khi subscribe
+        if (devices == null || devices.isEmpty()) {
+            Log.e("MQTT", "Device list is empty, skipping subscription.");
+            return;
+        }
+        // ✅ Subscribe tất cả các device ID trong danh sách
+        for (Device device : devices) {
+            String topic = device.getDeviceID();
+            Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
+            mqttHandler.subscribe(topic);
+        }
+        setUpViewPager();
+    }
+
+    public MqttHandler getMqttHandler() {
+        return mqttHandler;
+    }
+
+    @Override
+    public void onMessageReceived(String topic, String payload) {
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
     }
 }

@@ -205,7 +205,7 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
     }
 
-    private void handleSwitchChange(DeviceFunction device, boolean isChecked) {
+    private void handleSwitchChange(@NonNull DeviceFunction device, boolean isChecked) {
         String deviceID = device.getDeviceID();
         String status = isChecked ? "ON" : "OFF";
         // Gửi dữ liệu MQTT hoặc cập nhật trạng thái
