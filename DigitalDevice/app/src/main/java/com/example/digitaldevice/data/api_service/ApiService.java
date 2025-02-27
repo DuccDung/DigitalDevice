@@ -18,11 +18,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiService {
-
+    //https://api.openweathermap.org/data/2.5/weather?q=London&appid=db7e8be2cd9133533090f6e5c64f6bc7&units=metric
     //https://192.168.0.107:7012/api/Leanners/get-leanners
 
     // Base URL
-    String BASE_URL = "https://192.168.40.131:7012/";
+    String BASE_URL = "https://192.168.1.175:7012/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();

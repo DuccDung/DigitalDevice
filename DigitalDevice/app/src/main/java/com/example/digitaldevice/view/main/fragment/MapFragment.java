@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -43,6 +44,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     FusedLocationProviderClient fusedLocationProviderClient;
     private boolean isSatellite = false; // Biến kiểm tra chế độ bản đồ
     private FloatingActionButton btnToggleMap; // Khai báo nút FAB
+    private MqttHandler mqttHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         ImageView imgBack = view.findViewById(R.id.imgBack);
         imgBack.setOnClickListener(v -> {

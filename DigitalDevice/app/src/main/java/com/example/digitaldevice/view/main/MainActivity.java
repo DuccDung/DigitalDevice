@@ -13,8 +13,11 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -159,7 +162,9 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
 
     @Override
     public void onMessageReceived(String topic, String payload) {
-
+            Log.d("Main" , topic);
+        //Gửi dữ liệu MQTT đến tất cả Fragment đang lắng nghe
+        EventBus.getDefault().post(new MqttEvent(topic, payload));
     }
 
     @Override
