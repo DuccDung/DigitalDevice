@@ -32,22 +32,30 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InitializeApp(); // Khởi tạo kết nối MQTT
-        initialize();
+        InitializeApp(new DataCallback<Boolean>() {
+            @Override
+            public void onSuccess(Boolean data) {
+                initialize();
 
-        // Xử lý sự kiện chọn menu trong BottomNavigationView
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.itemDashboard) {
-                viewPager.setCurrentItem(0);
-            } else if (item.getItemId() == R.id.itemVehicle) { // Đổi tên ID nếu cần
-                viewPager.setCurrentItem(1);
-            } else if (item.getItemId() == R.id.itemSetting) {
-                viewPager.setCurrentItem(2);
+                // Xử lý sự kiện chọn menu trong BottomNavigationView
+                bottomNavigationView.setOnItemSelectedListener(item -> {
+                    if (item.getItemId() == R.id.itemDashboard) {
+                        viewPager.setCurrentItem(0);
+                    } else if (item.getItemId() == R.id.itemVehicle) { // Đổi tên ID nếu cần
+                        viewPager.setCurrentItem(1);
+                    } else if (item.getItemId() == R.id.itemSetting) {
+                        viewPager.setCurrentItem(2);
+                    }
+                    return true;
+                });
+                setUpViewPager();
             }
-            return true;
-        });
 
+            @Override
+            public void onFailure(Throwable t) {
 
+            }
+        }); // Khởi tạo kết nối MQTT
 
     }
 
@@ -89,14 +97,24 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         viewPagerAdapter.removeMapFragment();
         viewPager.setCurrentItem(1, true); // Quay về VehicleFragment
     }
-    private void InitializeApp() {
+    private void InitializeApp(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
         ApiService.apiService.GetALlDeviceByHome(homeId).enqueue(new Callback<List<Device>>() {
             @Override
             public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
                 if(response.isSuccessful() && response.body() != null){
                     // Khi lấy data về và connect MQTT
-                    ConnectMQTT(response.body());
+                    ConnectMQTT(new DataCallback<Boolean>() {
+                        @Override
+                        public void onSuccess(Boolean data) {
+                            callback.onSuccess(true);
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+
+                        }
+                    }, response.body());
                 }
                 else Log.d("in dashboard" , "bug call api");
             }
@@ -107,7 +125,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             }
         });
     }
-    private void ConnectMQTT(List<Device> devices) {
+    private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
         // ✅ Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
         mqttHandler = new MqttHandler( MainActivity.this);
 
@@ -132,7 +150,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
             mqttHandler.subscribe(topic);
         }
-        setUpViewPager();
+        callback.onSuccess(true);
     }
 
     public MqttHandler getMqttHandler() {
