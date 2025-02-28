@@ -23,10 +23,15 @@ import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.Room;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.DashBoardDeviceAdapter;
 import com.example.digitaldevice.view.main.adapter.RoomAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +49,37 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
     private List<DeviceFunction> devicesDashboard = new ArrayList<>();
     private String roomId;
     private final Handler handler = new Handler(Looper.getMainLooper());
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            Log.d("VehicleFragment", "EventBus registered!");
+            EventBus.getDefault().register(this);
+        } else {
+            Log.d("VehicleFragment", "EventBus already registered!");
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+            Log.d("VehicleFragment", "EventBus unregistered!");
+        }
+    }
+
+
+    // Nhận dữ liệu MQTT từ EventBus
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMqttMessageReceived(@NonNull MqttEvent event) {
+        Log.d("VehicleFragment", "Nhận MQTT: " + event.topic + " - " + event.payload);
+        dashBoardDeviceAdapter.updateData(event.topic , event.payload);
+    }
+
+
 
     @Override
     public void onRoomClick(String _roomId) {

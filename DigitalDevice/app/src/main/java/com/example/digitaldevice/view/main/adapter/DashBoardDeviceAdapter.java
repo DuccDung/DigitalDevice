@@ -15,19 +15,26 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.model.DeviceFunction;
+import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
     private List<DeviceFunction> deviceFunctionList;
     private Map<String, String> latestData = new HashMap<>();
     private MqttHandler _mqttHandler; // MQTT Handler
+
 
     public DashBoardDeviceAdapter(List<DeviceFunction> deviceFunctionList , MqttHandler mqttHandler) {
         this.deviceFunctionList = deviceFunctionList;
@@ -35,9 +42,18 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     public void updateData(String topic, String data) {
-        latestData.put(topic, data);
+        Log.d("MQTT Update", "Topic: " + topic + ", Data: " + data);
+
+        // Kiểm tra nếu dữ liệu là JSON, lưu lại
+        if (data.startsWith("{") && data.endsWith("}")) {
+            latestData.put(topic, data);  // Chỉ cập nhật khi là JSON
+        } else {
+            Log.d("MQTT Update", "Ignoring non-JSON data: " + data);
+        }
+
         notifyDataSetChanged(); // Cập nhật UI
     }
+
 
     @NonNull
     @Override
@@ -81,23 +97,24 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             if (payload != null && !payload.isEmpty()) {
                 Log.d("MQTT Payload", "Received: " + payload); // Log để kiểm tra dữ liệu đầu vào
 
-                try {
-                    // Kiểm tra xem payload có phải JSON hợp lệ không
-                    if (payload.startsWith("{") && payload.endsWith("}")) {
-                        JSONObject jsonObject = new JSONObject(payload);
-
-                        // Kiểm tra JSON có chứa key "temperature" không
-                        if (jsonObject.has("temperature")) {
-                            temperature = jsonObject.getDouble("temperature");
-                        } else {
-                            Log.e("JSON Error", "Key 'temperature' not found in payload: " + payload);
-                        }
-                    } else {
-                        Log.e("JSON Error", "Invalid JSON format: " + payload);
+                if ("ON".equals(payload) || "OFF".equals(payload)) {
+                    Log.d("MQTT Payload", "Received ON/OFF command: " + payload);
+                } else if (payload.startsWith("{") && payload.endsWith("}")) {
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(payload);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
                     }
-                } catch (JSONException e) {
-                    Log.e("JSON Error", "Failed to parse JSON: " + payload, e);
+                    if (jsonObject.has("temperature")) {
+                        try {
+                            temperature = jsonObject.getDouble("temperature");
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                 }
+
             } else {
                 Log.e("MQTT Payload", "No data received for topic: " + topic);
             }

@@ -33,7 +33,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1321,
+          "DockedWidth": 1699,
           "SelectedChildIndex": 7,
           "Children": [
             {
@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "DigitalDeivice\\Properties\\launchSettings.json",
               "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json",
               "RelativeToolTip": "DigitalDeivice\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-02-23T13:28:08.882Z",
               "EditorCaption": ""
@@ -116,7 +116,7 @@
           ]
         },
         {
-          "DockedWidth": 2539,
+          "DockedWidth": 1144,
           "SelectedChildIndex": 0,
           "Children": [
             {
@@ -127,7 +127,7 @@
               "RelativeDocumentMoniker": "DigitalDeivice\\Program.cs",
               "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Program.cs",
               "RelativeToolTip": "DigitalDeivice\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAEwBQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAEwBEAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T11:50:36.089Z",
               "EditorCaption": ""
@@ -135,7 +135,7 @@
           ]
         },
         {
-          "DockedWidth": 99,
+          "DockedWidth": 1116,
           "SelectedChildIndex": 0,
           "Children": [
             {
