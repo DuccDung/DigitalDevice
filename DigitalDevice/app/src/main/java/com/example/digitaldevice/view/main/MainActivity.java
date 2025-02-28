@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     }
 
     // 👉 Mở MapFragment khi bấm nút từ VehicleFragment
-    public void openMapFragment() {
-        viewPagerAdapter.addMapFragment();
+    public void openMapFragment(double latitude, double longitude) {
+        viewPagerAdapter.addMapFragment(latitude , longitude);
         viewPager.setCurrentItem(3, true);
     }
 

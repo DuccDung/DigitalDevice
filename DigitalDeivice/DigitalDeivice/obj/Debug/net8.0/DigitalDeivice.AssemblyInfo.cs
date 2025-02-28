@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigitalDeivice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3542906b387f488fbe8a84227b6b92ed12d9a1db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6535756189df6dbb825988f755127b3cd622e9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigitalDeivice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigitalDeivice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

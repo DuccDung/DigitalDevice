@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,7 @@ import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.DeviceVehicle;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.view.main.MainActivity;
+import com.example.digitaldevice.view.main.fragment.VehicleFragment;
 
 import org.json.JSONObject;
 
@@ -38,6 +40,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         Log.d("Dữ liệu từ vehicle" ,data);
         latestData.put(topic, data);
         notifyDataSetChanged(); // Cập nhật UI
+
     }
 
     public VehicleAdapter( VehicleOnClick _context, List<DeviceVehicle> deviceVehicle) {
@@ -46,7 +49,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     }
 
     public interface VehicleOnClick {
-        void btnDetailOnClick(DeviceVehicle deviceVehicle);
+        void btnDetailOnClick(double latitude, double longitude);
     }
 
     @NonNull
@@ -66,36 +69,63 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         holder.txtName.setText(deviceVehicle.getNameDevice());
         OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
 
-        Glide.with(holder.itemView.getContext()).load(ApiService.getBaseDomain() + deviceVehicle.getPhotoPath())
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error).into(holder.imgVehicle);
+        if (holder.imgVehicle.getTag() == null) {
+            Glide.with(holder.itemView.getContext())
+                    .load(ApiService.getBaseDomain() + deviceVehicle.getPhotoPath())
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error)
+                    .into(holder.imgVehicle);
+
+            // Đánh dấu rằng ảnh này đã được tải
+            holder.imgVehicle.setTag(true);
+        }
+
 
         // ==================================================================
         // xử lý json
         String jsonString = latestData.get(deviceVehicle.getDeviceID()); // lấy json dữ liệu MQTT trả về
+        double _lat = 0;
+        double _lng =0;
         try {
             // ✅ Parse chuỗi JSON
             JSONObject jsonObject = new JSONObject(jsonString);
 
             // ✅ Lấy giá trị từ JSON và chuyển thành String
-            String lat = String.valueOf(jsonObject.getDouble("lat"));
-            String lng = String.valueOf(jsonObject.getDouble("lng"));
-            String speed = String.valueOf(jsonObject.getDouble("speed"));
+            double lat = jsonObject.getDouble("lat");
+            double lng = jsonObject.getDouble("lng");
+
+            //String speed = String.valueOf(jsonObject.getDouble("speed"));
+            int speed = (int) jsonObject.getDouble("speed");
 
             // ✅ Hiển thị kết quả
             System.out.println("Latitude: " + lat);
             System.out.println("Longitude: " + lng);
             System.out.println("Speed: " + speed);
-            holder.txtSpeed.setText(speed + "km/h");
+            _lat = lat;
+            _lng = lng;
+            if(speed == 0){
+                holder.txtSpeed.setText("stand still!");
+            }
+            else {
+                holder.txtSpeed.setText(speed + "km/h");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // ==================================================================
+        double final_lng = _lng;
+        double final_lat = _lat;
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.btnDetailOnClick(deviceVehicle);
+                if(final_lat != 0 && final_lng != 0){
+                    context.btnDetailOnClick(final_lat, final_lng);
+                }
+                else {
+                    Log.d("Map" , "Không có dữ liệu");
+                }
             }
         });
     }

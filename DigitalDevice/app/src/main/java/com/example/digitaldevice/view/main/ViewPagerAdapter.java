@@ -36,9 +36,10 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     }
 
     // ✅ Thêm MapFragment (khi bấm Button từ VehicleFragment)
-    public void addMapFragment() {
+    public void addMapFragment(double latitude, double longitude) {
         if (fragmentList.size() == 3) { // Đảm bảo MapFragment chỉ thêm 1 lần
-            fragmentList.add(new MapFragment());
+            MapFragment mapFragment = MapFragment.newInstance(latitude, longitude);
+            fragmentList.add(mapFragment);
             notifyItemInserted(3); // Cập nhật ViewPager2
         }
     }

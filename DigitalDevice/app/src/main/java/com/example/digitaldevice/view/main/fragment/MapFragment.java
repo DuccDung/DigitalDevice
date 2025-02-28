@@ -38,6 +38,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * create an instance of this fragment.
  */
 public class MapFragment extends Fragment implements OnMapReadyCallback {
+
+    private static final String ARG_LATITUDE = "latitude";
+    private static final String ARG_LONGITUDE = "longitude";
+
+    private double latitude;
+    private double longitude;
+
     private final int FINE_PERMISSION_CODE = 1;
     private GoogleMap myMap;
     Location currentLocation;
@@ -46,11 +53,23 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private FloatingActionButton btnToggleMap; // Khai báo nút FAB
     private MqttHandler mqttHandler;
 
+    public static MapFragment newInstance(double latitude, double longitude) {
+        MapFragment fragment = new MapFragment();
+        Bundle args = new Bundle();
+        args.putDouble(ARG_LATITUDE, latitude);
+        args.putDouble(ARG_LONGITUDE, longitude);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            latitude = getArguments().getDouble(ARG_LATITUDE);
+            longitude = getArguments().getDouble(ARG_LONGITUDE);
+        }
     }
 
     @Override
@@ -109,8 +128,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             if (location != null) {
                 currentLocation = location;
                 updateMap(location);
-            } else {
-                Toast.makeText(requireContext(), "Không thể lấy vị trí hiện tại", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -150,9 +167,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
 
         // Tọa độ Hà Nội
-        LatLng hanoi = new LatLng(21.0285,105.8542);
+        LatLng hanoi = new LatLng(latitude,longitude);
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hanoi,15));
-        MarkerOptions options = new MarkerOptions().position(hanoi).title("Hà Nội");
+        MarkerOptions options = new MarkerOptions().position(hanoi).title("Vị trí Xe Của Bạn!");
         //Đổi màu biểu tượng điểm -> hồng cánh sen (magenta).
         options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 

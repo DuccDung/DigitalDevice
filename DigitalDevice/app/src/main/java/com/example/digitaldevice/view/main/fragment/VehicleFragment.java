@@ -116,8 +116,8 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
     }
 
     @Override
-    public void btnDetailOnClick(@NonNull DeviceVehicle deviceVehicle) {
-        ((MainActivity) requireContext()).openMapFragment();
+    public void btnDetailOnClick(@NonNull double latitude, double longitude) {
+        ((MainActivity) requireContext()).openMapFragment(latitude , longitude);
     }
 
     @Override

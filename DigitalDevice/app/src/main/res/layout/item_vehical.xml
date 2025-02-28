@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="3dp"
-                        android:text="50 km/h"
+                        android:text="no data!"
                         android:textSize="16sp" />
                 </LinearLayout>
 
