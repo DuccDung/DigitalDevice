@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\icon_livingroom.png"
     },
     {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
+      "PackagePath": "staticwebassets\\images\\vehicle_ab.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DigitalDeivice.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

@@ -242,6 +242,48 @@
         }
       }
     },
+    "/api/Devices/CreateDevice": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "parameters": [
+          {
+            "name": "DeviceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RoomId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FunctionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Devices/GetDevicesByRoomID": {
       "get": {
         "tags": [
@@ -317,7 +359,7 @@
         }
       }
     },
-    "/api/Devices/GetAllVehicle": {
+    "/api/Devices/GetAllVehicleByHome": {
       "get": {
         "tags": [
           "Devices"

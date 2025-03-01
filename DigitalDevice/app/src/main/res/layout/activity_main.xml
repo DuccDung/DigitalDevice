@@ -21,10 +21,12 @@
         android:id="@+id/navigationViewMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FBFBFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
+        app:itemTextColor="@color/color_menu"
+        app:itemIconTint="@color/color_menu"
         app:menu="@menu/menu_bottom_navigation"
         />
 

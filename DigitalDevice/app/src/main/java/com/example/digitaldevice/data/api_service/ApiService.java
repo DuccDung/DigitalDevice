@@ -57,7 +57,7 @@ public interface ApiService {
     @GET("/api/Devices/GetAllDevice")
     Call<List<Device>> GetALlDeviceByHome(@Query("homeId") String homeId);
 
-    @GET("/api/Devices/GetAllVehicle")
+    @GET("/api/Devices/GetAllVehicleByHome")
     Call<List<DeviceVehicle>> GetAllVehicleByHome(@Query("homeId") String homeId);
 
 }

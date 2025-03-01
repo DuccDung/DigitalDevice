@@ -9,8 +9,8 @@ public class DeviceVehicle {
     @SerializedName("nameDevice")
     private String nameDevice;
 
-    @SerializedName("PhotoPath")
-    private String  PhotoPath;
+    @SerializedName("photoPath")
+    private String  photoPath;
 
     public String getDeviceID() {
         return deviceID;
@@ -29,10 +29,10 @@ public class DeviceVehicle {
     }
 
     public String getPhotoPath() {
-        return PhotoPath;
+        return photoPath;
     }
 
     public void setPhotoPath(String photoPath) {
-        PhotoPath = photoPath;
+        photoPath = photoPath;
     }
 }

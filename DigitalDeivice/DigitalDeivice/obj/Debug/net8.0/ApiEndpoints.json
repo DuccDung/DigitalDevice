@@ -165,6 +165,37 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
+    "Method": "CreateDevice",
+    "RelativePath": "api/Devices/CreateDevice",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DeviceId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RoomId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FunctionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "GetAllDevice",
     "RelativePath": "api/Devices/GetAllDevice",
     "HttpMethod": "GET",
@@ -192,7 +223,7 @@
   {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "GetAllVehicle",
-    "RelativePath": "api/Devices/GetAllVehicle",
+    "RelativePath": "api/Devices/GetAllVehicleByHome",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
