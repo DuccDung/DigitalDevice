@@ -15,7 +15,7 @@ builder.Services.AddDbContext<DigitalDeviceContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DigitalDeviceContext")));
 
 // Lắng nghe trên IP cụ thể
-builder.WebHost.UseUrls("http://192.168.137.1:5168", "https://192.168.137.1:7012");
+builder.WebHost.UseUrls("http://192.168.1.27:5168", "https://192.168.1.27:7012");
 
 
 var app = builder.Build();
