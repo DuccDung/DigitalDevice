@@ -73,12 +73,17 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                if (position == 0) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemDashboard).setChecked(true);
-                } else if (position == 1) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemVehicle).setChecked(true);
-                } else if (position == 2) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemSetting).setChecked(true);
+                switch (position) {
+                    case 0:
+                        bottomNavigationView.getMenu().findItem(R.id.itemDashboard).setChecked(true);
+                        break;
+                    case 1:
+                        bottomNavigationView.getMenu().findItem(R.id.itemVehicle).setChecked(true);
+                        break;
+                    case 2:
+                        bottomNavigationView.getMenu().findItem(R.id.itemSetting).setChecked(true);
+                        break;
+
                 }
             }
         });
@@ -87,6 +92,11 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private void initialize() {
         bottomNavigationView = findViewById(R.id.navigationViewMain);
         viewPager = findViewById(R.id.viewPagerMain);
+
+        // Hiển thị nhãn khi được chọn
+        bottomNavigationView.setLabelVisibilityMode(BottomNavigationView.LABEL_VISIBILITY_SELECTED);
+        bottomNavigationView.setItemHorizontalTranslationEnabled(false);
+
     }
 
     // 👉 Mở MapFragment khi bấm nút từ VehicleFragment

@@ -22,7 +22,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
 
     // Base URL
-    String BASE_URL = "https://192.168.50.160:7012/";
+    String BASE_URL = "https://192.168.66.101:7012/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
