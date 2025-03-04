@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="117.5sp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:layout_margin="4dp"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deviceWater"
+        android:layout_width="160dp"
+        android:layout_height="117.5sp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Biểu tượng -->
+
+        <!-- Nút bật/tắt -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="57dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_defferent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Tên thiết bị -->
+
+        <!-- Số lượng thiết bị -->
+
+        <Switch
+            android:id="@+id/switch_water"
+            android:layout_width="51dp"
+            android:layout_height="34dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_switch_track"
+            android:thumbTint="#FFFFFF"
+            android:trackTint="#00FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDeviceWaterName"
+            android:layout_width="124dp"
+            android:layout_height="25dp"
+            android:text="water heater"
+            android:fontFamily="@font/nunito"
+
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/txtDeviceLampCondition"
+            app:layout_constraintEnd_toEndOf="@+id/txtDeviceLampCondition"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtDeviceLampCondition"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/txtDeviceLampCondition"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:text="Device Off"
+            android:textColor="#999"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.138"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

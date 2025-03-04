@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#C1FFFFFF" /> <!-- Độ trong suốt của nền -->
+    <corners android:radius="16dp" />
+    <stroke android:width="2dp" android:color="#A8A5A5" /> <!-- Viền mờ -->
+</shape>

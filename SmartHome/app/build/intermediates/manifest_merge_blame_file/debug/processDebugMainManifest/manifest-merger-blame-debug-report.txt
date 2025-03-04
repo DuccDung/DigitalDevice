@@ -1,0 +1,125 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.smarthome"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10    <!-- Cấp quyền Internet cho ứng dụng -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <application
+13-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:7:5-52:19
+14        android:allowBackup="true"
+14-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:8:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.7.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\f583c03cbe649eac199c7dd4d2bfbec6\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+16        android:dataExtractionRules="@xml/data_extraction_rules"
+16-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:9:9-65
+17        android:debuggable="true"
+18        android:extractNativeLibs="false"
+19        android:fullBackupContent="@xml/backup_rules"
+19-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:10:9-54
+20        android:icon="@mipmap/ic_launcher"
+20-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:11:9-43
+21        android:label="@string/app_name"
+21-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:12:9-41
+22        android:supportsRtl="true"
+22-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:13:9-35
+23        android:testOnly="true"
+24        android:theme="@style/Theme.SmartHome" >
+24-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:14:9-47
+25        <activity
+25-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:16:9-18:40
+26            android:name="com.example.smarthome.View.SelectHomeActivity"
+26-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:17:13-73
+27            android:exported="false" />
+27-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:18:13-37
+28        <!-- Khai báo các Activity -->
+29        <activity
+29-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:20:9-22:40
+30            android:name="com.example.smarthome.View.register_activity"
+30-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:21:13-72
+31            android:exported="false" /> <!-- <activity -->
+31-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:22:13-37
+32        <!-- android:name="com.example.smarhome.View.activity_login" -->
+33        <!-- android:exported="false" /> -->
+34        <activity
+34-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:25:9-27:40
+35            android:name="com.example.smarthome.View.DashBoardActivity"
+35-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:26:13-72
+36            android:exported="false" /> <!-- &lt;!&ndash; Main Activity (màn hình khởi động) &ndash;&gt; -->
+36-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:27:13-37
+37        <!-- <activity -->
+38        <!-- android:name="com.example.smarhome.View.MainActivity" -->
+39        <!-- android:exported="true"> -->
+40        <!-- <intent-filter> -->
+41        <!-- <action android:name="android.intent.action.MAIN" /> -->
+42        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+43        <!-- </intent-filter> -->
+44        <!-- </activity> -->
+45        <!-- LoginActivity sẽ là màn hình khởi động chính -->
+46        <activity
+46-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:37:9-45:20
+47            android:name="com.example.smarthome.View.activity_login"
+47-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:38:13-69
+48            android:exported="true" >
+48-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:39:13-36
+49            <intent-filter>
+49-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:40:13-44:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:41:17-69
+50-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:41:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:43:17-77
+52-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:43:27-74
+53            </intent-filter>
+54        </activity> <!-- MainActivity không còn là màn hình chính, chỉ mở sau khi đăng nhập -->
+55        <activity
+55-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:46:9-48:48
+56            android:name="com.example.smarthome.View.MainActivity"
+56-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:47:13-67
+57            android:exported="true" /> <!-- Định nghĩa trước font nếu có -->
+57-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:48:13-36
+58        <meta-data
+58-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:49:9-51:57
+59            android:name="preloaded_fonts"
+59-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:50:13-43
+60            android:resource="@array/preloaded_fonts" />
+60-->D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\AndroidManifest.xml:51:13-54
+61        <meta-data
+61-->[com.github.bumptech.glide:okhttp3-integration:4.15.1] C:\Users\Lenovo\.gradle\caches\8.9\transforms\bfbf702155669ae67adfb98c4c44b5a1\transformed\okhttp3-integration-4.15.1\AndroidManifest.xml:10:9-12:43
+62            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+62-->[com.github.bumptech.glide:okhttp3-integration:4.15.1] C:\Users\Lenovo\.gradle\caches\8.9\transforms\bfbf702155669ae67adfb98c4c44b5a1\transformed\okhttp3-integration-4.15.1\AndroidManifest.xml:11:13-84
+63            android:value="GlideModule" />
+63-->[com.github.bumptech.glide:okhttp3-integration:4.15.1] C:\Users\Lenovo\.gradle\caches\8.9\transforms\bfbf702155669ae67adfb98c4c44b5a1\transformed\okhttp3-integration-4.15.1\AndroidManifest.xml:12:13-40
+64
+65        <provider
+65-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+66            android:name="androidx.startup.InitializationProvider"
+66-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+67            android:authorities="com.example.smarthome.androidx-startup"
+67-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+68            android:exported="false" >
+68-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+69            <meta-data
+69-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+70                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+70-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+71                android:value="androidx.startup" />
+71-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\6f082eacda83b84f08bfde09a08aeff4\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+72            <meta-data
+72-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\453b2b919768e546506918b5cdf2f2c6\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+73                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+73-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\453b2b919768e546506918b5cdf2f2c6\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+74                android:value="androidx.startup" />
+74-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Lenovo\.gradle\caches\8.9\transforms\453b2b919768e546506918b5cdf2f2c6\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+75        </provider>
+76    </application>
+77
+78</manifest>

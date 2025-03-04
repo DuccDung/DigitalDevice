@@ -8152,23 +8152,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer pro\\.nuget\\packages\\": {},
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
+      "projectUniqueName": "D:\\G\\BT,BTL,NCKH\\BTL\\BTL Android\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
       "projectName": "DigitalDeivice",
-      "projectPath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
-      "packagesPath": "C:\\Users\\Acer pro\\.nuget\\packages\\",
-      "outputPath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\obj\\",
+      "projectPath": "D:\\G\\BT,BTL,NCKH\\BTL\\BTL Android\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "D:\\G\\BT,BTL,NCKH\\BTL\\BTL Android\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Acer pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8249,7 +8249,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,29 @@
+com.example.smarthome.app-cardview-1.0.0-0 C:\Users\Lenovo\.gradle\caches\transforms-3\0da7058a40aed3383179bac73aaa6bce\transformed\cardview-1.0.0\res
+com.example.smarthome.app-recyclerview-1.1.0-1 C:\Users\Lenovo\.gradle\caches\transforms-3\26c95d2fbc6e0944deacd275de28f64e\transformed\recyclerview-1.1.0\res
+com.example.smarthome.app-appcompat-resources-1.4.1-2 C:\Users\Lenovo\.gradle\caches\transforms-3\42b169e63503b5d7b0fdba3853f303c2\transformed\appcompat-resources-1.4.1\res
+com.example.smarthome.app-coordinatorlayout-1.1.0-3 C:\Users\Lenovo\.gradle\caches\transforms-3\4dd1ececaa6913c5344e18a016b0077f\transformed\coordinatorlayout-1.1.0\res
+com.example.smarthome.app-lifecycle-runtime-2.4.0-4 C:\Users\Lenovo\.gradle\caches\transforms-3\5e31889335f1d929eaf8790445c07403\transformed\lifecycle-runtime-2.4.0\res
+com.example.smarthome.app-transition-1.2.0-5 C:\Users\Lenovo\.gradle\caches\transforms-3\60b9a5ff9a6334c59b6f9fb88fb49566\transformed\transition-1.2.0\res
+com.example.smarthome.app-viewpager2-1.0.0-6 C:\Users\Lenovo\.gradle\caches\transforms-3\653c2149f318c20628556d8f0f3cb8ae\transformed\viewpager2-1.0.0\res
+com.example.smarthome.app-emoji2-1.0.0-7 C:\Users\Lenovo\.gradle\caches\transforms-3\6c074b4733c822a551b400949343c979\transformed\emoji2-1.0.0\res
+com.example.smarthome.app-savedstate-1.1.0-8 C:\Users\Lenovo\.gradle\caches\transforms-3\70b6ce73e88739452f80a39f3eff943f\transformed\savedstate-1.1.0\res
+com.example.smarthome.app-emoji2-views-helper-1.0.0-9 C:\Users\Lenovo\.gradle\caches\transforms-3\7307e5348ecd06b2f98a6b748dc10301\transformed\emoji2-views-helper-1.0.0\res
+com.example.smarthome.app-appcompat-1.4.1-10 C:\Users\Lenovo\.gradle\caches\transforms-3\7ca0372b7cb4ecc62d54cc36182de134\transformed\appcompat-1.4.1\res
+com.example.smarthome.app-core-1.7.0-11 C:\Users\Lenovo\.gradle\caches\transforms-3\8d0e82b2299de0f0155cea142053b042\transformed\core-1.7.0\res
+com.example.smarthome.app-lifecycle-process-2.4.0-12 C:\Users\Lenovo\.gradle\caches\transforms-3\95ef20903fd6d600c7329b7d3f5daf5e\transformed\lifecycle-process-2.4.0\res
+com.example.smarthome.app-constraintlayout-2.1.3-13 C:\Users\Lenovo\.gradle\caches\transforms-3\a99c4829267d59eec02febdf4df59024\transformed\constraintlayout-2.1.3\res
+com.example.smarthome.app-lifecycle-viewmodel-2.3.1-14 C:\Users\Lenovo\.gradle\caches\transforms-3\b0d8366e54ce6ff3190952fa85742543\transformed\lifecycle-viewmodel-2.3.1\res
+com.example.smarthome.app-annotation-experimental-1.1.0-15 C:\Users\Lenovo\.gradle\caches\transforms-3\b5bcd14a3704133f44ee92a165a24cfd\transformed\annotation-experimental-1.1.0\res
+com.example.smarthome.app-fragment-1.3.6-16 C:\Users\Lenovo\.gradle\caches\transforms-3\c60db0ababda0fd27a11999b6ac41acc\transformed\fragment-1.3.6\res
+com.example.smarthome.app-drawerlayout-1.1.1-17 C:\Users\Lenovo\.gradle\caches\transforms-3\e14569164320b2792bc6712351cddad2\transformed\drawerlayout-1.1.1\res
+com.example.smarthome.app-material-1.5.0-18 C:\Users\Lenovo\.gradle\caches\transforms-3\ec1881ad0f251b848dab279b381ad493\transformed\material-1.5.0\res
+com.example.smarthome.app-startup-runtime-1.0.0-19 C:\Users\Lenovo\.gradle\caches\transforms-3\f85a32f18a5b8f352425149028a5a119\transformed\startup-runtime-1.0.0\res
+com.example.smarthome.app-glide-4.15.1-20 C:\Users\Lenovo\.gradle\caches\transforms-3\fc11a562a4252b909444eba19b3dc3c1\transformed\glide-4.15.1\res
+com.example.smarthome.app-pngs-21 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\generated\res\pngs\debug
+com.example.smarthome.app-resValues-22 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\generated\res\resValues\debug
+com.example.smarthome.app-rs-23 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\generated\res\rs\debug
+com.example.smarthome.app-packageDebugResources-24 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.smarthome.app-packageDebugResources-25 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.smarthome.app-merged_res-26 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\build\intermediates\merged_res\debug
+com.example.smarthome.app-debug-27 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\debug\res
+com.example.smarthome.app-main-28 D:\G\BT,BTL,NCKH\BTL\BTL Android\DigitalDevice\SmartHome\app\src\main\res

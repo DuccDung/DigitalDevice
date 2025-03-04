@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_item_air.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\item_air.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito_bold.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito_bold.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_different.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_different.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_bathroom.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_bathroom.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_item_house.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\item_house.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-anydpi-v33\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_placeholder.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\placeholder.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_rounded_background.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\rounded_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_item_room.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\item_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_item_water.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\item_water.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_background_login.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\background_login.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_gradient_background.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\gradient_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_button_background.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_item_lamp.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\item_lamp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito_semibold.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito_semibold.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_device.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_device.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito_sans_light.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito_sans_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_img_login.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\img_login.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_dashboard_activity.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\dashboard_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_ttt.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\ttt.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_defferent.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_defferent.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_activity_select_home.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\activity_select_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito_black.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_living_room.jpg.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\living_room.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_error.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\error.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\color_primary.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\color\\primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_livingroom.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_livingroom.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_sun.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_sun.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_test.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\test.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\font_nunito_sans_extralight.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\font\\nunito_sans_extralight.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_circle_background.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\circle_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_custom_switch_track.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\custom_switch_track.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_badroom.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_badroom.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_warterheater.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_warterheater.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_lamp.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\lamp.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_airconditioner.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_airconditioner.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-merged_res-26:\\drawable_icon_kitchen.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.5\\com.example.smarthome.app-main-28:\\drawable\\icon_kitchen.png"
+    },
+    {
+        "merged": "com.example.smarthome.app-merged_res-26:/layout_activity_select_home.xml.flat",
+        "source": "com.example.smarthome.app-main-28:/layout/activity_select_home.xml"
+    }
+]
