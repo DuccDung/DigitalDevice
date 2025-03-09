@@ -22,6 +22,7 @@ import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.Room;
+import com.example.digitaldevice.data.model.WeatherResponse;
 import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
@@ -49,8 +50,8 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
     private List<DeviceFunction> devicesDashboard = new ArrayList<>();
     private String roomId;
     private final Handler handler = new Handler(Looper.getMainLooper());
-
-
+// Tryền dữ liệu
+// =========================================================================
     @Override
     public void onStart() {
         super.onStart();
@@ -79,7 +80,7 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
         dashBoardDeviceAdapter.updateData(event.topic , event.payload);
     }
 
-
+// =========================================================================
 
     @Override
     public void onRoomClick(String _roomId) {
@@ -125,6 +126,19 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
         // khởi chạy....
         this.mqttHandler = ((MainActivity) requireContext()).getMqttHandler();
         fetchData();
+        ApiService.apiService.GetWeather().enqueue(new Callback<WeatherResponse>() {
+            @Override
+            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    Log.d("weather" ,"hehehe");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WeatherResponse> call, Throwable t) {
+
+            }
+        });
     }
 
 

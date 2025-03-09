@@ -70,7 +70,7 @@ namespace DigitalDeivice.Controllers
 
 		[HttpGet]
 		[Route("Register")]
-		public IActionResult Register( string Name, string Password, string Email, string Phone)
+		public IActionResult Register(string Name, string Password, string Email, string Phone)
 		{
 			// Tạo mã UserId ngẫu nhiên và duy nhất
 			string UserId = GenerateUniqueUserId();
