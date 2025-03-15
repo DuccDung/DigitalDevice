@@ -427,6 +427,34 @@
         }
       }
     },
+    "/api/Users/GetAuth": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "HomeID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UserID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/GetUsers": {
       "get": {
         "tags": [
@@ -613,10 +641,10 @@
             "type": "string",
             "nullable": true
           },
-          "userAuthorities": {
+          "homeUsers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserAuthority"
+              "$ref": "#/components/schemas/HomeUser"
             },
             "nullable": true
           }
@@ -838,11 +866,18 @@
             "type": "string",
             "nullable": true
           },
+          "authorityID": {
+            "type": "string",
+            "nullable": true
+          },
           "home": {
             "$ref": "#/components/schemas/Home"
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority"
           }
         },
         "additionalProperties": false
@@ -961,41 +996,6 @@
               "$ref": "#/components/schemas/HomeUser"
             },
             "nullable": true
-          },
-          "userAuthorities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserAuthority"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserAuthority": {
-        "type": "object",
-        "properties": {
-          "userAuthorityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "authorityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "authority": {
-            "$ref": "#/components/schemas/Authority"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false

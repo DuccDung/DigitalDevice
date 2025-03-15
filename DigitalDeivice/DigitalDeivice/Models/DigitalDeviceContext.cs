@@ -35,28 +35,27 @@ public partial class DigitalDeviceContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<UserAuthority> UserAuthorities { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Data Source=2620041612004\\SQLEXPRESS;Initial Catalog=DigitalDevice;User ID=sa;Password=Dung@123;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Authority>(entity =>
-        {
-            entity.HasKey(e => e.AuthorityId).HasName("PK__Authorit__433B1E6DF0F3C573");
+		modelBuilder.Entity<Authority>(entity =>
+		{
+			entity.HasKey(e => e.AuthorityId).HasName("PK__Authorit__433B1E6DF0F3C573");
 
-            entity.ToTable("Authority");
+			entity.ToTable("Authority");
 
-            entity.Property(e => e.AuthorityId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("AuthorityID");
-            entity.Property(e => e.Description).HasMaxLength(255);
-            entity.Property(e => e.NameAuthority).HasMaxLength(100);
-        });
+			entity.Property(e => e.AuthorityId)
+				.HasMaxLength(50)
+				.IsUnicode(false)
+				.HasColumnName("AuthorityID");
+			entity.Property(e => e.Description).HasMaxLength(255);
+			entity.Property(e => e.NameAuthority).HasMaxLength(100);
+		});
 
-        modelBuilder.Entity<CategoryDevice>(entity =>
+		modelBuilder.Entity<CategoryDevice>(entity =>
         {
             entity.HasKey(e => e.CategoryDeviceId).HasName("PK__Category__1BBDAAC9CDA37C5E");
 
@@ -213,35 +212,43 @@ public partial class DigitalDeviceContext : DbContext
 
 
 		modelBuilder.Entity<HomeUser>(entity =>
-        {
-            entity.HasKey(e => e.HomeUserId).HasName("PK__HomeUser__ACD15394F92E620D");
+		{
+			entity.HasKey(e => e.HomeUserId).HasName("PK__HomeUser__ACD15394F92E620D");
 
-            entity.ToTable("HomeUser");
+			entity.ToTable("HomeUser");
 
-            entity.Property(e => e.HomeUserId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("HomeUserID");
-            entity.Property(e => e.Description).HasMaxLength(255);
-            entity.Property(e => e.HomeId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("HomeID");
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
+			entity.Property(e => e.HomeUserId)
+				.HasMaxLength(50)
+				.IsUnicode(false)
+				.HasColumnName("HomeUserID");
+			entity.Property(e => e.Description).HasMaxLength(255);
+			entity.Property(e => e.HomeId)
+				.HasMaxLength(50)
+				.IsUnicode(false)
+				.HasColumnName("HomeID");
+			entity.Property(e => e.UserId)
+				.HasMaxLength(50)
+				.IsUnicode(false)
+				.HasColumnName("UserID");
+			entity.Property(e => e.AuthorityID)
+				.HasMaxLength(50)
+				.IsUnicode(false)
+				.HasColumnName("AuthorityID");
 
-            entity.HasOne(d => d.Home).WithMany(p => p.HomeUsers)
-                .HasForeignKey(d => d.HomeId)
-                .HasConstraintName("FK__HomeUser__HomeID__5441852A");
+			entity.HasOne(d => d.Home).WithMany(p => p.HomeUsers)
+				.HasForeignKey(d => d.HomeId)
+				.HasConstraintName("FK__HomeUser__HomeID__5441852A");
 
-            entity.HasOne(d => d.User).WithMany(p => p.HomeUsers)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__HomeUser__UserID__534D60F1");
-        });
+			entity.HasOne(d => d.Authority).WithMany(p => p.HomeUsers)
+				.HasForeignKey(d => d.AuthorityID)
+				.HasConstraintName("FK__HomeUser__Author__01142BA1");
 
-        modelBuilder.Entity<Room>(entity =>
+			entity.HasOne(d => d.User).WithMany(p => p.HomeUsers)
+				.HasForeignKey(d => d.UserId)
+				.HasConstraintName("FK__HomeUser__UserID__534D60F1");
+		});
+
+		modelBuilder.Entity<Room>(entity =>
         {
             entity.HasKey(e => e.RoomId).HasName("PK__Room__32863919B15B6541");
 
@@ -275,35 +282,6 @@ public partial class DigitalDeviceContext : DbContext
             entity.Property(e => e.Password).HasMaxLength(100);
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.PhotoPath).HasMaxLength(255);
-        });
-
-        modelBuilder.Entity<UserAuthority>(entity =>
-        {
-            entity.HasKey(e => e.UserAuthorityId).HasName("PK__User_Aut__2820B8E57F0D973B");
-
-            entity.ToTable("User_Authority");
-
-            entity.Property(e => e.UserAuthorityId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("User_AuthorityID");
-            entity.Property(e => e.AuthorityId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("AuthorityID");
-            entity.Property(e => e.Description).HasMaxLength(255);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
-
-            entity.HasOne(d => d.Authority).WithMany(p => p.UserAuthorities)
-                .HasForeignKey(d => d.AuthorityId)
-                .HasConstraintName("FK__User_Auth__Autho__4E88ABD4");
-
-            entity.HasOne(d => d.User).WithMany(p => p.UserAuthorities)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__User_Auth__UserI__4D94879B");
         });
 
         OnModelCreatingPartial(modelBuilder);

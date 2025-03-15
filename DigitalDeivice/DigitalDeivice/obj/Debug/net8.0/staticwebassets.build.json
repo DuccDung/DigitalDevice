@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HP1Ce9Azv7E2YROc7oeclvZIag9b+9BjwODYngAgr+M=",
+  "Hash": "IJo51fmJPbkGlmuQyINBihYpByk6uqkTMtW4WqDeJMA=",
   "Source": "DigitalDeivice",
   "BasePath": "_content/DigitalDeivice",
   "Mode": "Default",
@@ -577,7 +577,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 01 Mar 2025 02:26:50 GMT"
+          "Value": "Sat, 15 Mar 2025 17:53:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -622,7 +622,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 01 Mar 2025 02:26:50 GMT"
+          "Value": "Sat, 15 Mar 2025 17:53:50 GMT"
         },
         {
           "Name": "Cache-Control",

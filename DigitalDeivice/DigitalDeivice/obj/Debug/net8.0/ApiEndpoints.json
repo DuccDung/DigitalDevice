@@ -285,6 +285,27 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "GetAdmins",
+    "RelativePath": "api/Users/GetAuth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "HomeID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "GetHomeUsersByUserId",
     "RelativePath": "api/Users/GetHomeUsersByUserId",
     "HttpMethod": "GET",

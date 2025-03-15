@@ -19,5 +19,4 @@ public partial class User
 
     public virtual ICollection<HomeUser> HomeUsers { get; set; } = new List<HomeUser>();
 
-    public virtual ICollection<UserAuthority> UserAuthorities { get; set; } = new List<UserAuthority>();
 }

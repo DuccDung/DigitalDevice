@@ -21,6 +21,23 @@ namespace DigitalDeivice.Controllers
 		}
 
 		[HttpGet]
+		[Route("GetAuth")]
+		public IActionResult GetAdmins(string HomeID, string UserID) // check quyền hạn của user trong căn nhà hiện tại
+		{
+			var query = from hu in _digitalDeviceContext.HomeUsers
+						join u in _digitalDeviceContext.Users on hu.UserId equals u.UserId
+						join h in _digitalDeviceContext.Homes on hu.HomeId equals h.HomeId
+						join a in _digitalDeviceContext.Authorities on hu.AuthorityID equals a.AuthorityId
+						where u.UserId == UserID && h.HomeId == HomeID
+						select new
+						{
+							AuthorityId = a.AuthorityId,
+							AuthorityName = a.NameAuthority
+						};
+			return Ok(query.FirstOrDefault());
+		}
+
+		[HttpGet]
 		[Route("GetUsers")]
 		public IActionResult GetUsers()
 		{
