@@ -3,48 +3,20 @@
   "WorkspaceRootPath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\digitaldevicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\digitaldevicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\homeuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\homeuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\authority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\authority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\models\\devicefunctionality.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\models\\devicefunctionality.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|d:\\laptrinhandroid2022\\digitaldevice_server\\digitaldeivice\\digitaldeivice\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D377DB59-6DAB-45D9-8D5E-E4F259B0263D}|DigitalDeivice\\DigitalDeivice.csproj|solutionrelative:digitaldeivice\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,8 +25,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 233,
-          "SelectedChildIndex": 7,
+          "DockedWidth": 1008,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,148 +58,60 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\User.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\User.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\User.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAABRwBUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T18:02:24.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Authority.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\Authority.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\Authority.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\Authority.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\Authority.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T17:56:58.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomeUser.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\HomeUser.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\HomeUser.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\HomeUser.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\HomeUser.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T17:55:59.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DigitalDeviceContext.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\DigitalDeviceContext.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\DigitalDeviceContext.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\DigitalDeviceContext.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\DigitalDeviceContext.cs",
-              "ViewState": "AgIAANwAAAAAAAAAAAAQwOsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T17:55:34.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json",
-              "RelativeToolTip": "DigitalDeivice\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-15T17:54:56.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Program.cs",
               "RelativeDocumentMoniker": "DigitalDeivice\\Program.cs",
               "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Program.cs",
               "RelativeToolTip": "DigitalDeivice\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAowBEAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T02:54:56.015Z",
+              "WhenOpened": "2025-03-15T21:52:44.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DevicesController.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\DevicesController.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\DevicesController.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\DevicesController.cs",
-              "RelativeToolTip": "DigitalDeivice\\Controllers\\DevicesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T00:37:19.264Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DeviceFunctionality.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\DeviceFunctionality.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\DeviceFunctionality.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\DeviceFunctionality.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\DeviceFunctionality.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T00:53:06.345Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Device.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\Device.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\Device.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Models\\Device.cs",
-              "RelativeToolTip": "DigitalDeivice\\Models\\Device.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T00:38:55.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RoomsController.cs",
-              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\RoomsController.cs",
-              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\RoomsController.cs",
-              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\RoomsController.cs",
-              "RelativeToolTip": "DigitalDeivice\\Controllers\\RoomsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T01:11:10.797Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 3227,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\UsersController.cs",
               "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\UsersController.cs",
               "RelativeToolTip": "DigitalDeivice\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAcwCUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwDoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T13:53:39.901Z",
+              "WhenOpened": "2025-03-15T21:49:42.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "DigitalDeivice\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwC8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T21:47:05.029Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 2290,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "DigitalDeivice\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T21:50:33.87Z",
               "EditorCaption": ""
             }
           ]

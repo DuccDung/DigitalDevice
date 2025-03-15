@@ -14,9 +14,11 @@ import android.widget.Toast;
 
 import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
+import com.example.digitaldevice.data.model.LoginResponse;
 import com.example.digitaldevice.data.model.Users;
 import com.example.digitaldevice.utils.DbUserHelper;
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.select_home.SelectHomeActivity;
 
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView txtAcc;
     private TextView txtPass;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class LoginActivity extends AppCompatActivity {
         txtPass = findViewById(R.id.txtPasswordInput);
         // Init database Sqlite
         DbUserHelper dbUserHelper = new DbUserHelper(this);
+
+        dbUserHelper.deleteUser();
+
         // check dataUserLocal
         if(dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()){
             // The user already exists and has selected a house.
@@ -52,14 +58,13 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login(new DataCallback<Users>() {
+                login(new DataCallback<LoginResponse>() {
                     @Override
-                    public void onSuccess(Users data) {
+                    public void onSuccess(LoginResponse loginResponse) {
+                        Users data = loginResponse.getUser();
                         Toast.makeText(LoginActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
 
                         if (!dbUserHelper.isUserExists()) {
@@ -76,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (isInserted) {
                                 Log.d("sqlite" , "insert user on success");
+                                SessionManager sessionManager = new SessionManager(LoginActivity.this);
+                                sessionManager.saveToken(loginResponse.getToken());
+
                             } else {
                                 Log.d("sqlite" , "insert user on failure");
                             }
@@ -93,16 +101,16 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     // login processing function
-    public void login(DataCallback<Users> usersDataCallback) {
+    public void login(DataCallback<LoginResponse> usersDataCallback) {
         String name = txtAcc.getText().toString();
         String pass = txtPass.getText().toString();
-        ApiService.apiService.loginUser(name , pass).enqueue(new Callback<Users>() {
+        ApiService.apiService.loginUser(name , pass).enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<Users> call, Response<Users> response) {
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful() && response.body() != null){
                     Toast.makeText(LoginActivity.this, "connect Success and data", Toast.LENGTH_SHORT).show();
-                    Users user = response.body();
-                    usersDataCallback.onSuccess(user);
+                    LoginResponse loginResponse = response.body();
+                    usersDataCallback.onSuccess(loginResponse);
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "connect fail", Toast.LENGTH_SHORT).show();
@@ -110,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<Users> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
                 usersDataCallback.onFailure(t);
             }
         });

@@ -4,6 +4,7 @@ import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.DeviceVehicle;
 import com.example.digitaldevice.data.model.HomeUser;
+import com.example.digitaldevice.data.model.LoginResponse;
 import com.example.digitaldevice.data.model.Room;
 import com.example.digitaldevice.data.model.Users;
 import com.example.digitaldevice.data.model.WeatherResponse;
@@ -41,7 +42,7 @@ public interface ApiService {
     }
 
     @GET("api/Users/GetLogin")
-    Call<Users> loginUser(@Query("Name") String name , @Query("Password") String password);
+    Call<LoginResponse> loginUser(@Query("Name") String name , @Query("Password") String password);
 
     @GET("api/Users/Register")
     Call<Void> registerUser(@Query("Name") String Name , @Query("Password") String Password , @Query("Email") String Email , @Query("Phone") String Phone);

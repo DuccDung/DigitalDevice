@@ -164,6 +164,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DigitalDeivice.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/GetLogin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "CreateDevice",
     "RelativePath": "api/Devices/CreateDevice",

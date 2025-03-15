@@ -525,3 +525,4 @@ D:\laptrinhAndroid2022\DigitalDevice_Server\DigitalDeivice\DigitalDeivice\obj\De
 D:\laptrinhAndroid2022\DigitalDevice_Server\DigitalDeivice\DigitalDeivice\obj\Debug\net8.0\DigitalDeivice.pdb
 D:\laptrinhAndroid2022\DigitalDevice_Server\DigitalDeivice\DigitalDeivice\obj\Debug\net8.0\DigitalDeivice.genruntimeconfig.cache
 D:\laptrinhAndroid2022\DigitalDevice_Server\DigitalDeivice\DigitalDeivice\obj\Debug\net8.0\ref\DigitalDeivice.dll
+D:\laptrinhAndroid2022\DigitalDevice_Server\DigitalDeivice\DigitalDeivice\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
