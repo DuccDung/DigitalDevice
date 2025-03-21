@@ -57,6 +57,10 @@ public class Users {
         this.photoPath = photoPath;
         this.phone = phone;
     }
+    public Users(String name, String passWord) {
+        this.name = name;
+        this.passWord = passWord;
+    }
 }
 
 

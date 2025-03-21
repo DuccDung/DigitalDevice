@@ -15,6 +15,7 @@ import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
+import com.example.digitaldevice.utils.SessionManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private ViewPager2 viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private MqttHandler mqttHandler;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,22 +91,25 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         viewPager = findViewById(R.id.viewPagerMain);
     }
 
-    // 👉 Mở MapFragment khi bấm nút từ VehicleFragment
+    //  Mở MapFragment khi bấm nút từ VehicleFragment
     public void openMapFragment(double latitude, double longitude) {
         viewPagerAdapter.addMapFragment(latitude , longitude);
         viewPager.setCurrentItem(3, true);
     }
 
-    // 👉 Đóng MapFragment khi quay lại
+    //  Đóng MapFragment khi quay lại
     public void closeMapFragment() {
         viewPagerAdapter.removeMapFragment();
         viewPager.setCurrentItem(1, true); // Quay về VehicleFragment
     }
     private void InitializeApp(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
-        ApiService.apiService.GetALlDeviceByHome(homeId).enqueue(new Callback<List<Device>>() {
+        sessionManager = new SessionManager(MainActivity.this);
+        String token = "Bearer " + sessionManager.getToken();
+        ApiService.apiService.GetALlDeviceByHome(token , homeId).enqueue(new Callback<List<Device>>() {
             @Override
             public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
+
                 if(response.isSuccessful() && response.body() != null){
                     // Khi lấy data về và connect MQTT
                     ConnectMQTT(new DataCallback<Boolean>() {
@@ -129,7 +134,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         });
     }
     private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
-        // ✅ Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
+        //  Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
         mqttHandler = new MqttHandler( MainActivity.this);
 
         // Thông số kết nối

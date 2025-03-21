@@ -61,4 +61,7 @@ dependencies {
 
     implementation ("org.greenrobot:eventbus:3.3.1")
 
+    // thư viện jwt
+    implementation ("com.auth0.android:jwtdecode:2.0.1")
+
 }

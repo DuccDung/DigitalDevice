@@ -47,5 +47,61 @@ namespace DigitalDeivice.Controllers
 
 			return new JwtSecurityTokenHandler().WriteToken(token);
 		}
+
+
+
+
+		[ApiExplorerSettings(IgnoreApi = true)]
+		private string GenerateRandomUserId()
+		{
+			var random = new Random();
+			const int idLength = 8; // Độ dài mã ngẫu nhiên sau chữ "U"
+			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+			// Sinh mã ngẫu nhiên
+			return "U" + new string(Enumerable.Repeat(chars, idLength)
+				.Select(s => s[random.Next(s.Length)]).ToArray());
+		}
+
+
+		[ApiExplorerSettings(IgnoreApi = true)]
+		public string GenerateUniqueUserId()
+		{
+			string userId;
+
+			// Lặp cho đến khi tạo được mã UserId không trùng
+			do
+			{
+				userId = GenerateRandomUserId();
+			} while (_context.Users.Any(x => x.UserId == userId));
+
+			return userId;
+		}
+
+		[HttpGet]
+		[Route("Register")]
+		public IActionResult Register(string Name, string Password, string Email, string Phone)
+		{
+			// Tạo mã UserId ngẫu nhiên và duy nhất
+			string UserId = GenerateUniqueUserId();
+
+			User user = new User
+			{
+				UserId = UserId,
+				Name = Name,
+				Password = Password,
+				Phone = Phone
+			};
+
+			var isValid = _context.Users.Any(x => x.Phone == Phone || x.Name == Name && x.Password == Password);
+			if (isValid)
+			{
+				return BadRequest("Register User Has Existed! ");
+			}
+
+			_context.Users.Add(user);
+			_context.SaveChanges();
+			return Ok("Register Success!");
+		}
 	}
 }

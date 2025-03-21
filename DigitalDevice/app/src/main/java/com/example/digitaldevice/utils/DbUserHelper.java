@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.digitaldevice.data.model.Users;
+
 public class DbUserHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "DbUser.db";
@@ -99,4 +101,21 @@ public class DbUserHelper extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
+
+    public Users getUserLocal() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERS + " LIMIT 1", null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Users user = new Users(
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD))
+            );
+            cursor.close();
+            return user;
+        }
+
+        return null; // Không có user nào trong database
+    }
+
 }

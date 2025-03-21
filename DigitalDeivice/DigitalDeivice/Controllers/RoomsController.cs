@@ -1,4 +1,5 @@
 ﻿using DigitalDeivice.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class RoomsController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;
@@ -14,11 +16,14 @@ namespace DigitalDeivice.Controllers
 		}
 		[HttpGet]
 		[Route("GetRoomsByHomeID")]
-		public IActionResult GetRooms(String HomeID)
+		public IActionResult GetRooms(string HomeID)
 		{
-			var rooms = _digitalDeviceContext.Rooms.Where(x => x.HomeId == HomeID && x.RoomId != "r_000").ToList(); // find room by homeID and skip r_001
+			var rooms = _digitalDeviceContext.Rooms
+				.Where(x => x.HomeId == HomeID && !x.RoomId.StartsWith("vehicle_"))
+				.ToList();
+
 			return Ok(rooms);
 		}
-		
+
 	}
 }

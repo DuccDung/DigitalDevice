@@ -37,24 +37,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        btnLogin = findViewById(R.id.btnLogin);
-        txtAcc = findViewById(R.id.txtAccountInput);
-        txtPass = findViewById(R.id.txtPasswordInput);
-        // Init database Sqlite
-        DbUserHelper dbUserHelper = new DbUserHelper(this);
-
+        InitializeView(); // Initialize find
+        DbUserHelper dbUserHelper = new DbUserHelper(this); // Init database Sqlite
         dbUserHelper.deleteUser();
 
         // check dataUserLocal
-        if(dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()){
+        if (dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()) {
             // The user already exists and has selected a house.
             // if user and home already exists then transfer activity
-            Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
-        }
-        else if(dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists() ){
+        } else if (dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists()) {
             // if user already exist and home null then transfer SelectHomeActivity
-            Intent intent = new Intent(LoginActivity.this , SelectHomeActivity.class);
+            Intent intent = new Intent(LoginActivity.this, SelectHomeActivity.class);
             startActivity(intent);
         }
 
@@ -80,47 +75,50 @@ public class LoginActivity extends AppCompatActivity {
                             );
 
                             if (isInserted) {
-                                Log.d("sqlite" , "insert user on success");
+                                // save token Success
                                 SessionManager sessionManager = new SessionManager(LoginActivity.this);
                                 sessionManager.saveToken(loginResponse.getToken());
-
-                            } else {
-                                Log.d("sqlite" , "insert user on failure");
                             }
                         }
                         // chuyển activity
-                        Intent intent = new Intent(LoginActivity.this , SelectHomeActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, SelectHomeActivity.class);
                         startActivity(intent);
                     }
+
                     @Override
                     public void onFailure(Throwable t) {
-                        Log.d("Bug login" , t.getMessage());
+                        Log.e("Bug login", t.getMessage());
                     }
                 });
             }
         });
     }
+
     // login processing function
     public void login(DataCallback<LoginResponse> usersDataCallback) {
         String name = txtAcc.getText().toString();
         String pass = txtPass.getText().toString();
-        ApiService.apiService.loginUser(name , pass).enqueue(new Callback<LoginResponse>() {
+        ApiService.apiService.loginUser(name, pass).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful() && response.body() != null){
-                    Toast.makeText(LoginActivity.this, "connect Success and data", Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful() && response.body() != null) {
                     LoginResponse loginResponse = response.body();
                     usersDataCallback.onSuccess(loginResponse);
-                }
-                else {
-                    Toast.makeText(LoginActivity.this, "connect fail", Toast.LENGTH_SHORT).show();
-                    Log.d("bug call api" , "no data!");
+                } else {
+                    Log.e("bug call api", "no data!");
                 }
             }
+
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 usersDataCallback.onFailure(t);
             }
         });
+    }
+
+    public void InitializeView() {
+        btnLogin = findViewById(R.id.btnLogin);
+        txtAcc = findViewById(R.id.txtAccountInput);
+        txtPass = findViewById(R.id.txtPasswordInput);
     }
 }

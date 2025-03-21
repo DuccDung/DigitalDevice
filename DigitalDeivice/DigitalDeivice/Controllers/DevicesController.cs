@@ -1,4 +1,5 @@
 ﻿using DigitalDeivice.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,6 +8,7 @@ namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class DevicesController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;

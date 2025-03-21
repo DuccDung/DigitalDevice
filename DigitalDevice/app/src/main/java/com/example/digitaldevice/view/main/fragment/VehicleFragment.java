@@ -21,6 +21,7 @@ import com.example.digitaldevice.data.model.DeviceVehicle;
 import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
+import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.VehicleAdapter;
 
@@ -38,7 +39,7 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
     private RecyclerView rcvVehicle;
     private VehicleAdapter vehicleAdapter;
     private final Handler handler = new Handler(Looper.getMainLooper());
-
+    private SessionManager sessionManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -80,6 +81,8 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        sessionManager = new SessionManager(requireContext());
+        sessionManager.CheckRefreshToken();
         String homeId = DataUserLocal.getInstance(requireContext()).getHomeId(); // Lấy dữ liệu homeId từ local
         LoadData(new DataCallback<List<DeviceVehicle>>() {
             @Override
@@ -94,11 +97,11 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
                 Log.e("Error API Vehicle", t.getMessage());
             }
         }, homeId);
-
     }
 
     private void LoadData(DataCallback<List<DeviceVehicle>> dataCallback, String homeId) {
-        ApiService.apiService.GetAllVehicleByHome(homeId).enqueue(new Callback<List<DeviceVehicle>>() {
+        String token ="Bearer " + sessionManager.getToken();
+        ApiService.apiService.GetAllVehicleByHome(token , homeId).enqueue(new Callback<List<DeviceVehicle>>() {
             @Override
             public void onResponse(Call<List<DeviceVehicle>> call, Response<List<DeviceVehicle>> response) {
                 if (response.isSuccessful() && response.body() != null) {

@@ -18,7 +18,7 @@ builder.Services.AddDbContext<DigitalDeviceContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DigitalDeviceContext")));
 
 // Lắng nghe trên IP cụ thể
-builder.WebHost.UseUrls("http://192.168.40.131:5168", "https://192.168.40.131:7012");
+//builder.WebHost.UseUrls("http://192.168.25.202:5168", "https://192.168.25.202:7012");
 // Cấu hình Authentication với JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 	.AddJwtBearer(options =>
