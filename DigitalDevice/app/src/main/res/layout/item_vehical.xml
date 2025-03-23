@@ -19,15 +19,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt_Name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:text="Xe của Bố - Taycan turbo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_Name"
+                    android:layout_width="288dp"
+                    android:layout_height="36dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Xe của Bố - Taycan turbo"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imgConditionConnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/dis_connect" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/imgVehicle"
@@ -60,7 +72,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Safe"
+                        android:fontFamily="@font/nunito_medium"
+                        android:text="no data!"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -85,6 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="3dp"
+                        android:fontFamily="@font/nunito_medium"
                         android:text="no data!"
                         android:textSize="16sp" />
                 </LinearLayout>

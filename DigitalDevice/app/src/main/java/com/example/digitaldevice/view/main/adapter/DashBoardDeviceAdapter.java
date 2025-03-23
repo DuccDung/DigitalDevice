@@ -15,8 +15,12 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.model.DeviceFunction;
+import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,38 +28,51 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<DeviceFunction> deviceFunctionList;
     private Map<String, String> latestData = new HashMap<>();
     private MqttHandler _mqttHandler; // MQTT Handler
 
-    public DashBoardDeviceAdapter(List<DeviceFunction> deviceFunctionList , MqttHandler mqttHandler) {
+
+    public DashBoardDeviceAdapter(List<DeviceFunction> deviceFunctionList, MqttHandler mqttHandler) {
         this.deviceFunctionList = deviceFunctionList;
         this._mqttHandler = mqttHandler;
     }
 
     public void updateData(String topic, String data) {
-        latestData.put(topic, data);
+        Log.d("MQTT Update", "Topic: " + topic + ", Data: " + data);
+
+        // Kiểm tra nếu dữ liệu là JSON, lưu lại
+        if (data.startsWith("{") && data.endsWith("}")) {
+            latestData.put(topic, data);  // Chỉ cập nhật khi là JSON
+        } else {
+            Log.d("MQTT Update", "Ignoring non-JSON data: " + data);
+        }
+
         notifyDataSetChanged(); // Cập nhật UI
     }
+
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater Inflater = LayoutInflater.from(parent.getContext());
-        if(viewType == 1){
+        if (viewType == 1) {
 
-            View view = Inflater.inflate(R.layout.item_air , parent ,false);
+            View view = Inflater.inflate(R.layout.item_air, parent, false);
             return new DeviceAirHolder(view);
 
         } else if (viewType == 3) {
 
-            View view = Inflater.inflate(R.layout.item_lamp , parent ,false);
+            View view = Inflater.inflate(R.layout.item_lamp, parent, false);
             return new DeviceLampHolder(view);
 
-        }
-        else {
-            View view = Inflater.inflate(R.layout.item_water , parent , false);
+        } else {
+            View view = Inflater.inflate(R.layout.item_water, parent, false);
             return new DeviceWaterHolder(view);
         }
     }
@@ -70,6 +87,12 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                     handleSwitchChange(deviceFunctionList.get(position), isChecked);
+
+                    if (isChecked == true)
+                        airHolder.swAirConditioner.setBackgroundResource(R.drawable.custom_switch_track);
+
+                    else
+                        airHolder.swAirConditioner.setBackgroundResource(R.drawable.custom_switch_init);
                 }
             });
 
@@ -81,23 +104,24 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             if (payload != null && !payload.isEmpty()) {
                 Log.d("MQTT Payload", "Received: " + payload); // Log để kiểm tra dữ liệu đầu vào
 
-                try {
-                    // Kiểm tra xem payload có phải JSON hợp lệ không
-                    if (payload.startsWith("{") && payload.endsWith("}")) {
-                        JSONObject jsonObject = new JSONObject(payload);
-
-                        // Kiểm tra JSON có chứa key "temperature" không
-                        if (jsonObject.has("temperature")) {
-                            temperature = jsonObject.getDouble("temperature");
-                        } else {
-                            Log.e("JSON Error", "Key 'temperature' not found in payload: " + payload);
-                        }
-                    } else {
-                        Log.e("JSON Error", "Invalid JSON format: " + payload);
+                if ("ON".equals(payload) || "OFF".equals(payload)) {
+                    Log.d("MQTT Payload", "Received ON/OFF command: " + payload);
+                } else if (payload.startsWith("{") && payload.endsWith("}")) {
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(payload);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
                     }
-                } catch (JSONException e) {
-                    Log.e("JSON Error", "Failed to parse JSON: " + payload, e);
+                    if (jsonObject.has("temperature")) {
+                        try {
+                            temperature = jsonObject.getDouble("temperature");
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                 }
+
             } else {
                 Log.e("MQTT Payload", "No data received for topic: " + topic);
             }
@@ -108,15 +132,21 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             } else {
                 airHolder.txtAirTemperature.setText("Đang chờ dữ liệu...");
             }
-        }
-        else if (holder instanceof DeviceLampHolder) {
+        } else if (holder instanceof DeviceLampHolder) {
             DeviceLampHolder lampHolder = (DeviceLampHolder) holder;
             lampHolder.txtNameLamp.setText(deviceFunctionList.get(position).getNameDevice());
 
             lampHolder.swLamp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean  isChecked) {
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                     handleSwitchChange(deviceFunctionList.get(position), isChecked);
+                    if (isChecked == true) {
+                        lampHolder.swLamp.setBackgroundResource(R.drawable.custom_switch_track);
+                        lampHolder.txtLampCondition.setText("Device On");
+                    } else {
+                        lampHolder.swLamp.setBackgroundResource(R.drawable.custom_switch_init);
+                        lampHolder.txtLampCondition.setText("Device Off");
+                    }
                 }
             });
 
@@ -128,20 +158,24 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             }
 
             // condition
-        }
-        else if (holder instanceof DeviceWaterHolder) {
+        } else if (holder instanceof DeviceWaterHolder) {
             DeviceWaterHolder waterHolder = (DeviceWaterHolder) holder;
             waterHolder.txtWaterHeaterName.setText(deviceFunctionList.get(position).getNameDevice());
 
             waterHolder.swWaterHeater.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean  isChecked) {
-                    handleSwitchChange(deviceFunctionList.get(position) ,  isChecked);
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                    handleSwitchChange(deviceFunctionList.get(position), isChecked);
+                    if (isChecked == true){
+                        waterHolder.swWaterHeater.setBackgroundResource(R.drawable.custom_switch_track);
+                        waterHolder.txtWaterHeaterCondition.setText("Device On");
+                    }
+                    else{
+                        waterHolder.swWaterHeater.setBackgroundResource(R.drawable.custom_switch_init);
+                        waterHolder.txtWaterHeaterCondition.setText("Device Off");
+                    }
                 }
             });
-
-
-            // condition
         }
     }
 
@@ -149,6 +183,7 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public int getItemCount() {
         return deviceFunctionList.size();
     }
+
     @Override
     public int getItemViewType(int position) {
         String functionID = deviceFunctionList.get(position).getFunctionID();
@@ -166,10 +201,11 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
 
-    public class DeviceLampHolder extends RecyclerView.ViewHolder{
+    public class DeviceLampHolder extends RecyclerView.ViewHolder {
         private TextView txtNameLamp;
         private TextView txtLampCondition;
         private Switch swLamp;
+
         public DeviceLampHolder(@NonNull View itemView) {
             super(itemView);
             txtNameLamp = itemView.findViewById(R.id.txtDeviceLampName);
@@ -178,9 +214,9 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
     }
 
-    public class DeviceAirHolder extends RecyclerView.ViewHolder{
+    public class DeviceAirHolder extends RecyclerView.ViewHolder {
         private TextView txtAirName;
-        private  TextView txtAirTemperature;
+        private TextView txtAirTemperature;
         private Switch swAirConditioner;
 
         public DeviceAirHolder(@NonNull View itemView) {
@@ -191,7 +227,7 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
     }
 
-    public class DeviceWaterHolder extends RecyclerView.ViewHolder{
+    public class DeviceWaterHolder extends RecyclerView.ViewHolder {
 
         private TextView txtWaterHeaterName;
         private TextView txtWaterHeaterCondition;
@@ -209,8 +245,8 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         String deviceID = device.getDeviceID();
         String status = isChecked ? "ON" : "OFF";
         // Gửi dữ liệu MQTT hoặc cập nhật trạng thái
-        Log.d(deviceID, "click " + status );  // Kiểm tra xem có đúng ID không
-        _mqttHandler.publish(deviceID , status);
+        Log.d(deviceID, "click " + status);  // Kiểm tra xem có đúng ID không
+        _mqttHandler.publish(deviceID, status);
     }
 
 }

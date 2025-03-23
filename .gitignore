@@ -1,0 +1,12 @@
+# Bỏ thư mục build của Visual Studio
+.vs/
+bin/
+obj/
+
+# Bỏ file tạm của hệ thống
+*.log
+*.tmp
+*.exe
+*.dll
+*.pdb
+*.cache

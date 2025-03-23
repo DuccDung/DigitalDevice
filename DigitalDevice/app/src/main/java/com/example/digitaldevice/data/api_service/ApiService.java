@@ -22,7 +22,9 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
 
     // Base URL
-    String BASE_URL = "https://192.168.50.152:7012/";
+
+    String BASE_URL = "https://192.168.1.2:7012/";
+
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -57,7 +59,7 @@ public interface ApiService {
     @GET("/api/Devices/GetAllDevice")
     Call<List<Device>> GetALlDeviceByHome(@Query("homeId") String homeId);
 
-    @GET("/api/Devices/GetAllVehicle")
+    @GET("/api/Devices/GetAllVehicleByHome")
     Call<List<DeviceVehicle>> GetAllVehicleByHome(@Query("homeId") String homeId);
 
 }

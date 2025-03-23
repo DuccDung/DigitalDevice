@@ -39,7 +39,7 @@
             android:layout_height="34dp"
             android:layout_gravity="end"
             android:layout_marginTop="4dp"
-            android:background="@drawable/custom_switch_track"
+            android:background="@drawable/custom_switch_init"
             android:thumbTint="#FFFFFF"
             android:trackTint="#00FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +48,9 @@
         <TextView
             android:id="@+id/txtDeviceWaterName"
             android:layout_width="124dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
             android:text="water heater"
-            android:fontFamily="@font/nunito_light"
 
             android:textColor="@color/black"
             android:textSize="15sp"
