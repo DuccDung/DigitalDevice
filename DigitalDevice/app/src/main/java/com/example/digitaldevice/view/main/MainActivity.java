@@ -7,6 +7,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.api_service.ApiService;
@@ -25,11 +27,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import androidx.fragment.app.Fragment;
+
 public class MainActivity extends AppCompatActivity  implements MqttHandler.MqttListener{
     private BottomNavigationView bottomNavigationView;
     private ViewPager2 viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private MqttHandler mqttHandler;
+    private FrameLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             }
         }); // Khởi tạo kết nối MQTT
 
+        // Ánh xạ container
+        container = findViewById(R.id.container);
     }
 
     private void setUpViewPager() {
@@ -170,5 +177,38 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+
+    // Phương thức để các Fragment gọi khi cần chuyển Fragment
+    public void navigateToFragment(Fragment fragment) {
+        // Ẩn ViewPager, hiện container
+        viewPager.setVisibility(View.GONE);
+        container.setVisibility(View.VISIBLE);
+
+        // Thêm Fragment mới vào stack
+        getSupportFragmentManager()
+            .beginTransaction()
+            .add(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
+        
+        if (backStackCount > 0) {
+            // Pop Fragment hiện tại ra khỏi stack
+            getSupportFragmentManager().popBackStack();
+            
+            // Nếu đã pop hết Fragment trong stack
+            if (backStackCount == 1) {
+                // Quay lại ViewPager
+                viewPager.setVisibility(View.VISIBLE);
+                container.setVisibility(View.GONE);
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 }

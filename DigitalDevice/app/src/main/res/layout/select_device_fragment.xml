@@ -47,7 +47,7 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/imageAddRoom"
+            android:id="@+id/imageAddDevice"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"

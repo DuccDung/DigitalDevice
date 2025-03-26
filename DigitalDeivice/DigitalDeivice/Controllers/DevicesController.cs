@@ -80,7 +80,7 @@ namespace DigitalDeivice.Controllers
 
 
 		[HttpGet]
-		[Route("GetDevicesByRoomID")]
+		[Route("GetDeviceFuntionByRoomID")]//đổi đường link cái này là lấy devicefuntion
 		public IActionResult GetDeviceFunction(string RoomID, string HomeID)
 		{
 			var deviceFunctions = _digitalDeviceContext.Rooms
@@ -125,6 +125,8 @@ namespace DigitalDeivice.Controllers
 
 			return Ok(devices);
 		}
+		
+
 
 		[HttpGet]
 		[Route("GetAllDevice")]
@@ -166,6 +168,49 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
+
+		//thêm xóa thiết bị
+
+		[HttpDelete("DeleteDevice")]
+		public IActionResult DeleteDevice(string DeviceId)
+		{
+			try
+			{
+				// Kiểm tra thiết bị có tồn tại không
+				var device = _digitalDeviceContext.Devices.FirstOrDefault(d => d.DeviceId == DeviceId);
+				if (device == null)
+				{
+					return BadRequest("Không tìm thấy thiết bị");
+				}
+				//kiểm tra xem thiết bị đã được sử dụng chưa (có history chưa)
+				var ishasHistory = _digitalDeviceContext.Histories.Any(d => d.DeviceId == DeviceId);
+				if (ishasHistory)
+				{
+					return BadRequest("Không thể xóa thiết bị");
+				}
+
+				// Xóa thiết bị
+				_digitalDeviceContext.Devices.Remove(device);
+				_digitalDeviceContext.SaveChanges();
+
+				return Ok("Xóa thiết bị thành công");
+			}
+			catch (Exception ex)
+			{
+				return BadRequest("Lỗi khi xóa thiết bị: " + ex.Message);
+			}
+		}
+
+		//Thêm lấy thiết bị theo RoomId
+		[HttpGet]
+		[Route("GetDevicesByRoomID")]
+		public IActionResult GetDevice(string roomId)
+		{
+			var devices = _digitalDeviceContext.Devices.Where(x => x.RoomId == roomId).ToList();
+			return Ok(devices);
+		}
+		
+
 
 	}
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -49,8 +50,18 @@ public interface ApiService {
 
     @GET("/api/Rooms/GetRoomsByHomeID")
     Call<List<Room>> GetRooms(@Query("HomeID") String HomeID);
-
+    //thêm xóa phòng
+    @DELETE("/api/Rooms/DeleteRoom")
+    Call<String> DeleteRoom(@Query("RoomId") String RoomId);
+    //thêm xóa thiết bị
+    @DELETE("/api/Devices/DeleteDevice")
+    Call<String> DeleteDevice(@Query("DeviceId") String DeviceId);
+    //thêm lấy thiết bị theo Roomid
     @GET("/api/Devices/GetDevicesByRoomID")
+    Call<List<Device>> GetDevice(@Query("RoomID") String RoomID);
+
+    //cái này sẽ sửa lại đường link là lấy DeviceFunction
+    @GET("/api/Devices/GetDeviceFuntionByRoomID")
     Call<List<DeviceFunction>> GetDeviceFunction(@Query("RoomID") String RoomID , @Query("HomeID") String HomeID);
 
     @GET("/api/Users/GetHomeUsersByUserId")
@@ -62,4 +73,32 @@ public interface ApiService {
     @GET("/api/Devices/GetAllVehicleByHome")
     Call<List<DeviceVehicle>> GetAllVehicleByHome(@Query("homeId") String homeId);
 
+    @GET("/api/Devices/CreateDevice")
+    Call<DeviceCreateResponse> CreateDevice(
+        @Query("DeviceId") String DeviceId,
+        @Query("Name") String Name,
+        @Query("RoomId") String RoomId,
+        @Query("FunctionId") String FunctionId
+    );
+}
+
+class DeviceCreateResponse {
+    private String DeviceId;
+    private String FunctionId;
+
+    public String getDeviceId() {
+        return DeviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.DeviceId = deviceId;
+    }
+
+    public String getFunctionId() {
+        return FunctionId;
+    }
+
+    public void setFunctionId(String functionId) {
+        this.FunctionId = functionId;
+    }
 }

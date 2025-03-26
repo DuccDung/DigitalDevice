@@ -16,16 +16,16 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- Room Image -->
+        <!-- Device Image -->
         <ImageView
-            android:id="@+id/imageRoom"
+            android:id="@+id/imageDevice"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
 
-            android:contentDescription="Room image" />
+            android:contentDescription="Device image" />
 
-        <!-- Room Info -->
+        <!-- Device Info -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"

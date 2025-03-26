@@ -23,6 +23,16 @@ public class Room {
     @SerializedName("photoPath")
     private String photoPath;
 
+    @SerializedName("deviceCount")
+    private int deviceCount;
+
+    
+    public int getDeviceCount() {
+        return deviceCount;
+    }
+    
+
+
     public String getRoomId() {
         return roomId;
     }

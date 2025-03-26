@@ -35,7 +35,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/txtDeviceName"
+                android:id="@+id/txtRoomName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Livingroom"
@@ -52,13 +52,14 @@
                 android:textColor="#757575" />
         </LinearLayout>
 
-        <!-- More Options Button -->
         <ImageView
-            android:id="@+id/imageMoreOptions"
+            android:id="@+id/imageOptions"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_more"
-            android:contentDescription="More options" />
+            android:contentDescription="Options menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_more" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
