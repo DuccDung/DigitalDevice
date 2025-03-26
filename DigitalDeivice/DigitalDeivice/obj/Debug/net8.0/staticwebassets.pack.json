@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\PC\\Downloads\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "PackagePath": "staticwebassets\\images\\icon_badroom.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Downloads\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "PackagePath": "staticwebassets\\images\\icon_bathroom.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Downloads\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "PackagePath": "staticwebassets\\images\\icon_different.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Downloads\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "PackagePath": "staticwebassets\\images\\icon_kitchen.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Downloads\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "PackagePath": "staticwebassets\\images\\icon_livingroom.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DigitalDeivice.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DigitalDeivice.props",
+      "PackagePath": "build\\DigitalDeivice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DigitalDeivice.props",
+      "PackagePath": "buildMultiTargeting\\DigitalDeivice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DigitalDeivice.props",
+      "PackagePath": "buildTransitive\\DigitalDeivice.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

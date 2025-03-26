@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="235sp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:layout_margin="4dp"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deviceAir"
+        android:layout_width="match_parent"
+        android:layout_height="235sp"
+        android:padding="16dp">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="57dp"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_airconditioner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Toggle Switch -->
+        <Switch
+            android:id="@+id/switch_Air"
+            android:layout_width="51dp"
+            android:layout_height="34dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_switch_track"
+            android:thumbTint="#FFFFFF"
+            android:trackTint="#00FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Device Name -->
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/txtDeviceAirName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nunito_light"
+            android:text="Air Conditioner"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Temperature -->
+
+        <!-- Mode -->
+
+        <TextView
+            android:id="@+id/device_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrance"
+            android:fontFamily="@font/nunito_light"
+            android:textColor="#999"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/txtDeviceAirName"
+            app:layout_constraintTop_toBottomOf="@+id/txtDeviceAirName" />
+
+        <TextView
+            android:id="@+id/txtDeviceAirTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="23°C"
+            android:textColor="#323131"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/device_location"
+            app:layout_constraintTop_toBottomOf="@+id/device_location" />
+
+        <TextView
+            android:id="@+id/mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Mode: Auto"
+            android:textColor="#777"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/txtDeviceAirTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/txtDeviceAirTemperature" />
+
+        <!-- Temperature Controls -->
+        <LinearLayout
+            android:layout_width="129dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/decrease_temp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="#E0E0E0"
+                android:text="−"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/increase_temp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:backgroundTint="#E0E0E0"
+                android:text="+"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,193 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\RoomsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Controllers\\RoomsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\DevicesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Controllers\\DevicesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\DigitalDeviceContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Models\\DigitalDeviceContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Authority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Models\\Authority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DigitalDeivice\\Models\\Device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 2458,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DigitalDeviceContext.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\DigitalDeviceContext.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\DigitalDeviceContext.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\DigitalDeviceContext.cs",
+              "RelativeToolTip": "DigitalDeivice\\Models\\DigitalDeviceContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T04:36:00.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Program.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Program.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Program.cs",
+              "RelativeToolTip": "DigitalDeivice\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T02:31:00.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\User.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\User.cs",
+              "RelativeToolTip": "DigitalDeivice\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T23:19:10.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Authority.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Authority.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\Authority.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Authority.cs",
+              "RelativeToolTip": "DigitalDeivice\\Models\\Authority.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T23:07:43.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Properties\\launchSettings.json",
+              "RelativeToolTip": "DigitalDeivice\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-23T13:28:08.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\RoomsController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "DigitalDeivice\\Controllers\\RoomsController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T01:11:10.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DevicesController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\DevicesController.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Controllers\\DevicesController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Controllers\\DevicesController.cs",
+              "RelativeToolTip": "DigitalDeivice\\Controllers\\DevicesController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAJMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T00:37:19.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Device.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Device.cs",
+              "RelativeDocumentMoniker": "DigitalDeivice\\Models\\Device.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Music\\DigitalDevice-bich\\DigitalDevice-bich\\DigitalDeivice\\DigitalDeivice\\Models\\Device.cs",
+              "RelativeToolTip": "DigitalDeivice\\Models\\Device.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T00:38:55.618Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 765,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

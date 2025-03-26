@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="4dp">
+
+    <!-- Vòng tròn nền -->
+    <FrameLayout
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/circle_background"
+        android:gravity="center">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/imgIcon_item_room"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:padding="9sp"
+            android:src="@drawable/icon_livingroom" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txtName_item_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:text="Living Room" />
+</LinearLayout>

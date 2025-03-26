@@ -1,0 +1,6 @@
+@DigitalDeivice_HostAddress = http://localhost:5052
+
+GET {{DigitalDeivice_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
