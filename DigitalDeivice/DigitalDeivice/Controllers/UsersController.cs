@@ -121,6 +121,62 @@ namespace DigitalDeivice.Controllers
 
 				return query.ToList();
 		}
+		//cập nhật thông tin người dùng
+		[HttpPut]
+		[Route("UpdateUser")]
+		public IActionResult UpdateUser(string userId, string Name, string Phone, string Password)
+		{
+			var user = _digitalDeviceContext.Users.FirstOrDefault(u => u.UserId == userId);
+			if (user == null)
+			{
+				return NotFound("User not found!");
+			}
+
+			user.Name = Name;
+			user.Phone = Phone;
+			user.Password = Password;
+
+			_digitalDeviceContext.SaveChanges();
+			return Ok("User updated successfully!");
+		}
+		//Upload ảnh đại diện
+		[HttpPost]
+		[Route("UploadAvatar")]
+		public async Task<IActionResult> UploadAvatar(string userId, IFormFile file)
+		{
+			var user = _digitalDeviceContext.Users.FirstOrDefault(u => u.UserId == userId);
+			if (user == null)
+			{
+				return NotFound("User not found!");
+			}
+
+			if (file == null || file.Length == 0)
+			{
+				return BadRequest("Invalid file!");
+			}
+
+			// Lưu ảnh vào thư mục wwwroot/uploads
+			string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+			if (!Directory.Exists(uploadsFolder))
+			{
+				Directory.CreateDirectory(uploadsFolder);
+			}
+
+			string fileName = $"{Guid.NewGuid()}_{file.FileName}";
+			string filePath = Path.Combine(uploadsFolder, fileName);
+
+			using (var stream = new FileStream(filePath, FileMode.Create))
+			{
+				await file.CopyToAsync(stream);
+			}
+
+			// Cập nhật đường dẫn ảnh trong database
+			user.PhotoPath = "/uploads/" + fileName;
+			_digitalDeviceContext.SaveChanges();
+
+			return Ok(new { message = "Avatar uploaded successfully!", filePath = user.PhotoPath });
+		}
+
 	}
 
 }
