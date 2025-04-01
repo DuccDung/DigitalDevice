@@ -2,6 +2,7 @@ package com.example.digitaldevice.view.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
@@ -16,6 +17,9 @@ import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.utils.SessionManager;
+import com.example.digitaldevice.view.main.fragment.DashBoardFragment;
+import com.example.digitaldevice.view.main.fragment.SettingFragment;
+import com.example.digitaldevice.view.main.fragment.VehicleFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -42,52 +46,37 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             public void onSuccess(Boolean data) {
                 initialize();
 
-                // Xử lý sự kiện chọn menu trong BottomNavigationView
                 bottomNavigationView.setOnItemSelectedListener(item -> {
+                    Fragment selectedFragment = null;
                     if (item.getItemId() == R.id.itemDashboard) {
-                        viewPager.setCurrentItem(0);
-                    } else if (item.getItemId() == R.id.itemVehicle) { // Đổi tên ID nếu cần
-                        viewPager.setCurrentItem(1);
+                        selectedFragment = new DashBoardFragment();
+                    } else if (item.getItemId() == R.id.itemVehicle) {
+                        selectedFragment = new VehicleFragment();
                     } else if (item.getItemId() == R.id.itemSetting) {
-                        viewPager.setCurrentItem(2);
+                        selectedFragment = new SettingFragment();
+                    }
+                    if (selectedFragment != null) {
+                        loadFragment(selectedFragment);
                     }
                     return true;
                 });
-                setUpViewPager();
             }
 
             @Override
             public void onFailure(Throwable t) {
 
             }
-        }); // Khởi tạo kết nối MQTT
-
-    }
-
-    private void setUpViewPager() {
-        viewPagerAdapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(viewPagerAdapter);
-
-        // Ngăn chặn vuốt sang MapFragment
-        viewPager.setUserInputEnabled(true);
-
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                if (position == 0) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemDashboard).setChecked(true);
-                } else if (position == 1) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemVehicle).setChecked(true);
-                } else if (position == 2) {
-                    bottomNavigationView.getMenu().findItem(R.id.itemSetting).setChecked(true);
-                }
-            }
         });
+    }
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
     private void initialize() {
         bottomNavigationView = findViewById(R.id.navigationViewMain);
-        viewPager = findViewById(R.id.viewPagerMain);
+        loadFragment(new DashBoardFragment());
     }
     public void openMapFragment(double latitude, double longitude) {
         viewPagerAdapter.addMapFragment(latitude , longitude);
@@ -95,7 +84,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     }
     public void closeMapFragment() {
         viewPagerAdapter.removeMapFragment();
-        viewPager.setCurrentItem(1, true); // Quay về VehicleFragment
+        loadFragment(new VehicleFragment());
     }
     private void InitializeApp(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();

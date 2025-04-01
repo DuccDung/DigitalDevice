@@ -7,11 +7,22 @@
     android:background="@drawable/gradient_background"
     tools:context=".view.main.MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
+<!--    <androidx.viewpager2.widget.ViewPager2-->
 
-        android:id="@+id/viewPagerMain"
+<!--        android:id="@+id/viewPagerMain"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/navigationViewMain"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />
+-->
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/navigationViewMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
