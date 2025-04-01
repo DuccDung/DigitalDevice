@@ -130,7 +130,7 @@ public class DashBoardDeviceAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             if (temperature != 0.0) {
                 airHolder.txtAirTemperature.setText(temperature + "°C");
             } else {
-                airHolder.txtAirTemperature.setText("Đang chờ dữ liệu...");
+                airHolder.txtAirTemperature.setText("27°C");
             }
         } else if (holder instanceof DeviceLampHolder) {
             DeviceLampHolder lampHolder = (DeviceLampHolder) holder;

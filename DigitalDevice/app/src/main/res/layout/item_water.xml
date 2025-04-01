@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="117.5sp"
+    android:layout_height="117.5dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
     android:layout_margin="4dp"
@@ -17,59 +17,91 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Biểu tượng -->
-
-        <!-- Nút bật/tắt -->
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="57dp"
+            android:layout_width="50dp"
             android:layout_height="48dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/icon_defferent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Tên thiết bị -->
-
-        <!-- Số lượng thiết bị -->
-
-        <Switch
-            android:id="@+id/switch_water"
-            android:layout_width="51dp"
-            android:layout_height="34dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/custom_switch_init"
-            android:thumbTint="#FFFFFF"
-            android:trackTint="#00FFFFFF"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:layout_weight="1">
+                <Switch
+                    android:id="@+id/switch_water"
+                    android:layout_width="51dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/custom_switch_init"
+                    android:thumbTint="#FFFFFF"
+                    android:trackTint="#00FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtDeviceWaterName"
-            android:layout_width="124dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_medium"
-            android:text="water heater"
-
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/txtDeviceLampCondition"
-            app:layout_constraintEnd_toEndOf="@+id/txtDeviceLampCondition"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/txtDeviceLampCondition"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/txtDeviceLampCondition"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
-            android:text="Device Off"
-            android:textColor="#999"
-            android:textSize="13sp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.138"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtDeviceWaterName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="water heater"
+
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toTopOf="@+id/txtDeviceLampCondition"
+                    app:layout_constraintEnd_toEndOf="@+id/txtDeviceLampCondition"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txtDeviceLampCondition"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/txtDeviceLampCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Device Off"
+                    android:textColor="#999"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.138"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -85,19 +85,14 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             }
         });
     }
-
     private void initialize() {
         bottomNavigationView = findViewById(R.id.navigationViewMain);
         viewPager = findViewById(R.id.viewPagerMain);
     }
-
-    //  Mở MapFragment khi bấm nút từ VehicleFragment
     public void openMapFragment(double latitude, double longitude) {
         viewPagerAdapter.addMapFragment(latitude , longitude);
         viewPager.setCurrentItem(3, true);
     }
-
-    //  Đóng MapFragment khi quay lại
     public void closeMapFragment() {
         viewPagerAdapter.removeMapFragment();
         viewPager.setCurrentItem(1, true); // Quay về VehicleFragment
@@ -134,7 +129,6 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         });
     }
     private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
-        //  Đảm bảo `MainActivity` triển khai `MqttHandler.MqttListener`
         mqttHandler = new MqttHandler( MainActivity.this);
 
         // Thông số kết nối
@@ -144,15 +138,12 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         String username = DataUserLocal.getInstance(MainActivity.this).getUserMqtt();
         String password = DataUserLocal.getInstance(MainActivity.this).getPasswordMqtt();
 
-        // ✅ Kết nối với MQTT broker
         mqttHandler.connect(brokerUrl, port, clientId, username, password);
 
-        // ✅ Kiểm tra danh sách trước khi subscribe
         if (devices == null || devices.isEmpty()) {
             Log.e("MQTT", "Device list is empty, skipping subscription.");
             return;
         }
-        // ✅ Subscribe tất cả các device ID trong danh sách
         for (Device device : devices) {
             String topic = device.getDeviceID();
             Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
@@ -160,18 +151,13 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         }
         callback.onSuccess(true);
     }
-
     public MqttHandler getMqttHandler() {
         return mqttHandler;
     }
-
     @Override
     public void onMessageReceived(String topic, String payload) {
-            Log.d("Main" , topic);
-        //Gửi dữ liệu MQTT đến tất cả Fragment đang lắng nghe
         EventBus.getDefault().post(new MqttEvent(topic, payload));
     }
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
