@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        android:startColor="#E89B2A"
+        android:endColor="#F5C021"
+        android:angle="270"/> <!-- Gradient từ dưới lên -->
+
+    <corners android:radius="50dp" /> <!-- Bo tròn toàn bộ -->
+</shape>
