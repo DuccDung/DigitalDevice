@@ -31,19 +31,14 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/imgAdd"
-                        android:layout_width="88dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/back" />
-
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
                         android:gravity="center"
-                        android:text="SETTINGS"
-                        android:textColor="#000000"
+                        android:text="SETTING"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -53,7 +48,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -72,24 +66,13 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Accounts and security"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
-
-                    <ImageView
-                        android:id="@+id/more1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ln2"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -108,43 +91,18 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Select home"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:id="@+id/vied"
-                        android:layout_width="96dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#FFFFFF" />
-
-                    <View
-                        android:id="@+id/viewa4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#D6D6D6" />
-                </LinearLayout>
+                    android:orientation="horizontal"></LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ln3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -163,45 +121,20 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Manage room and devices"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
 
-                    <ImageView
-                        android:id="@+id/imageVi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:id="@+id/vie"
-                        android:layout_width="96dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#FFFFFF" />
-
-                    <View
-                        android:id="@+id/view4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#D6D6D6" />
-
-                </LinearLayout>
+                    android:orientation="horizontal"></LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ln4"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -220,16 +153,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Household members"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
 
-                    <ImageView
-                        android:id="@+id/imagaeVi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
 
                 </LinearLayout>
 
@@ -237,8 +162,6 @@
                     android:id="@+id/ln5"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -257,16 +180,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Language"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
 
-                    <ImageView
-                        android:id="@+id/imageViesw"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
 
                 </LinearLayout>
 
@@ -279,22 +194,19 @@
                         android:id="@+id/vide"
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#FFFFFF" />
+                        android:layout_weight="1" />
 
                     <View
                         android:id="@+id/visew4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#D6D6D6" />
+                        android:layout_weight="1" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ln6"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#FFFFFF"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -313,38 +225,33 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="Display mode"
-                        android:textColor="#000000"
                         android:textSize="18dp" />
-
-                    <ImageView
-                        android:id="@+id/imvageViesw"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/st_right" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="18dp"
+                        android:src="@drawable/st_logout" />
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="18dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_background"
-                    android:backgroundTint="#FFFFFF"
-                    android:drawableLeft="@drawable/st_logout"
-                    android:text="Log out"
-                    android:textColor="#000000"
-                    android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Logout"
+                        android:textSize="18dp" />
+
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
