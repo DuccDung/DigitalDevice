@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj": {}
+    "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj": {}
   },
   "projects": {
-    "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj": {
+    "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
+        "projectUniqueName": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
         "projectName": "DigitalDeivice",
-        "projectPath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
+        "projectPath": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
         "packagesPath": "C:\\Users\\Acer pro\\.nuget\\packages\\",
-        "outputPath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\obj\\",
+        "outputPath": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
