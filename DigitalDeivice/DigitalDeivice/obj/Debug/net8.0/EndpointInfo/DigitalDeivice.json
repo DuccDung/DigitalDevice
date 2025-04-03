@@ -242,6 +242,111 @@
         }
       }
     },
+    "/api/Auth/GetLogin": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/Register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Phone",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Devices/CreateDevice": {
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "parameters": [
+          {
+            "name": "DeviceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RoomId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FunctionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Devices/GetDevicesByRoomID": {
       "get": {
         "tags": [
@@ -317,7 +422,7 @@
         }
       }
     },
-    "/api/Devices/GetAllVehicle": {
+    "/api/Devices/GetAllVehicleByHome": {
       "get": {
         "tags": [
           "Devices"
@@ -385,80 +490,38 @@
         }
       }
     },
+    "/api/Users/GetAuth": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "HomeID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UserID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/GetUsers": {
       "get": {
         "tags": [
           "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Users/GetLogin": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "Name",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Password",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Users/Register": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "Name",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Password",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Email",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Phone",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -654,10 +717,10 @@
             "type": "string",
             "nullable": true
           },
-          "userAuthorities": {
+          "homeUsers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserAuthority"
+              "$ref": "#/components/schemas/HomeUser"
             },
             "nullable": true
           }
@@ -879,11 +942,18 @@
             "type": "string",
             "nullable": true
           },
+          "authorityID": {
+            "type": "string",
+            "nullable": true
+          },
           "home": {
             "$ref": "#/components/schemas/Home"
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority"
           }
         },
         "additionalProperties": false
@@ -1002,41 +1072,6 @@
               "$ref": "#/components/schemas/HomeUser"
             },
             "nullable": true
-          },
-          "userAuthorities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserAuthority"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserAuthority": {
-        "type": "object",
-        "properties": {
-          "userAuthorityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "authorityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "authority": {
-            "$ref": "#/components/schemas/Authority"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false

@@ -164,6 +164,84 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DigitalDeivice.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/GetLogin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.DevicesController",
+    "Method": "CreateDevice",
+    "RelativePath": "api/Devices/CreateDevice",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DeviceId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RoomId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FunctionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "GetAllDevice",
     "RelativePath": "api/Devices/GetAllDevice",
@@ -192,7 +270,7 @@
   {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
     "Method": "GetAllVehicle",
-    "RelativePath": "api/Devices/GetAllVehicle",
+    "RelativePath": "api/Devices/GetAllVehicleByHome",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -254,6 +332,27 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "GetAdmins",
+    "RelativePath": "api/Users/GetAuth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "HomeID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "GetHomeUsersByUserId",
     "RelativePath": "api/Users/GetHomeUsersByUserId",
     "HttpMethod": "GET",
@@ -280,64 +379,12 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
-    "Method": "Login",
-    "RelativePath": "api/Users/GetLogin",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users/GetUsers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DigitalDeivice.Controllers.UsersController",
-    "Method": "Register",
-    "RelativePath": "api/Users/Register",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Phone",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   },
   {

@@ -1,18 +1,85 @@
 ﻿using DigitalDeivice.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class DevicesController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;
+		private object random;
+
+	
 		public DevicesController(DigitalDeviceContext digitalDeviceContext)
 		{
 			_digitalDeviceContext = digitalDeviceContext;
 		}
+
+		[HttpPost]
+		[Route("CreateDevice")]
+
+		public IActionResult CreateDevice(string DeviceId, string Name, string RoomId, string FunctionId)
+		{
+			var isDevice = _digitalDeviceContext.Devices.Find(DeviceId);
+			var isRoom = _digitalDeviceContext.Rooms.Find(RoomId);
+			var isFunction = _digitalDeviceContext.DeviceFunctionalities.Find(FunctionId);
+
+			if (isDevice != null || isFunction == null || isRoom == null)
+			{
+				return BadRequest("Device existed or the room and function do not exist");
+			}
+
+			// Tạo thiết bị mới
+			Device device = new Device
+			{
+				DeviceId = DeviceId,
+				NameDevice = Name,
+				RoomId = RoomId
+			};
+
+			// Lấy danh sách các ID hiện có
+			var existingIDs = _digitalDeviceContext.DeviceFunctions
+				.Select(df => df.DeviceFunctionId)
+				.ToList();
+
+			// Tạo ID ngẫu nhiên không trùng
+			string newFunctionId = GenerateRandomDeviceFunctionID(existingIDs);
+
+			DeviceFunction deviceFunction = new DeviceFunction
+			{
+				DeviceFunctionId = newFunctionId, // Gán ID mới
+				DeviceId = DeviceId,
+				FunctionId = FunctionId
+			};
+
+			_digitalDeviceContext.Devices.Add(device);
+			_digitalDeviceContext.DeviceFunctions.Add(deviceFunction);
+			_digitalDeviceContext.SaveChanges();
+
+			return Ok(new { DeviceId = DeviceId, FunctionId = newFunctionId });
+		}
+
+		// Hàm sinh ID ngẫu nhiên
+		private string GenerateRandomDeviceFunctionID(List<string> existingIDs)
+		{
+			Random random = new Random();
+			string newID;
+			do
+			{
+				int randomNumber = random.Next(1, 1000); // Tạo số ngẫu nhiên từ 1-999
+				newID = $"df_{randomNumber:D3}";
+			}
+			while (existingIDs.Contains(newID)); // Kiểm tra trùng
+
+			return newID;
+		}
+
+
 
 		[HttpGet]
 		[Route("GetDevicesByRoomID")]
@@ -79,8 +146,11 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
+		
+
+
 		[HttpGet]
-		[Route("GetAllVehicle")]
+		[Route("GetAllVehicleByHome")]
 		public List<Device> GetAllVehicle(string homeId)
 		{
 			var query = from home in _digitalDeviceContext.Homes
@@ -88,7 +158,7 @@ namespace DigitalDeivice.Controllers
 						on home.HomeId equals room.HomeId
 						join device in _digitalDeviceContext.Devices
 						on room.RoomId equals device.RoomId
-						where home.HomeId == homeId && room.RoomId == "r_000"
+						where home.HomeId == homeId && room.RoomId.StartsWith("vehicle_")
 						select new Device
 						{
 							DeviceId = device.DeviceId,
@@ -98,5 +168,6 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
+
 	}
 }
