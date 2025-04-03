@@ -188,7 +188,7 @@
     "ContainingType": "DigitalDeivice.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/Register",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -199,11 +199,6 @@
       },
       {
         "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Email",
         "Type": "System.String",
         "IsRequired": false
       },

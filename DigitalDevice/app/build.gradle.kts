@@ -63,5 +63,7 @@ dependencies {
 
     // thư viện jwt
     implementation ("com.auth0.android:jwtdecode:2.0.1")
+    // animation
+    implementation ("com.airbnb.android:lottie:6.0.0")
 
 }

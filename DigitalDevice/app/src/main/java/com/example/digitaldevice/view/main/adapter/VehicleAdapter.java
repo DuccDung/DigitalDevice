@@ -40,8 +40,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     public void updateData(String topic, String data) {
         Log.d("Dữ liệu từ vehicle", data);
         latestData.put(topic, data);
-        notifyDataSetChanged(); // Cập nhật UI
-
+        notifyDataSetChanged(); // Update UI
     }
 
     public VehicleAdapter(VehicleOnClick _context, List<DeviceVehicle> deviceVehicle) {
@@ -65,17 +64,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     @Override
     public void onBindViewHolder(@NonNull VehicleHolder holder, int position) {
         VehicleHolder vehicleHolder = (VehicleHolder) holder;
-        // truyền dữ liệu liên tục
+        // real time load data
         DeviceVehicle deviceVehicle = devicesVehicle.get(position); // deviceVehicle
 
         holder.txtName.setText(deviceVehicle.getNameDevice());
         OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
-
-//        Glide.with(holder.itemView.getContext())
-//                .load(ApiService.getBaseDomain() + deviceVehicle.getPhotoPath())
-//                .placeholder(R.drawable.placeholder)
-//                .error(R.drawable.error)
-//                .into(holder.imgVehicle);
 
         if (holder.imgVehicle.getTag() == null) {
             Glide.with(holder.itemView.getContext())
@@ -83,32 +76,17 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
                     .into(holder.imgVehicle);
-
-            // Đánh dấu rằng ảnh này đã được tải
             holder.imgVehicle.setTag(true);
         }
-        // ================================================================
 
-        // ==================================================================
-        // xử lý json
-        String jsonString = latestData.get(deviceVehicle.getDeviceID()); // lấy json dữ liệu MQTT trả về
+        String jsonString = latestData.get(deviceVehicle.getDeviceID()); // get json data MQTT return
         double _lat = 0;
         double _lng = 0;
         try {
-            // ✅ Parse chuỗi JSON
             JSONObject jsonObject = new JSONObject(jsonString);
-
-            // ✅ Lấy giá trị từ JSON và chuyển thành String
             double lat = jsonObject.getDouble("lat");
             double lng = jsonObject.getDouble("lng");
-
-            //String speed = String.valueOf(jsonObject.getDouble("speed"));
             int speed = (int) jsonObject.getDouble("speed");
-
-            // ✅ Hiển thị kết quả
-            System.out.println("Latitude: " + lat);
-            System.out.println("Longitude: " + lng);
-            System.out.println("Speed: " + speed);
             _lat = lat;
             _lng = lng;
             if (speed == 0) {
@@ -117,12 +95,14 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
                 Glide.with(holder.itemView.getContext())
                         .load(R.drawable.connect)
                         .into(holder.imgCondition);
+                holder.overlayView.setVisibility(View.GONE);
             } else {
                 holder.txtSpeed.setText(speed + "km/h");
                 // --------------disconnect----------------------
                 Glide.with(holder.itemView.getContext())
                         .load(R.drawable.connect)
                         .into(holder.imgCondition);
+                holder.overlayView.setVisibility(View.GONE);
             }
             if (speed <= 50) {
                 holder.txtSpeed.setTextColor(R.color.green);
@@ -165,6 +145,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         private TextView txtSpeed;
         private LinearLayout btnDetail;
         private ImageView imgCondition;
+        private View overlayView;
 
         public VehicleHolder(@NonNull View itemView) {
             super(itemView);
@@ -174,6 +155,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
             txtSpeed = itemView.findViewById(R.id.txtKm);
             btnDetail = itemView.findViewById(R.id.btnVehicleDetails);
             imgCondition = itemView.findViewById(R.id.imgConditionConnect);
+            overlayView = itemView.findViewById(R.id.overlayViewInVehicle);
         }
     }
 }

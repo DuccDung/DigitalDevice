@@ -78,9 +78,9 @@ namespace DigitalDeivice.Controllers
 			return userId;
 		}
 
-		[HttpGet]
+		[HttpPost]
 		[Route("Register")]
-		public IActionResult Register(string Name, string Password, string Email, string Phone)
+		public IActionResult Register(string Name, string Password, string Phone)
 		{
 			// Tạo mã UserId ngẫu nhiên và duy nhất
 			string UserId = GenerateUniqueUserId();
@@ -101,7 +101,7 @@ namespace DigitalDeivice.Controllers
 
 			_context.Users.Add(user);
 			_context.SaveChanges();
-			return Ok("Register Success!");
+			return Ok();
 		}
 	}
 }

@@ -4,19 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context="com.example.digitaldevice.view.select_home.SelectHomeActivity">
 
-    <!-- Background Image -->
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_login"
-        android:alpha="0.7"
-        />
-
-    <!-- Transparent overlay -->
     <RelativeLayout
         android:id="@+id/overlay"
         android:layout_width="match_parent"
@@ -32,19 +22,6 @@
             android:elevation="4dp"
             android:orientation="vertical"
             android:padding="20dp">
-
-            <!-- Title -->
-            <!--            <TextView-->
-            <!--                android:id="@+id/loginTitle"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:fontFamily="@font/nunito_black"-->
-            <!--                android:paddingBottom="16dp"-->
-            <!--                android:text="LOG IN"-->
-            <!--                android:textColor="#C8323131"-->
-            <!--                android:textSize="24sp"-->
-            <!--                android:textStyle="bold" />-->
 
 
             <!-- Log in button -->
@@ -74,8 +51,6 @@
                     android:textSize="14sp"
                     android:textStyle="italic" />
             </LinearLayout>
-
-
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

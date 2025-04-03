@@ -1,3 +1,10 @@
+wwwroot\images\home_1.png
+wwwroot\images\home_2.png
+wwwroot\images\home_3.png
+wwwroot\images\home_4.png
+wwwroot\images\home_5.png
+wwwroot\images\home_6.png
+wwwroot\images\home_7.png
 wwwroot\images\icon_badroom.png
 wwwroot\images\icon_bathroom.png
 wwwroot\images\icon_different.png

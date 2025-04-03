@@ -1,6 +1,34 @@
 {
   "Files": [
     {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
+      "PackagePath": "staticwebassets\\images\\home_1.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
+      "PackagePath": "staticwebassets\\images\\home_2.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
+      "PackagePath": "staticwebassets\\images\\home_3.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
+      "PackagePath": "staticwebassets\\images\\home_4.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
+      "PackagePath": "staticwebassets\\images\\home_5.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
+      "PackagePath": "staticwebassets\\images\\home_6.png"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
+      "PackagePath": "staticwebassets\\images\\home_7.png"
+    },
+    {
       "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "PackagePath": "staticwebassets\\images\\icon_badroom.png"
     },

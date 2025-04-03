@@ -271,7 +271,7 @@
       }
     },
     "/api/Auth/Register": {
-      "get": {
+      "post": {
         "tags": [
           "Auth"
         ],
@@ -285,13 +285,6 @@
           },
           {
             "name": "Password",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Email",
             "in": "query",
             "schema": {
               "type": "string"

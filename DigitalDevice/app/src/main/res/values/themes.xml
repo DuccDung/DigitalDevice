@@ -1,14 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.DigitalDevice" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+
+    <!-- Base application theme compatible with Material Components -->
+    <style name="Base.Theme.DigitalDevice" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MyCustomTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.MyCustomTheme" parent="Base.Theme.DigitalDevice">
         <!-- Đặt gradient làm background của Activity -->
         <item name="android:windowBackground">@drawable/gradient_background</item>
     </style>
 
     <style name="Theme.DigitalDevice" parent="Base.Theme.DigitalDevice" />
+
 </resources>
