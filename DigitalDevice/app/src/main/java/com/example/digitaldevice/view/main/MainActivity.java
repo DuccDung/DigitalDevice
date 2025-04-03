@@ -2,6 +2,7 @@ package com.example.digitaldevice.view.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.LinearLayout;
 
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.api_service.ApiService;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private ViewPagerAdapter viewPagerAdapter;
     private MqttHandler mqttHandler;
     private SessionManager sessionManager;
+    private LinearLayout itemLoad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +49,18 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         setContentView(R.layout.activity_main);
         makeStatusBarTransparent();
         applyTopPadding();
+        bottomNavigationView = findViewById(R.id.navigationViewMain);
+        itemLoad = findViewById(R.id.itemLoading);
+        itemLoad.setVisibility(View.VISIBLE);
+        bottomNavigationView.setVisibility(View.GONE);
         InitializeApp(new DataCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean data) {
-                initialize();
 
+                itemLoad.setVisibility(View.GONE);
+                bottomNavigationView.setVisibility(View.VISIBLE);
+
+                loadFragment(new DashBoardFragment());
                 bottomNavigationView.setOnItemSelectedListener(item -> {
                     Fragment selectedFragment = null;
                     if (item.getItemId() == R.id.itemDashboard) {
@@ -79,9 +89,8 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
                 .replace(R.id.fragment_container, fragment)
                 .commit();
     }
-    private void initialize() {
-        bottomNavigationView = findViewById(R.id.navigationViewMain);
-        loadFragment(new DashBoardFragment());
+    private void initializeView() {
+
     }
     public void openMapFragment(double latitude, double longitude) {
         viewPagerAdapter.addMapFragment(latitude , longitude);
@@ -165,8 +174,6 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
 
         window.setStatusBarColor(Color.TRANSPARENT);
     }
-
-
     private void applyTopPadding() {
         View contentContainer = findViewById(R.id.fragment_container);
 
@@ -175,8 +182,6 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             contentContainer.setPadding(0, statusBarHeight, 0, 0);
         }
     }
-
-
     private int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");

@@ -123,6 +123,7 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         sessionManager = new SessionManager(requireContext());
         // khởi chạy....
         CheckToken();
@@ -224,6 +225,7 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
         }, dataUserLocal.getHomeId(), roomId); // Xử lý lấy device trong room
     }
     private void InitializeDeviceFirst(String RoomId) {
+        if (!isAdded()) return;
         DataUserLocal dataUserLocal = DataUserLocal.getInstance(requireContext());
         connectApiDevice(new DataCallback<List<DeviceFunction>>() {
             @Override

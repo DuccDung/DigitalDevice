@@ -7,17 +7,6 @@
     android:background="@drawable/gradient_background"
     tools:context=".view.main.MainActivity">
 
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-
-<!--        android:id="@+id/viewPagerMain"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/navigationViewMain"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />
--->
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -26,7 +15,10 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+    </FrameLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/bottomNavContainer"
@@ -51,5 +43,20 @@
             app:menu="@menu/menu_bottom_navigation" />
     </com.google.android.material.card.MaterialCardView>
 
+
+    <LinearLayout
+        android:id="@+id/itemLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đang Kết Nối..."
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
