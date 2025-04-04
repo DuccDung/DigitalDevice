@@ -379,6 +379,22 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "api/Users/GetUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "GetUsers",
     "RelativePath": "api/Users/GetUsers",
     "HttpMethod": "GET",

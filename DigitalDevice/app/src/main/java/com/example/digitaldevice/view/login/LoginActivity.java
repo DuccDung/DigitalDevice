@@ -56,16 +56,19 @@ public class LoginActivity extends AppCompatActivity {
             // if user and home already exists then transfer activity
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         } else if (dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists()) {
             // if user already exist and home null then transfer SelectHomeActivity
             Intent intent = new Intent(LoginActivity.this, SelectHomeActivity.class);
             startActivity(intent);
+            finish();
         }
         txtIntentRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {

@@ -530,6 +530,27 @@
         }
       }
     },
+    "/api/Users/GetUser": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "UserID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/GetHomeUsersByUserId": {
       "get": {
         "tags": [

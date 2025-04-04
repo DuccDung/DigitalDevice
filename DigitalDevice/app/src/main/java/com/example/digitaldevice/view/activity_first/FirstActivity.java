@@ -25,20 +25,20 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
         makeStatusBarTransparent();
         applyTopPadding();
-        DbUserHelper dbUserHelper = new DbUserHelper(this); // Init database Sqlite
-         dbUserHelper.deleteUser();
+         DbUserHelper dbUserHelper = new DbUserHelper(this); // Init database Sqlite
+         //dbUserHelper.deleteUser();
 
         // check dataUserLocal
-        if (dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()) {
-            // The user already exists and has selected a house.
-            // if user and home already exists then transfer activity
-            Intent intent = new Intent(FirstActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if (dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists()) {
-            // if user already exist and home null then transfer SelectHomeActivity
-            Intent intent = new Intent(FirstActivity.this, SelectHomeActivity.class);
-            startActivity(intent);
-        }
+//        if (dbUserHelper.isUserExists() && dbUserHelper.isUrlMqttExists()) {
+//            // The user already exists and has selected a house.
+//            // if user and home already exists then transfer activity
+//            Intent intent = new Intent(FirstActivity.this, MainActivity.class);
+//            startActivity(intent);
+//        } else if (dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists()) {
+//            // if user already exist and home null then transfer SelectHomeActivity
+//            Intent intent = new Intent(FirstActivity.this, SelectHomeActivity.class);
+//            startActivity(intent);
+//        }
         // Sau 2 giây chuyển sang MainActivity
         new Handler().postDelayed(() -> {
             startActivity(new Intent(FirstActivity.this, LoginActivity.class));

@@ -1,5 +1,6 @@
 package com.example.digitaldevice.view.select_home;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -75,6 +76,9 @@ private void AddMqttLocal(@NonNull HomeUser Home){
 
             Intent intent = new Intent(_context , MainActivity.class);
             _context.startActivity(intent);
+        }
+        if (_context instanceof Activity) {
+            ((Activity) _context).finish();
         }
 }
 }

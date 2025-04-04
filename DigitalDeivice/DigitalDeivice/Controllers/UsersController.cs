@@ -10,7 +10,7 @@ namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
+	//[Authorize]
 	public class UsersController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;
@@ -46,7 +46,17 @@ namespace DigitalDeivice.Controllers
 			var Users = _digitalDeviceContext.Users.ToList();
 			return Ok(Users);
 		}
-
+		[HttpGet]
+		[Route("GetUser")]
+		public IActionResult GetUser(string UserID)
+		{
+			var User = _digitalDeviceContext.Users.Where(e => e.UserId == UserID).FirstOrDefault();
+			if(User == null)
+			{
+				return NotFound("User not found!");
+			}
+			return Ok(User);
+		}
 		[HttpGet]
 		[Route("GetHomeUsersByUserId")]
 		public List<Home_User> GetHomeUsersByUserId(string userId)

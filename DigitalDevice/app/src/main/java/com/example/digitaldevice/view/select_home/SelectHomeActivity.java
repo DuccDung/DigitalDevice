@@ -65,7 +65,7 @@ public class SelectHomeActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     callback.onSuccess(response.body());
                 } else {
-                    Toast.makeText(SelectHomeActivity.this, "Lỗi", Toast.LENGTH_SHORT).show();
+                    Log.e("bug", "onResponse: Lỗi select home no data");
                 }
             }
 
