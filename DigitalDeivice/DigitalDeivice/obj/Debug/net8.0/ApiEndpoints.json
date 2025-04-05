@@ -405,6 +405,38 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "GetUsersByHomeID",
+    "RelativePath": "api/Users/GetUsersByHomeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "homeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "SearchUsers",
+    "RelativePath": "api/Users/SearchUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "UpdateUser",
     "RelativePath": "api/Users/UpdateUser",
     "HttpMethod": "PUT",

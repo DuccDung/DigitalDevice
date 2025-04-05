@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wAfCGkn4AHQ=",
+  "dgSpecHash": "wly/ToTBIOA=",
   "success": true,
-  "projectFilePath": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
+  "projectFilePath": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\DigitalDeivice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer pro\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Acer pro\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

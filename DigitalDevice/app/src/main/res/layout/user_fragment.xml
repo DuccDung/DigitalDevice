@@ -6,7 +6,7 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg2">
+    android:background="@drawable/gradient_background">
 
     <!-- Phần tiêu đề và ảnh -->
     <androidx.constraintlayout.widget.ConstraintLayout

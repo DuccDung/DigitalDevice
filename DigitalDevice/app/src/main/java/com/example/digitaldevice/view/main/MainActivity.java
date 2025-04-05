@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private void InitializeApp(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
         sessionManager = new SessionManager(MainActivity.this);
+        sessionManager.CheckRefreshToken();
         String token = "Bearer " + sessionManager.getToken();
         ApiService.apiService.GetALlDeviceByHome(token , homeId).enqueue(new Callback<List<Device>>() {
             @Override

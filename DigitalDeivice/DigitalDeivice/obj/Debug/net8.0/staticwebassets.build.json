@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7mwiGiNmR6AO1Yx65Z8u1ePNZsSbOG4BoSevhARGl8Q=",
+  "Hash": "z45kscUZoBtqorZHTRABR6c4j2nlKo1UVhBl766vQ78=",
   "Source": "DigitalDeivice",
   "BasePath": "_content/DigitalDeivice",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DigitalDeivice\\wwwroot",
       "Source": "DigitalDeivice",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_1#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_1.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_2#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_2.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_3#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_3.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_4#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_4.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_5#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_5.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_6#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_6.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/home_7#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\images\\home_7.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_badroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_badroom.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_bathroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_bathroom.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_different#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_different.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_kitchen#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_kitchen.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/icon_livingroom#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\images\\icon_livingroom.png"
     },
     {
-      "Identity": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
       "SourceId": "DigitalDeivice",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
       "BasePath": "_content/DigitalDeivice",
       "RelativePath": "images/vehicle_ab#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -293,7 +293,7 @@
   "Endpoints": [
     {
       "Route": "images/home_1.m0atj5i0tj.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -314,7 +314,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -338,7 +338,7 @@
     },
     {
       "Route": "images/home_1.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -359,7 +359,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -375,7 +375,7 @@
     },
     {
       "Route": "images/home_2.3n6hxfjtp5.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -396,7 +396,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -420,7 +420,7 @@
     },
     {
       "Route": "images/home_2.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -441,7 +441,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -457,7 +457,7 @@
     },
     {
       "Route": "images/home_3.3n6hxfjtp5.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -478,7 +478,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -502,7 +502,7 @@
     },
     {
       "Route": "images/home_3.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_3.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -523,7 +523,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -539,7 +539,7 @@
     },
     {
       "Route": "images/home_4.i0ujbujzz4.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -560,7 +560,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -584,7 +584,7 @@
     },
     {
       "Route": "images/home_4.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_4.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -605,7 +605,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -621,7 +621,7 @@
     },
     {
       "Route": "images/home_5.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -642,7 +642,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -658,7 +658,7 @@
     },
     {
       "Route": "images/home_5.q8qc2tlw31.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_5.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -679,7 +679,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -703,7 +703,7 @@
     },
     {
       "Route": "images/home_6.h5go3xcp2r.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -724,7 +724,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -748,7 +748,7 @@
     },
     {
       "Route": "images/home_6.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_6.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -769,7 +769,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -785,7 +785,7 @@
     },
     {
       "Route": "images/home_7.28mhdbo5fi.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -806,7 +806,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -830,7 +830,7 @@
     },
     {
       "Route": "images/home_7.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_7.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -851,7 +851,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -867,7 +867,7 @@
     },
     {
       "Route": "images/icon_badroom.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -888,7 +888,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -904,7 +904,7 @@
     },
     {
       "Route": "images/icon_badroom.vvppw3ic9c.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_badroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -925,7 +925,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -949,7 +949,7 @@
     },
     {
       "Route": "images/icon_bathroom.p3hycnr5sm.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -970,7 +970,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -994,7 +994,7 @@
     },
     {
       "Route": "images/icon_bathroom.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_bathroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1015,7 +1015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1031,7 +1031,7 @@
     },
     {
       "Route": "images/icon_different.guh2gpmbcy.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1052,7 +1052,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1076,7 +1076,7 @@
     },
     {
       "Route": "images/icon_different.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_different.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1097,7 +1097,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1113,7 +1113,7 @@
     },
     {
       "Route": "images/icon_kitchen.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1134,7 +1134,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1150,7 +1150,7 @@
     },
     {
       "Route": "images/icon_kitchen.vpsjo1c7gj.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_kitchen.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1171,7 +1171,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1195,7 +1195,7 @@
     },
     {
       "Route": "images/icon_livingroom.j40uax7vmc.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1216,7 +1216,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1240,7 +1240,7 @@
     },
     {
       "Route": "images/icon_livingroom.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\icon_livingroom.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1261,7 +1261,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1277,7 +1277,7 @@
     },
     {
       "Route": "images/vehicle_ab.9wjbsefzrz.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1298,7 +1298,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1322,7 +1322,7 @@
     },
     {
       "Route": "images/vehicle_ab.png",
-      "AssetFile": "D:\\laptrinhAndroid\\Src\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\vehicle_ab.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1343,7 +1343,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 03 Apr 2025 18:43:33 GMT"
+          "Value": "Fri, 04 Apr 2025 04:10:01 GMT"
         },
         {
           "Name": "Cache-Control",

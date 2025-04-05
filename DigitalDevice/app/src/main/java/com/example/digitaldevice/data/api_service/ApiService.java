@@ -26,7 +26,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
     //https://api.openweathermap.org/data/2.5/weather?q=Hanoi,VN&appid=db7e8be2cd9133533090f6e5c64f6
     // Base URL https://be0f-1-55-142-179.ngrok-free.app
-    String BASE_URL = "https://be0f-1-55-142-179.ngrok-free.app/";
+    String BASE_URL = "https://553e-1-55-142-179.ngrok-free.app/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -67,4 +67,7 @@ public interface ApiService {
     Call<WeatherResponse> GetWeather();
     @GET("api/Users/GetUser")
     Call<Users> GetUser(@Header("Authorization") String token , @Query("UserID") String UserID);
+
+    @GET("api/Users/GetUsersByHomeId")
+    Call<List<Users>> GetUserByHomeID(@Header("Authorization") String token , @Query("homeId") String HomeID);
 }

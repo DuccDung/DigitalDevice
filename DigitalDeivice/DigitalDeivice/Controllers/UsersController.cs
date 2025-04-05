@@ -136,6 +136,46 @@ namespace DigitalDeivice.Controllers
 
 			return Ok(new { message = "Avatar uploaded successfully!", filePath = user.PhotoPath });
 		}
+
+		[HttpGet]
+		[Route("SearchUsers")]
+		public IActionResult SearchUsers(string keyword)
+		{
+			try
+			{
+				var users = _digitalDeviceContext.Users
+					.Where(u => u.UserId.Contains(keyword) || u.Name.Contains(keyword))
+					.Select(u => new
+					{
+						u.UserId,
+						u.Name,
+						u.PhotoPath
+					})
+					.ToList();
+
+				return Ok(new { success = true, data = users });
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, new { success = false, message = ex.Message });
+			}
+		}
+		[HttpGet]
+		[Route("GetUsersByHomeId")]
+		public IActionResult GetUsersByHomeID(string homeId)
+		{
+			var query = from home in _digitalDeviceContext.Homes
+						join hu in _digitalDeviceContext.HomeUsers on home.HomeId equals hu.HomeId
+						join user in _digitalDeviceContext.Users on hu.UserId equals user.UserId
+						where home.HomeId == homeId
+						select new User
+						{
+							UserId = user.UserId,
+							Name= user.Name,
+							PhotoPath = user.PhotoPath,
+						};
+			return Ok(query.ToList());
+		}
 	}
 
 }
