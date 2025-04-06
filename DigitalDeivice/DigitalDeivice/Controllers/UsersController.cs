@@ -145,15 +145,14 @@ namespace DigitalDeivice.Controllers
 			{
 				var users = _digitalDeviceContext.Users
 					.Where(u => u.UserId.Contains(keyword) || u.Name.Contains(keyword))
-					.Select(u => new
+					.Select(u => new User
 					{
-						u.UserId,
-						u.Name,
-						u.PhotoPath
-					})
-					.ToList();
+						UserId = u.UserId,
+						Name = u.Name,
+						PhotoPath = u.PhotoPath
+					}).ToList();
 
-				return Ok(new { success = true, data = users });
+				return Ok(users);
 			}
 			catch (Exception ex)
 			{
@@ -176,6 +175,70 @@ namespace DigitalDeivice.Controllers
 						};
 			return Ok(query.ToList());
 		}
+		[HttpDelete]
+		[Route("RemoveUserFromHome")]
+		public IActionResult RemoveUserFromHome(string userId, string homeId)
+		{
+			try
+			{
+				var homeUser = _digitalDeviceContext.HomeUsers
+					.FirstOrDefault(hu => hu.UserId == userId && hu.HomeId == homeId);
+
+				if (homeUser == null)
+				{
+					return NotFound("User is not connected to this home.");
+				}
+
+				_digitalDeviceContext.HomeUsers.Remove(homeUser);
+				_digitalDeviceContext.SaveChanges();
+
+				return Ok("User has been removed from the home.");
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, new { success = false, message = ex.Message });
+			}
+		}
+
+		[HttpPost]
+		[Route("AddUserToHome")]
+		public IActionResult AddUserToHome(string HomeID , string UserID)
+		{
+			try
+			{
+				var home = _digitalDeviceContext.Homes.FirstOrDefault(h => h.HomeId == HomeID);
+				if (home == null)
+				{
+					return NotFound("Home not found");
+				}
+
+				var user = _digitalDeviceContext.Users.FirstOrDefault(u => u.UserId == UserID);
+				if (user == null)
+				{
+					return NotFound("User not found");
+				}
+
+				var homeUser = new HomeUser
+				{
+					HomeUserId = HomeID + "_" + UserID + "_" + new Random().Next(1000, 9999),
+					HomeId = HomeID,
+					UserId = UserID,
+					AuthorityID = "Auth_02" 
+				};
+
+				_digitalDeviceContext.HomeUsers.Add(homeUser);
+				_digitalDeviceContext.SaveChanges();
+
+				return Ok("User added successfully to the home");
+			}
+			catch (Exception ex)
+			{
+				return BadRequest($"An error occurred: {ex.Message}");
+			}
+		}
+
+		
+
 	}
 
 }

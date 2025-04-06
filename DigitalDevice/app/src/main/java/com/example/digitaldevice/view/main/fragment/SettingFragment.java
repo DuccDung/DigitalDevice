@@ -24,7 +24,7 @@ import com.example.digitaldevice.view.select_home.SelectHomeActivity;
 public class SettingFragment extends Fragment {
     LinearLayout ln1,ln2,ln3,ln4,ln5,ln6 ;
     TextView txtLogout;
-    private TextView txtMember;
+    private TextView txtMember , txtRoomAndDevice;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,11 +39,18 @@ public class SettingFragment extends Fragment {
         ln6 = view.findViewById(R.id.ln6);
         txtMember = view.findViewById(R.id.txtmember);
         txtLogout = view.findViewById(R.id.txtLogout);
-
+        txtRoomAndDevice = view.findViewById(R.id.txtAddDeviceAndRoom);
         txtMember.setOnClickListener(v -> {
             AddUserFragment addUserFragment = new AddUserFragment();
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container_setting,addUserFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+        txtRoomAndDevice.setOnClickListener(v->{
+            AddNewRoomFragment addNewRoomFragment = new AddNewRoomFragment();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container_setting,addNewRoomFragment)
                     .addToBackStack(null)
                     .commit();
         });

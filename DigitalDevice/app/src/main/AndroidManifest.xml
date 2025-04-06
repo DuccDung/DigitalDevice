@@ -21,6 +21,9 @@
         android:theme="@style/Theme.DigitalDevice"
         tools:targetApi="31">
         <activity
+            android:name=".AddUser.AddUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.example.digitaldevice.R;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private MqttHandler mqttHandler;
     private SessionManager sessionManager;
     private LinearLayout itemLoad;
+    private FrameLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,18 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
                 Log.e("bug mess" , t.getMessage());
             }
         });
+    }
+    public void navigateToFragment(Fragment fragment) {
+        // Ẩn ViewPager, hiện container
+        viewPager.setVisibility(View.GONE);
+        container.setVisibility(View.VISIBLE);
+
+        // Thêm Fragment mới vào stack
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container_setting, fragment)
+                .addToBackStack(null)
+                .commit();
     }
     private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
         mqttHandler = new MqttHandler( MainActivity.this);

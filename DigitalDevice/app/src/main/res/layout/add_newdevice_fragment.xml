@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E7ECF0"
+    >
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="New Device"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:fontFamily="@font/nunito_light"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameDeviceImage"
+        android:layout_width="127dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/bg_circle_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTitle">
+
+        <ImageView
+            android:id="@+id/imageDevicePhoto"
+            android:layout_width="58dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center"
+            android:contentDescription="Device photo"
+            android:src="@drawable/icon_airconditioner" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/edtDeviceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="100dp"
+        android:background="@null"
+        android:hint="Enter name device"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frameDeviceImage" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/edtDeviceName" />
+
+    <Spinner
+        android:id="@+id/spinnerDeviceType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+        android:entries="@array/device_types"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/spinnerDeviceType" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="112dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF7D2D"
+            android:paddingVertical="12dp"
+            android:text="SAVE"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF7D2D"
+            android:paddingVertical="12dp"
+            android:text="CANCEL"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

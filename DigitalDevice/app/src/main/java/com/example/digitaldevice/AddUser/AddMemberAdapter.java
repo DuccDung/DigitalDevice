@@ -1,4 +1,4 @@
-package com.example.digitaldevice.view.main.adapter;
+package com.example.digitaldevice.AddUser;
 
 import android.content.Context;
 import android.util.Log;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberViewHolder> {
+public class AddMemberAdapter extends RecyclerView.Adapter<AddMemberAdapter.MemberViewHolder> {
    public interface MemberClick{
        public void MemberOnClick(String userID);
    }
@@ -28,34 +28,24 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
    private MemberClick memberClick;
     private List<Users> memberList;
 
-    public MemberAdapter(Context context, List<Users> memberList , MemberClick memberClick) {
+    public AddMemberAdapter(Context context, List<Users> memberList , MemberClick memberClick) {
         this.context = context;
         this.memberList = new ArrayList<>(memberList);
         this.memberClick = memberClick;
-    }
-    public void RefreshView(String userId) {
-        // Xóa user khỏi danh sách
-        for (int i = 0; i < memberList.size(); i++) {
-            if (memberList.get(i).getUserId().equals(userId)) {
-                memberList.remove(i);
-                break;
-            }
-        }
-        notifyDataSetChanged();
     }
     @NonNull
     @Override
     public MemberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_member, parent, false);
-        Log.d("MemberAdapter", "Creating new ViewHolder");
+                .inflate(R.layout.item_member_add, parent, false);
         return new MemberViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MemberViewHolder holder, int position) {
         Users member = memberList.get(position);
-        holder.tvNameu.setText(member.getName());
+        holder.txtName.setText(member.getName());
+        holder.txtIdUser.setText(member.getUserId());
         try {
             if (member.getPhotoPath() != null && !member.getPhotoPath().isEmpty()) {
                 Glide.with(context)
@@ -67,44 +57,30 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
                 holder.avUser.setImageResource(R.drawable.avatar);
             }
         } catch (Exception e) {
-            Log.e("MemberAdapter", "Error loading image", e);
             holder.avUser.setImageResource(R.drawable.avatar);
         }
-        holder.imgDelete.setOnClickListener(v ->{
+        holder.txtName.setOnClickListener(v->{
             memberClick.MemberOnClick(member.getUserId());
         });
+
     }
 
     @Override
     public int getItemCount() {
         int count = memberList.size();
-        Log.d("MemberAdapter", "Current item count: " + count);
         return count;
-    }
-
-    public void updateMembers(List<Users> newMembers) {
-        Log.d("MemberAdapter", "Updating with " + (newMembers != null ? newMembers.size() : 0) + " new members");
-
-        this.memberList.clear();
-        if (newMembers != null) {
-            this.memberList.addAll(newMembers);
-        }
-        notifyDataSetChanged();
     }
 
     public static class MemberViewHolder extends RecyclerView.ViewHolder {
         ShapeableImageView avUser;
-        TextView tvNameu;
-        ImageView imgDelete;
+        TextView txtName;
+        TextView txtIdUser;
 
         public MemberViewHolder(@NonNull View itemView) {
             super(itemView);
-            avUser = itemView.findViewById(R.id.av_user);
-            tvNameu = itemView.findViewById(R.id.tvNameu);
-            imgDelete = itemView.findViewById(R.id.deleteMember);
-            if (avUser == null || tvNameu == null) {
-                Log.e("MemberViewHolder", "Some views not found in item layout");
-            }
+            avUser = itemView.findViewById(R.id.av_user_add);
+            txtName = itemView.findViewById(R.id.txtName);
+            txtIdUser = itemView.findViewById(R.id.txtIdUser);
         }
     }
 }

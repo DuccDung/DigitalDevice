@@ -116,7 +116,7 @@
                         android:src="@drawable/st_rooms" />
 
                     <TextView
-                        android:id="@+id/textVie"
+                        android:id="@+id/txtAddDeviceAndRoom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"

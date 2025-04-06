@@ -23,6 +23,8 @@ public class Room {
     @SerializedName("photoPath")
     private String photoPath;
 
+
+
     public String getRoomId() {
         return roomId;
     }

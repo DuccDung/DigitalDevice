@@ -332,6 +332,27 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "AddUserToHome",
+    "RelativePath": "api/Users/AddUserToHome",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "HomeID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserID",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
     "Method": "GetAdmins",
     "RelativePath": "api/Users/GetAuth",
     "HttpMethod": "GET",
@@ -411,6 +432,27 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "homeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.UsersController",
+    "Method": "RemoveUserFromHome",
+    "RelativePath": "api/Users/RemoveUserFromHome",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "homeId",
         "Type": "System.String",

@@ -16,6 +16,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -26,7 +27,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
     //https://api.openweathermap.org/data/2.5/weather?q=Hanoi,VN&appid=db7e8be2cd9133533090f6e5c64f6
     // Base URL https://be0f-1-55-142-179.ngrok-free.app
-    String BASE_URL = "https://553e-1-55-142-179.ngrok-free.app/";
+    String BASE_URL = "https://8466-171-244-65-48.ngrok-free.app/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -70,4 +71,14 @@ public interface ApiService {
 
     @GET("api/Users/GetUsersByHomeId")
     Call<List<Users>> GetUserByHomeID(@Header("Authorization") String token , @Query("homeId") String HomeID);
+    @DELETE("api/Users/RemoveUserFromHome")
+    Call<Void> DeleteUserByID(@Header("Authorization") String token , @Query("userId") String userId , @Query("homeId") String HomeID );
+    @GET("api/Users/SearchUsers")
+    Call<List<Users>> GetUserByID(@Header("Authorization") String token , @Query("keyword") String userId);
+
+    @POST("api/Users/AddUserToHome")
+    Call<Void> AddUser(@Header("Authorization") String token , @Query("HomeID") String homeId , @Query("UserID") String userID );
+
+    @GET("/api/Devices/GetDevicesByRoomID")
+    Call<List<Device>> GetDevice(@Query("RoomID") String RoomID);
 }
