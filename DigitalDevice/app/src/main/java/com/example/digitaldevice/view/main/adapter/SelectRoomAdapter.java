@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.model.Room;
 
 import java.util.ArrayList;
@@ -61,12 +63,14 @@ public class SelectRoomAdapter extends RecyclerView.Adapter<SelectRoomAdapter.Ro
         private TextView txtRoomName;
         private TextView txtDeviceCount;
         private ImageView imageOptions;
+        private ImageView imageRoom;
 
         public RoomViewHolder(@NonNull View itemView) {
             super(itemView);
             txtRoomName = itemView.findViewById(R.id.txtRoomName);
-            txtDeviceCount = itemView.findViewById(R.id.txtRoomCount);
+            txtDeviceCount = itemView.findViewById(R.id.textDeviceCount);
             imageOptions = itemView.findViewById(R.id.imageOptions);
+            imageRoom = itemView.findViewById(R.id.imageRoom);
 
             // Xử lý click vào item
             itemView.setOnClickListener(v -> {
@@ -91,7 +95,15 @@ public class SelectRoomAdapter extends RecyclerView.Adapter<SelectRoomAdapter.Ro
 
         public void bind(Room room) {
             txtRoomName.setText(room.getName());
-           // txtDeviceCount.setText(room.getDeviceCount() + " devices");
+            txtDeviceCount.setText(room.getDeviceCount() + " devices");
+
+            // Hiển thị ảnh từ server
+            String imageUrl = ApiService.getBaseDomain() + room.getPhotoPath();
+            Glide.with(itemView.getContext())
+                    .load(imageUrl)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error)
+                    .into(imageRoom);
         }
     }
 }

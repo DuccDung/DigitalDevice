@@ -2,36 +2,18 @@ package com.example.digitaldevice.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Room {
-
-    public Room(String roomId, String homeId, String name, String photoPath) {
-        this.roomId = roomId;
-        this.homeId = homeId;
-        this.name = name;
-        this.photoPath = photoPath;
-    }
-
+public class RoomCreateResponse {
     @SerializedName("roomId")
     private String roomId;
-
-    @SerializedName("homeId")
-    private String homeId;
 
     @SerializedName("name")
     private String name;
 
+    @SerializedName("homeId")
+    private String homeId;
+
     @SerializedName("photoPath")
     private String photoPath;
-
-    @SerializedName("deviceCount")
-    private int deviceCount;
-
-
-    public int getDeviceCount() {
-        return deviceCount;
-    }
-
-
 
     public String getRoomId() {
         return roomId;
@@ -39,14 +21,6 @@ public class Room {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
-    }
-
-    public String getHomeId() {
-        return homeId;
-    }
-
-    public void setHomeId(String homeId) {
-        this.homeId = homeId;
     }
 
     public String getName() {
@@ -57,6 +31,14 @@ public class Room {
         this.name = name;
     }
 
+    public String getHomeId() {
+        return homeId;
+    }
+
+    public void setHomeId(String homeId) {
+        this.homeId = homeId;
+    }
+
     public String getPhotoPath() {
         return photoPath;
     }
@@ -64,4 +46,4 @@ public class Room {
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
     }
-}
+} 

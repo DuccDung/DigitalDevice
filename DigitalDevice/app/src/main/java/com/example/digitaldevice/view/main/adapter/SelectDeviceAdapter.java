@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.model.Device;
+import com.example.digitaldevice.data.model.DeviceFunction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,11 +55,13 @@ public class SelectDeviceAdapter extends RecyclerView.Adapter<SelectDeviceAdapte
     class DeviceViewHolder extends RecyclerView.ViewHolder {
         private TextView txtDeviceName;
         private ImageView imageMoreOptions;
+        private ImageView imageDevice;
 
         public DeviceViewHolder(@NonNull View itemView) {
             super(itemView);
             txtDeviceName = itemView.findViewById(R.id.txtDeviceName);
             imageMoreOptions = itemView.findViewById(R.id.imageMoreOptions);
+            imageDevice = itemView.findViewById(R.id.imageDevice);
 
             // Xử lý click vào nút options
             imageMoreOptions.setOnClickListener(v -> {
@@ -71,6 +74,31 @@ public class SelectDeviceAdapter extends RecyclerView.Adapter<SelectDeviceAdapte
 
         public void bind(Device device) {
             txtDeviceName.setText(device.getNameDevice());
+
+            // Hiển thị ảnh dựa vào categoryDevice
+            String category = device.getCategoryDeviceID();
+            int imageResource;
+
+            if (category != null) {
+                switch (category) {
+                    case "cat_lamp":
+                        imageResource = R.drawable.lamp;
+                        break;
+                    case "cat_aircon":
+                        imageResource = R.drawable.icon_airconditioner;
+                        break;
+                    case "cat_device":
+                        imageResource = R.drawable.icon_device;
+                        break;
+                    default:
+                        imageResource = R.drawable.icon_device; // Ảnh mặc định
+                        break;
+                }
+            } else {
+                imageResource = R.drawable.icon_device; // Ảnh mặc định nếu category là null
+            }
+
+            imageDevice.setImageResource(imageResource);
         }
     }
 }

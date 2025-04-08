@@ -8,7 +8,7 @@ namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
+	//[Authorize]
 	public class DevicesController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;
@@ -23,15 +23,32 @@ namespace DigitalDeivice.Controllers
 		[HttpPost]
 		[Route("CreateDevice")]
 
-		public IActionResult CreateDevice(string DeviceId, string Name, string RoomId, string FunctionId)
+		public IActionResult CreateDevice(string Name, string RoomId, string FunctionId)
 		{
-			var isDevice = _digitalDeviceContext.Devices.Find(DeviceId);
+			var DeviceId = "d_0" + _digitalDeviceContext.Devices.Count().ToString();
+			//var isDevice = _digitalDeviceContext.Devices.Find(DeviceId);
 			var isRoom = _digitalDeviceContext.Rooms.Find(RoomId);
 			var isFunction = _digitalDeviceContext.DeviceFunctionalities.Find(FunctionId);
 
-			if (isDevice != null || isFunction == null || isRoom == null)
+			//Tạo CategoryDevice cho Device dựa vào DeviceFunction
+			CategoryDevice? categoryDevice = null;
+			if (FunctionId == "F_Air")
 			{
-				return BadRequest("Device existed or the room and function do not exist");
+				categoryDevice = _digitalDeviceContext.CategoryDevices.FirstOrDefault(c => c.CategoryDeviceId == "cat_aircon");
+			}
+			else if (FunctionId == "F_lamp")
+			{
+				categoryDevice = _digitalDeviceContext.CategoryDevices.FirstOrDefault(c => c.CategoryDeviceId == "cat_lamp");
+			}
+			else
+			{
+				categoryDevice = _digitalDeviceContext.CategoryDevices.FirstOrDefault(c => c.CategoryDeviceId == "cat_device");
+			}
+
+
+			if (isFunction == null || isRoom == null)
+			{
+				return BadRequest("The room and function do not exist");
 			}
 
 			// Tạo thiết bị mới
@@ -39,8 +56,11 @@ namespace DigitalDeivice.Controllers
 			{
 				DeviceId = DeviceId,
 				NameDevice = Name,
-				RoomId = RoomId
+				RoomId = RoomId,
+				CategoryDevice = categoryDevice,
+				CategoryDeviceId = categoryDevice?.CategoryDeviceId // <-- gán thêm
 			};
+
 
 			// Lấy danh sách các ID hiện có
 			var existingIDs = _digitalDeviceContext.DeviceFunctions
@@ -82,7 +102,7 @@ namespace DigitalDeivice.Controllers
 
 
 		[HttpGet]
-		[Route("GetDevicesByRoomID")]
+		[Route("GetDevicesFunctionByRoomID")]
 		public IActionResult GetDeviceFunction(string RoomID, string HomeID)
 		{
 			var deviceFunctions = _digitalDeviceContext.Rooms
@@ -146,7 +166,45 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
-		
+		//thêm xóa thiết bị
+
+		[HttpDelete("DeleteDevice")]
+		public IActionResult DeleteDevice(string DeviceId)
+		{
+			try
+			{
+				// Kiểm tra thiết bị có tồn tại không
+				var device = _digitalDeviceContext.Devices.FirstOrDefault(d => d.DeviceId == DeviceId);
+				if (device == null)
+				{
+					return BadRequest("Không tìm thấy thiết bị");
+				}
+
+				// Kiểm tra xem thiết bị đã được sử dụng chưa (có history chưa)
+				var ishasHistory = _digitalDeviceContext.Histories.Any(d => d.DeviceId == DeviceId);
+				if (ishasHistory)
+				{
+					return BadRequest("Không thể xóa thiết bị vì đã được sử dụng");
+				}
+
+				// Xóa DeviceFunction trước
+				var deviceFunction = _digitalDeviceContext.DeviceFunctions.FirstOrDefault(df => df.DeviceId == DeviceId);
+				if (deviceFunction != null)
+				{
+					_digitalDeviceContext.DeviceFunctions.Remove(deviceFunction);
+				}
+
+				// Sau đó xóa thiết bị
+				_digitalDeviceContext.Devices.Remove(device);
+				_digitalDeviceContext.SaveChanges();
+
+				return Ok("Xóa thiết bị thành công");
+			}
+			catch (Exception ex)
+			{
+				return BadRequest("Lỗi khi xóa thiết bị: " + ex.Message);
+			}
+		}
 
 
 		[HttpGet]
@@ -168,6 +226,13 @@ namespace DigitalDeivice.Controllers
 
 			return query.ToList();
 		}
-
+		//Thêm lấy thiết bị theo RoomId
+		[HttpGet]
+		[Route("GetDevicesByRoomID")]
+		public IActionResult GetDevice(string roomId)
+		{
+			var devices = _digitalDeviceContext.Devices.Where(x => x.RoomId == roomId).ToList();
+			return Ok(devices);
+		}
 	}
 }

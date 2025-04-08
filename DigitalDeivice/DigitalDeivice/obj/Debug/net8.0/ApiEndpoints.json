@@ -164,6 +164,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DigitalDeivice.Controllers.AdminController",
+    "Method": "GetRoomCount",
+    "RelativePath": "api/Admin/RoomCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "homeId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "DigitalDeivice.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/GetLogin",
@@ -219,11 +245,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "DeviceId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "Name",
         "Type": "System.String",
         "IsRequired": false
@@ -235,6 +256,22 @@
       },
       {
         "Name": "FunctionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.DevicesController",
+    "Method": "DeleteDevice",
+    "RelativePath": "api/Devices/DeleteDevice",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DeviceId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -295,8 +332,24 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.DevicesController",
-    "Method": "GetDeviceFunction",
+    "Method": "GetDevice",
     "RelativePath": "api/Devices/GetDevicesByRoomID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.DevicesController",
+    "Method": "GetDeviceFunction",
+    "RelativePath": "api/Devices/GetDevicesFunctionByRoomID",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -316,6 +369,48 @@
   },
   {
     "ContainingType": "DigitalDeivice.Controllers.RoomsController",
+    "Method": "CreateRoom",
+    "RelativePath": "api/Rooms/CreateRoom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "HomeId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhotoPath",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.RoomsController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Rooms/DeleteRoom",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RoomId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.RoomsController",
     "Method": "GetRooms",
     "RelativePath": "api/Rooms/GetRoomsByHomeID",
     "HttpMethod": "GET",
@@ -325,6 +420,22 @@
       {
         "Name": "HomeID",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DigitalDeivice.Controllers.RoomsController",
+    "Method": "UploadImageAsync",
+    "RelativePath": "api/Rooms/UploadRoomImage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
     ],
