@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.digitaldevice.R;
-import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.DbUserHelper;
 import com.example.digitaldevice.view.login.LoginActivity;
 import com.example.digitaldevice.view.select_home.SelectHomeActivity;
@@ -25,6 +22,7 @@ public class SettingFragment extends Fragment {
     LinearLayout ln1,ln2,ln3,ln4,ln5,ln6 ;
     TextView txtLogout;
     private TextView txtMember , txtRoomAndDevice;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,7 +37,7 @@ public class SettingFragment extends Fragment {
         ln6 = view.findViewById(R.id.ln6);
         txtMember = view.findViewById(R.id.txtmember);
         txtLogout = view.findViewById(R.id.txtLogout);
-        txtRoomAndDevice = view.findViewById(R.id.txtAddDeviceAndRoom);
+        txtRoomAndDevice = view.findViewById(R.id.btnViewRooms);
         txtMember.setOnClickListener(v -> {
             AddUserFragment addUserFragment = new AddUserFragment();
             getParentFragmentManager().beginTransaction()
@@ -48,9 +46,9 @@ public class SettingFragment extends Fragment {
                     .commit();
         });
         txtRoomAndDevice.setOnClickListener(v->{
-            AddNewRoomFragment addNewRoomFragment = new AddNewRoomFragment();
+            SelectRoomFragment selectRoomFragment = new SelectRoomFragment();
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container_setting,addNewRoomFragment)
+                    .replace(R.id.fragment_container_setting,selectRoomFragment)
                     .addToBackStack(null)
                     .commit();
         });
@@ -81,7 +79,6 @@ public class SettingFragment extends Fragment {
                 requireActivity().finish();
             }
         });
-
 
         return view;
     }
