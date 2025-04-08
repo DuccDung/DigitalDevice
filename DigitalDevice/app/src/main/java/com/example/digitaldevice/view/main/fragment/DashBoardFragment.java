@@ -133,6 +133,7 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
             @Override
             public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
+                    // response.body().getMain().getTemp();
                     Log.d("weather", "hehehe");
                 }
             }

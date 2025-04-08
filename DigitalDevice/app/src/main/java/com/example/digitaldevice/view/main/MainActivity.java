@@ -24,6 +24,7 @@ import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.fragment.DashBoardFragment;
+import com.example.digitaldevice.view.main.fragment.MapFragment;
 import com.example.digitaldevice.view.main.fragment.SettingFragment;
 import com.example.digitaldevice.view.main.fragment.VehicleFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
     private BottomNavigationView bottomNavigationView;
     private ViewPager2 viewPager;
     private ViewPagerAdapter viewPagerAdapter;
+    private FrameLayout frameLayout;
     private MqttHandler mqttHandler;
     private SessionManager sessionManager;
     private LinearLayout itemLoad;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         sessionManager = new SessionManager(MainActivity.this);
         sessionManager.CheckRefreshToken();
         bottomNavigationView = findViewById(R.id.navigationViewMain);
+        frameLayout = findViewById(R.id.fragment_container);
         itemLoad = findViewById(R.id.itemLoading);
         itemLoad.setVisibility(View.VISIBLE);
         bottomNavigationView.setVisibility(View.GONE);
@@ -93,16 +96,16 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
                 .replace(R.id.fragment_container, fragment)
                 .commit();
     }
-    private void initializeView() {
-
-    }
     public void openMapFragment(double latitude, double longitude) {
-        viewPagerAdapter.addMapFragment(latitude , longitude);
-        viewPager.setCurrentItem(3, true);
+        MapFragment mapFragment = MapFragment.newInstance(latitude, longitude);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, mapFragment) // dùng ID của FrameLayout
+                .addToBackStack(null)
+                .commit();
     }
     public void closeMapFragment() {
-        viewPagerAdapter.removeMapFragment();
-        loadFragment(new VehicleFragment());
+        getSupportFragmentManager().popBackStack();
     }
     private void InitializeApp(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(MainActivity.this).getHomeId();

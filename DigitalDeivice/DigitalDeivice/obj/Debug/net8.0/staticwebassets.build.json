@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z45kscUZoBtqorZHTRABR6c4j2nlKo1UVhBl766vQ78=",
+  "Hash": "rJt65o3ADAnlKA43uCE5lw7vsJwCxVaThn+8yasQgnY=",
   "Source": "DigitalDeivice",
   "BasePath": "_content/DigitalDeivice",
   "Mode": "Default",
@@ -16,6 +16,69 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/55ed9ea6-9e22-4bc2-8248-5eb70b662669#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dgiwrtwsmx",
+      "Integrity": "k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg"
+    },
+    {
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/6458abca-ec65-41e2-bc4f-9c343299b72d#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8ocgnlkzi0",
+      "Integrity": "2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg"
+    },
+    {
+      "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg",
+      "SourceId": "DigitalDeivice",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\",
+      "BasePath": "_content/DigitalDeivice",
+      "RelativePath": "images/d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8ocgnlkzi0",
+      "Integrity": "2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg"
+    },
     {
       "Identity": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
       "SourceId": "DigitalDeivice",
@@ -291,6 +354,252 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "images/55ed9ea6-9e22-4bc2-8248-5eb70b662669.dgiwrtwsmx.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "172034"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 01:48:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dgiwrtwsmx"
+        },
+        {
+          "Name": "label",
+          "Value": "images/55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc="
+        }
+      ]
+    },
+    {
+      "Route": "images/55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "172034"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 01:48:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc="
+        }
+      ]
+    },
+    {
+      "Route": "images/6458abca-ec65-41e2-bc4f-9c343299b72d.8ocgnlkzi0.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "608466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 05:35:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ocgnlkzi0"
+        },
+        {
+          "Name": "label",
+          "Value": "images/6458abca-ec65-41e2-bc4f-9c343299b72d.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A="
+        }
+      ]
+    },
+    {
+      "Route": "images/6458abca-ec65-41e2-bc4f-9c343299b72d.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "608466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 05:35:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A="
+        }
+      ]
+    },
+    {
+      "Route": "images/d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.8ocgnlkzi0.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "608466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 01:47:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ocgnlkzi0"
+        },
+        {
+          "Name": "label",
+          "Value": "images/d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A="
+        }
+      ]
+    },
+    {
+      "Route": "images/d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg",
+      "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "608466"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Apr 2025 01:47:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A="
+        }
+      ]
+    },
     {
       "Route": "images/home_1.m0atj5i0tj.png",
       "AssetFile": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",

@@ -1,6 +1,18 @@
 {
   "Files": [
     {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg",
+      "PackagePath": "staticwebassets\\images\\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg",
+      "PackagePath": "staticwebassets\\images\\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg"
+    },
+    {
+      "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg",
+      "PackagePath": "staticwebassets\\images\\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg"
+    },
+    {
       "Id": "D:\\laptrinhAndroid2022\\DigitalDevice_Server\\DigitalDevice\\DigitalDeivice\\DigitalDeivice\\wwwroot\\images\\home_1.png",
       "PackagePath": "staticwebassets\\images\\home_1.png"
     },

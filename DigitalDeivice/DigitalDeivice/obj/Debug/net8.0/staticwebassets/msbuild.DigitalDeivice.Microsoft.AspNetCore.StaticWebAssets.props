@@ -1,5 +1,59 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DigitalDeivice</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DigitalDeivice</BasePath>
+      <RelativePath>images/55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dgiwrtwsmx</Fingerprint>
+      <Integrity>k0vF9Y/w+feeMRH11lZdEHNX17UI01u2NDYXjNfgmGc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\55ed9ea6-9e22-4bc2-8248-5eb70b662669.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DigitalDeivice</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DigitalDeivice</BasePath>
+      <RelativePath>images/6458abca-ec65-41e2-bc4f-9c343299b72d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8ocgnlkzi0</Fingerprint>
+      <Integrity>2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\6458abca-ec65-41e2-bc4f-9c343299b72d.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>DigitalDeivice</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DigitalDeivice</BasePath>
+      <RelativePath>images/d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8ocgnlkzi0</Fingerprint>
+      <Integrity>2HDlTgJt2Sqq6xo/LxTdDx0DCrt2nA0a1lOK6IAbX2A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\d4f1aa47-6d4a-46d8-85af-fbfbc9ca935e.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\home_1.png'))">
       <SourceType>Package</SourceType>
       <SourceId>DigitalDeivice</SourceId>

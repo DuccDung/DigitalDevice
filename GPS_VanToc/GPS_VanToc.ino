@@ -4,8 +4,8 @@
 #include <PubSubClient.h>
 
 // Cấu hình WiFi và MQTT
-const char* ssid = "Xuong cafe T1";
-const char* password = "cafetuoi";
+const char* ssid = "Hehehe";
+const char* password = "88888888";
 const char* mqtt_server = "bbb04b2c528242358401e2add20b296a.s1.eu.hivemq.cloud";
 const int mqtt_port = 8883;
 const char* mqtt_username = "hivemq.webclient.1735043576854";
