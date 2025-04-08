@@ -1,0 +1,15 @@
+# Bỏ qua các file và thư mục tạm của Visual Studio
+.vs/
+*.user
+*.suo
+
+# Bỏ qua các thư mục build
+bin/
+obj/
+
+# Bỏ qua các file cache
+*.cache
+*.dbmdl
+*.log
+
+# Các file khác tuỳ chỉnh thêm...
