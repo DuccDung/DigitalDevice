@@ -37,7 +37,7 @@ public partial class DigitalDeviceContext : DbContext
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=2620041612004\\SQLEXPRESS;Initial Catalog=DigitalDevice;User ID=sa;Password=Dung@123;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=DigitalDevice;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

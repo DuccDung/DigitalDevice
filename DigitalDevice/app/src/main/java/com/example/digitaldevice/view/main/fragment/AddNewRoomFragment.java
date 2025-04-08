@@ -160,11 +160,11 @@ public class AddNewRoomFragment extends Fragment {
     }
 
     private void addNewRoom(String roomName, String homeId, String photoPath) {
-        // Log để debug
-        android.util.Log.d("AddNewRoomFragment", "Creating room with: " +
-                "\nName: " + roomName +
-                "\nHomeId: " + homeId +
-                "\nPhotoPath: " + photoPath);
+//        // Log để debug
+//        android.util.Log.d("AddNewRoomFragment", "Creating room with: " +
+//                "\nName: " + roomName +
+//                "\nHomeId: " + homeId +
+//                "\nPhotoPath: " + photoPath);
 
         ApiService.apiService.CreateRoom(roomName, homeId, photoPath)
                 .enqueue(new Callback<RoomCreateResponse>() {

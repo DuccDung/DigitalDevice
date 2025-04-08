@@ -79,7 +79,7 @@ public class SelectRoomFragment extends Fragment implements
             // Thay thế fragment hiện tại bằng fragment mới
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, addNewRoomFragment)
+                    .replace(R.id.fragment_container_setting, addNewRoomFragment)
                     .addToBackStack(null) // Thêm vào back stack để có thể quay lại
                     .commit();
         });

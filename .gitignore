@@ -11,5 +11,17 @@ obj/
 *.cache
 *.dbmdl
 *.log
+*.vsidx
+*.json
+*.dll
+*.exe
+*.pdb
 
-# Các file khác tuỳ chỉnh thêm...
+# Visual Studio Code
+.vscode/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+.gradle/
+build/
+*.iml

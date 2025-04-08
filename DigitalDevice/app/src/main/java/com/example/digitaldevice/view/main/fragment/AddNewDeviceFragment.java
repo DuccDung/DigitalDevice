@@ -122,7 +122,7 @@ public class AddNewDeviceFragment extends Fragment {
                 break;
             case "Different Device":
             default:
-                imageResource = R.drawable.icon_device;
+                imageResource = R.drawable.icon_defferent;
                 break;
         }
 
