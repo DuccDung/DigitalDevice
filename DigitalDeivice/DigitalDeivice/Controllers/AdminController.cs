@@ -23,6 +23,24 @@ namespace DigitalDeivice.Controllers
 			return await _context.Homes.ToListAsync();
 		}
 
+		// by dongtruong
+		[HttpGet]
+		[Route("RoomCount")]
+		public async Task<ActionResult<int>> GetRoomCount(string homeId)
+		{
+			if (string.IsNullOrEmpty(homeId))
+			{
+				return BadRequest("HomeId không được để trống");
+			}
+
+			var count = await _context.Rooms
+				.Where(r => r.HomeId == homeId && r.RoomId.StartsWith("r_"))
+				.CountAsync();
+
+			return Ok(count);
+		}
+
+
 		// GET: api/Admin/Homes/5 (Retrieve a home by ID)
 		[HttpGet("Homes/{id}")]
 		public async Task<ActionResult<Home>> GetHome(string id)

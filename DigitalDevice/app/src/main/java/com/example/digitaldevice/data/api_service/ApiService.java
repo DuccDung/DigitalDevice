@@ -1,11 +1,14 @@
 package com.example.digitaldevice.data.api_service;
 
 import com.example.digitaldevice.data.model.Device;
+import com.example.digitaldevice.data.model.DeviceCreateResponse;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.data.model.DeviceVehicle;
 import com.example.digitaldevice.data.model.HomeUser;
+import com.example.digitaldevice.data.model.ImageUploadResponse;
 import com.example.digitaldevice.data.model.LoginResponse;
 import com.example.digitaldevice.data.model.Room;
+import com.example.digitaldevice.data.model.RoomCreateResponse;
 import com.example.digitaldevice.data.model.Users;
 import com.example.digitaldevice.data.model.WeatherResponse;
 import com.google.gson.Gson;
@@ -13,13 +16,17 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -27,7 +34,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
     //https://api.openweathermap.org/data/2.5/weather?q=Hanoi,VN&appid=db7e8be2cd9133533090f6e5c64f6
     // Base URL https://be0f-1-55-142-179.ngrok-free.app
-    String BASE_URL = "https://8466-171-244-65-48.ngrok-free.app/";
+    String BASE_URL = "https://7faf-42-119-191-162.ngrok-free.app/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -56,7 +63,7 @@ public interface ApiService {
     Call<Void> registerUser(@Query("Name") String Name , @Query("Password") String Password , @Query("Phone") String Phone);
     @GET("/api/Rooms/GetRoomsByHomeID")
     Call<List<Room>> GetRooms(@Header("Authorization") String token,@Query("HomeID") String HomeID);
-    @GET("/api/Devices/GetDevicesByRoomID")
+    @GET("/api/Devices/GetDevicesFunctionByRoomID")
     Call<List<DeviceFunction>> GetDeviceFunction(@Header("Authorization") String token,@Query("RoomID") String RoomID , @Query("HomeID") String HomeID);
     @GET("/api/Users/GetHomeUsersByUserId")
     Call<List<HomeUser>> GetHomesByUserID(@Header("Authorization") String token, @Query("userId") String UserID);
@@ -79,6 +86,35 @@ public interface ApiService {
     @POST("api/Users/AddUserToHome")
     Call<Void> AddUser(@Header("Authorization") String token , @Query("HomeID") String homeId , @Query("UserID") String userID );
 
-    @GET("/api/Devices/GetDevicesByRoomID")
+
+
+
+
+    @GET("/api/Devices/GetDevicesFunctionByRoomID")
     Call<List<Device>> GetDevice(@Query("RoomID") String RoomID);
+    @GET("/api/Devices/GetDevicesByRoomID")
+    Call<List<Device>> GetDevice_2(@Query("RoomID") String RoomID);
+    @POST("/api/Devices/CreateDevice")
+    Call<DeviceCreateResponse> CreateDevice(
+            @Query("Name") String Name,
+            @Query("RoomId") String RoomId,
+            @Query("FunctionId") String FunctionId
+    );
+
+    @POST("/api/Rooms/CreateRoom")
+    Call<RoomCreateResponse> CreateRoom(
+            @Query("Name") String Name,
+            @Query("HomeId") String HomeId,
+            @Query("PhotoPath") String PhotoPath
+    );
+
+    @Multipart
+    @POST("/api/Rooms/UploadRoomImage")
+    Call<ImageUploadResponse> uploadRoomImage(@Part MultipartBody.Part file);
+    @GET("/api/Admin/RoomCount")
+    Call<Integer> GetRoomCount(@Query("homeId") String homeId);
+    @DELETE("/api/Rooms/DeleteRoom")
+    Call<ResponseBody> DeleteRoom(@Query("RoomId") String RoomId);
+    @DELETE("/api/Devices/DeleteDevice")
+    Call<ResponseBody> DeleteDevice(@Query("DeviceId") String DeviceId);
 }

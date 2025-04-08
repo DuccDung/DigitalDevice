@@ -9,7 +9,12 @@ public class Device {
     @SerializedName("nameDevice")
     private String nameDevice;
 
+    @SerializedName("categoryDeviceId")
+    private String categoryDeviceId;
 
+    public String getCategoryDeviceID() {
+        return categoryDeviceId;
+    }
 
     public String getDeviceID() {
         return deviceID;
