@@ -20,7 +20,7 @@ public class MqttHandler {
         this.mqttListener = listener;
     }
     // Lưu trữ dữ liệu nhận về
-    private static final int MAX_CACHE_SIZE = 1000; // Giới hạn 100 topic
+    private static final int MAX_CACHE_SIZE = 1000;
     private LinkedHashMap<String, String> topicData = new LinkedHashMap<String, String>(MAX_CACHE_SIZE, 0.75f, true) {
         @Override
         protected boolean removeEldestEntry(Entry<String, String> eldest) {
@@ -54,7 +54,7 @@ public class MqttHandler {
                     Log.d("MQTT", "Nhận tin nhắn từ topic: " + topic + " - " + payload);
 
                     synchronized (topicData) {
-                        topicData.put(topic, payload); // Đảm bảo chỉ có 1 luồng sửa dữ liệu tại 1 thời điểm
+                        topicData.put(topic, payload);
                     }
                     if (mqttListener != null) {
                         mqttListener.onMessageReceived(topic, payload);

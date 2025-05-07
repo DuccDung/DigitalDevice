@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -31,6 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
     private LinearLayout dialogSuccess;
     private ScrollView formLayout;
     private Button btnRegister , btnIntent;
+    private ImageView imgPass1 , imgPass2;
+    private boolean isPasswordVisible1 = false;
+    private boolean isPasswordVisible2 = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,32 @@ public class RegisterActivity extends AppCompatActivity {
         makeStatusBarTransparent();
         applyTopPadding();
         initView();
+        imgPass1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPasswordVisible1) {
+                    txtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    imgPass1.setImageResource(R.drawable.ic_hide);
+                } else {
+                    txtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    imgPass1.setImageResource(R.drawable.ic_show);
+                }
+                isPasswordVisible1 = !isPasswordVisible1;
+            }
+        });
+        imgPass2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPasswordVisible2) {
+                    txtPassword2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    imgPass2.setImageResource(R.drawable.ic_hide);
+                } else {
+                    txtPassword2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    imgPass2.setImageResource(R.drawable.ic_show);
+                }
+                isPasswordVisible2 = !isPasswordVisible2;
+            }
+        });
         btnRegister.setOnClickListener(v -> validateForm());
         txtIntentLogin.setOnClickListener(v -> {
             Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
@@ -85,6 +116,8 @@ public class RegisterActivity extends AppCompatActivity {
         dialogSuccess = findViewById(R.id.dialog_success_register);
         formLayout = findViewById(R.id.formRegister);
         btnIntent = findViewById(R.id.btn_intent_register_login);
+        imgPass1 = findViewById(R.id.togglePasswordVisibility);
+        imgPass2 = findViewById(R.id.togglePasswordVisibility2);
     }
     private void validateForm() {
         String username = txtUsername.getText().toString().trim();

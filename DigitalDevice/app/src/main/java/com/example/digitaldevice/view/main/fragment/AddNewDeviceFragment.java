@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.utils.SessionManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +33,7 @@ public class AddNewDeviceFragment extends Fragment {
     private ImageView imageDevicePhoto;
     private String roomId;
     private String homeId;
+    private SessionManager sessionManager;
 
     @Nullable
     @Override
@@ -43,7 +45,9 @@ public class AddNewDeviceFragment extends Fragment {
         if (getArguments() != null) {
             roomId = getArguments().getString("roomId");
         }
-
+        if(requireContext() != null){
+            sessionManager = new SessionManager(requireContext());
+        }
         // Ánh xạ các view
         spinnerDeviceType = view.findViewById(R.id.spinnerDeviceType);
         edtDeviceName = view.findViewById(R.id.edtDeviceName);
@@ -130,7 +134,7 @@ public class AddNewDeviceFragment extends Fragment {
     }
 
     private void addNewDevice(String deviceName, String deviceFunction, String roomId, String homeId) {
-        ApiService.apiService.CreateDevice(deviceName, roomId, deviceFunction).enqueue(new Callback<DeviceCreateResponse>() {
+        ApiService.apiService.CreateDevice("Bearer " + sessionManager.getToken(),deviceName, roomId, deviceFunction).enqueue(new Callback<DeviceCreateResponse>() {
             @Override
             public void onResponse(Call<DeviceCreateResponse> call, Response<DeviceCreateResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {

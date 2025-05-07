@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.digitaldevice.R;
+import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.DbUserHelper;
 import com.example.digitaldevice.view.login.LoginActivity;
 import com.example.digitaldevice.view.select_home.SelectHomeActivity;
@@ -73,7 +74,9 @@ public class SettingFragment extends Fragment {
         txtLogout.setOnClickListener(v -> {
             if(requireContext() != null){
                 DbUserHelper dbUserHelper = new DbUserHelper(requireContext()); // Init database Sqlite
+                DataUserLocal dataUserLocal = new DataUserLocal(requireContext());
                 dbUserHelper.deleteUser();
+                dataUserLocal.deleteAllData(requireContext());
                 Intent intent = new Intent(requireContext() , LoginActivity.class);
                 startActivity(intent);
                 requireActivity().finish();

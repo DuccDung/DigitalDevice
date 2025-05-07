@@ -8,7 +8,7 @@ namespace DigitalDeivice.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	//[Authorize]
+	[Authorize]
 	public class DevicesController : ControllerBase
 	{
 		private readonly DigitalDeviceContext _digitalDeviceContext;

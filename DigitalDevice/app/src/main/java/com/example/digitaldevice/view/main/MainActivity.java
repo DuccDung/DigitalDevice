@@ -39,13 +39,13 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity  implements MqttHandler.MqttListener{
     private BottomNavigationView bottomNavigationView;
-    private ViewPager2 viewPager;
-    private ViewPagerAdapter viewPagerAdapter;
-    private FrameLayout frameLayout;
     private MqttHandler mqttHandler;
     private SessionManager sessionManager;
     private LinearLayout itemLoad;
-    private FrameLayout container;
+    private DashBoardFragment dashBoardFragment;
+    private VehicleFragment vehicleFragment;
+    private SettingFragment settingFragment;
+    private Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,46 +56,62 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         sessionManager = new SessionManager(MainActivity.this);
         sessionManager.CheckRefreshToken();
         bottomNavigationView = findViewById(R.id.navigationViewMain);
-        frameLayout = findViewById(R.id.fragment_container);
         itemLoad = findViewById(R.id.itemLoading);
         itemLoad.setVisibility(View.VISIBLE);
         bottomNavigationView.setVisibility(View.GONE);
+        // init fragment
+        dashBoardFragment = new DashBoardFragment();
+        vehicleFragment = new VehicleFragment();
+        settingFragment = new SettingFragment();
+
         InitializeApp(new DataCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean data) {
 
                 itemLoad.setVisibility(View.GONE);
                 bottomNavigationView.setVisibility(View.VISIBLE);
-
-                loadFragment(new DashBoardFragment());
+                currentFragment = dashBoardFragment;
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container, dashBoardFragment)
+                        .commit();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container, vehicleFragment)
+                        .hide(vehicleFragment)
+                        .commit();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container, settingFragment)
+                        .hide(settingFragment)
+                        .commit();
+                // ========================
                 bottomNavigationView.setOnItemSelectedListener(item -> {
-                    Fragment selectedFragment = null;
                     if (item.getItemId() == R.id.itemDashboard) {
-                        selectedFragment = new DashBoardFragment();
+                        showFragment(dashBoardFragment);
                     } else if (item.getItemId() == R.id.itemVehicle) {
-                        selectedFragment = new VehicleFragment();
+                        showFragment(vehicleFragment);
                     } else if (item.getItemId() == R.id.itemSetting) {
-                        selectedFragment = new SettingFragment();
-                    }
-                    if (selectedFragment != null) {
-                        loadFragment(selectedFragment);
+                        showFragment(settingFragment);
                     }
                     return true;
                 });
+
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                Log.e("InitApp", "Initialization failed: " + t.getMessage());
             }
         });
     }
-    private void loadFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
+    private void showFragment(Fragment fragment) {
+        if (currentFragment != fragment){
+            getSupportFragmentManager().beginTransaction()
+                    .hide(currentFragment)
+                    .show(fragment)
+                    .commit();
+            currentFragment = fragment;
+        }
     }
+
     public void openMapFragment(double latitude, double longitude) {
         MapFragment mapFragment = MapFragment.newInstance(latitude, longitude);
         getSupportFragmentManager()
@@ -139,18 +155,6 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             }
         });
     }
-    public void navigateToFragment(Fragment fragment) {
-        // Ẩn ViewPager, hiện container
-        viewPager.setVisibility(View.GONE);
-        container.setVisibility(View.VISIBLE);
-
-        // Thêm Fragment mới vào stack
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment_container_setting, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
     private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
         mqttHandler = new MqttHandler( MainActivity.this);
 
@@ -172,6 +176,7 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
             Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
             mqttHandler.subscribe(topic);
         }
+        mqttHandler.subscribe("device/status");
         callback.onSuccess(true);
     }
     public MqttHandler getMqttHandler() {

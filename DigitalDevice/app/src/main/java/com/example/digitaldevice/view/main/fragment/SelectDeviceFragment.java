@@ -22,6 +22,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.SelectDeviceAdapter;
 
@@ -39,12 +40,15 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
     private TextView txtDeviceCount;
     private String roomId;
     private int deviceCount;
+    private SessionManager sessionManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.select_device_fragment, container, false);
-
+        if (requireContext() != null) {
+            sessionManager = new SessionManager(requireContext());
+        }
         // Lấy roomId và deviceCount từ SelectRoomFragment
         if (getArguments() != null) {
             roomId = getArguments().getString("roomId");
@@ -96,7 +100,7 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
     private void loadDevices() {
         String homeId = DataUserLocal.getInstance(requireContext()).getHomeId();
 
-        ApiService.apiService.GetDevice_2(roomId).enqueue(new Callback<List<Device>>() {
+        ApiService.apiService.GetDevice_2("Bearer " + sessionManager.getToken(), roomId).enqueue(new Callback<List<Device>>() {
 
             @Override
             public void onResponse(Call<List<Device>> call, Response<List<Device>> response) {
@@ -149,7 +153,7 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
             Log.d("SelectDeviceFragment", "Đang xóa thiết bị với ID: " + device.getDeviceID());
 
             // Gọi API xóa thiết bị
-            ApiService.apiService.DeleteDevice(device.getDeviceID())
+            ApiService.apiService.DeleteDevice("Bearer " + sessionManager.getToken(), device.getDeviceID())
                     .enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

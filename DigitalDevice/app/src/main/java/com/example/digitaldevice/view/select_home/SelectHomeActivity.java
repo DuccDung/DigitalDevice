@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.digitaldevice.R;
@@ -16,6 +17,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.HomeUser;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.DbUserHelper;
 import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.login.LoginActivity;
 
@@ -31,6 +33,7 @@ public class SelectHomeActivity extends AppCompatActivity {
     private List<HomeUser> DataHouses = new ArrayList<>();
     private SelectHouseAdapter HouseAdapter;
     private RecyclerView rcvChoseHouse;
+    private TextView txtIdUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,17 @@ public class SelectHomeActivity extends AppCompatActivity {
         InitData(new DataCallback<List<HomeUser>>() {
             @Override
             public void onSuccess(List<HomeUser> data) {
-                DataHouses.addAll(data);
-                HouseAdapter = new SelectHouseAdapter(SelectHomeActivity.this, DataHouses);
-                rcvChoseHouse.setAdapter(HouseAdapter);
-                HouseAdapter.notifyDataSetChanged();
+                if(data == null || data.isEmpty()){
+                    DataUserLocal dbUserHelper = new  DataUserLocal(SelectHomeActivity.this);
+                    txtIdUser.setText("You need to be added to the home by the homeowner by id user: "  + dbUserHelper.getUserId());
+                    dbUserHelper.deleteAllData(SelectHomeActivity.this);
+
+                }else {
+                    DataHouses.addAll(data);
+                    HouseAdapter = new SelectHouseAdapter(SelectHomeActivity.this, DataHouses);
+                    rcvChoseHouse.setAdapter(HouseAdapter);
+                    HouseAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -82,6 +92,7 @@ public class SelectHomeActivity extends AppCompatActivity {
         sessionManager.CheckRefreshToken(); // check token , if token expired then refresh token
 
         rcvChoseHouse = findViewById(R.id.rcvSelectHouses);
+        txtIdUser = findViewById(R.id.txtIdUserInSelectHome);
         rcvChoseHouse.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
     private void makeStatusBarTransparent() {

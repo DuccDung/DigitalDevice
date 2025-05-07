@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".AddUser.AddUserActivity">
+    tools:context=".view.AddUser.AddUserActivity">
     <LinearLayout
         android:id="@+id/formDialogInSearch"
         android:layout_width="match_parent"

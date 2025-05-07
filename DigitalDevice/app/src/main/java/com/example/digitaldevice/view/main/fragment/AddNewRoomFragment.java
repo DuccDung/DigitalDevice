@@ -20,6 +20,7 @@ import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.model.RoomCreateResponse;
 import com.example.digitaldevice.data.model.ImageUploadResponse;
+import com.example.digitaldevice.utils.SessionManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,12 +45,15 @@ public class AddNewRoomFragment extends Fragment {
     private String savedImagePath;
 
     private static final int PICK_IMAGE_REQUEST = 1;
+    private SessionManager sessionManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_newroom_fragment, container, false);
-
+        if (requireContext() != null) {
+            sessionManager = new SessionManager(requireContext());
+        }
         // Lấy homeId từ DataUserLocal
         homeId = DataUserLocal.getInstance(requireContext()).getHomeId();
 
@@ -113,7 +117,7 @@ public class AddNewRoomFragment extends Fragment {
                     MultipartBody.Part imagePart = MultipartBody.Part.createFormData("file", tempFile.getName(), requestFile);
 
                     // Gọi API để upload ảnh
-                    ApiService.apiService.uploadRoomImage(imagePart)
+                    ApiService.apiService.uploadRoomImage("Bearer " + sessionManager.getToken() ,imagePart)
                             .enqueue(new Callback<ImageUploadResponse>() {
                                 @Override
                                 public void onResponse(Call<ImageUploadResponse> call, Response<ImageUploadResponse> response) {
@@ -166,7 +170,7 @@ public class AddNewRoomFragment extends Fragment {
                 "\nHomeId: " + homeId +
                 "\nPhotoPath: " + photoPath);
 
-        ApiService.apiService.CreateRoom(roomName, homeId, photoPath)
+        ApiService.apiService.CreateRoom("Bearer " + sessionManager.getToken(), roomName, homeId, photoPath)
                 .enqueue(new Callback<RoomCreateResponse>() {
                     @Override
                     public void onResponse(Call<RoomCreateResponse> call, Response<RoomCreateResponse> response) {

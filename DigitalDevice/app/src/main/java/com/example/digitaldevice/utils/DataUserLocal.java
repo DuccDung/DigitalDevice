@@ -88,4 +88,17 @@ public class DataUserLocal {
         db.update(DbUserHelper.TABLE_USERS, values, null, null);
         db.close();
     }
+    public void deleteAllData(Context context) {
+        DbUserHelper dbUserHelper = new DbUserHelper(context);
+        SQLiteDatabase db = dbUserHelper.getWritableDatabase();
+        db.delete(DbUserHelper.TABLE_USERS, null, null);
+        db.close();
+        this.userId = null;
+        this.homeId = null;
+        this.urlMqtt = null;
+        this.userMqtt = null;
+        this.passwordMqtt = null;
+
+        instance = null;  // Đặt lại instance singleton, khiến nó được tạo lại khi cần
+    }
 }

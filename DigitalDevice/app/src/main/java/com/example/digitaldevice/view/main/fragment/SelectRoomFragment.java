@@ -22,6 +22,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.Room;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.SelectRoomAdapter;
 
@@ -40,12 +41,14 @@ public class SelectRoomFragment extends Fragment implements
     private RecyclerView recyclerView;
     private SelectRoomAdapter adapter;
     private TextView txtRoomCount;
-
+    private SessionManager sessionManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.select_room_fragment, container, false);
-
+        if(requireContext() != null){
+            sessionManager = new SessionManager(requireContext());
+        }
         // Khởi tạo RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewRooms);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -94,7 +97,7 @@ public class SelectRoomFragment extends Fragment implements
     private void loadRooms() {
         String homeId = DataUserLocal.getInstance(requireContext()).getHomeId();
 
-        ApiService.apiService.GetRooms("" ,homeId).enqueue(new Callback<List<Room>>() {
+        ApiService.apiService.GetRooms("Bearer " + sessionManager.getToken() ,homeId).enqueue(new Callback<List<Room>>() {
             @Override
             public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -115,7 +118,7 @@ public class SelectRoomFragment extends Fragment implements
         String homeId = DataUserLocal.getInstance(requireContext()).getHomeId();
         Log.d("SelectRoomFragment", "Đang gọi API GetRoomCount với homeId: " + homeId);
 
-        ApiService.apiService.GetRoomCount(homeId).enqueue(new Callback<Integer>() {
+        ApiService.apiService.GetRoomCount("Bearer " + sessionManager.getToken() , homeId).enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -198,7 +201,7 @@ public class SelectRoomFragment extends Fragment implements
             Log.d("SelectRoomFragment", "Đang xóa phòng với ID: " + room.getRoomId());
 
             // Gọi API xóa phòng
-            ApiService.apiService.DeleteRoom(room.getRoomId())
+            ApiService.apiService.DeleteRoom("Bearer " + sessionManager.getToken()  , room.getRoomId())
                     .enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

@@ -20,6 +20,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.LoginResponse;
 import com.example.digitaldevice.data.model.Users;
+import com.example.digitaldevice.utils.DataUserLocal;
 import com.example.digitaldevice.utils.DbUserHelper;
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.utils.SessionManager;
@@ -57,11 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-        } else if (dbUserHelper.isUserExists() && !dbUserHelper.isUrlMqttExists()) {
-            // if user already exist and home null then transfer SelectHomeActivity
-            Intent intent = new Intent(LoginActivity.this, SelectHomeActivity.class);
-            startActivity(intent);
-            finish();
         }
         txtIntentRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(LoginResponse loginResponse) {
                         Users data = loginResponse.getUser();
-                        if (!dbUserHelper.isUserExists()) {
+                            dbUserHelper.deleteUser();
+                        DataUserLocal dataUserLocal = new DataUserLocal(LoginActivity.this);
+                        dataUserLocal.deleteAllData(LoginActivity.this);
                             boolean isInserted = dbUserHelper.insertOrUpdateUser(
                                     data.getUserId(), // userId
                                     data.getName(), // name
@@ -95,7 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                                 SessionManager sessionManager = new SessionManager(LoginActivity.this);
                                 sessionManager.saveToken(loginResponse.getToken());
                             }
-                        }
+
+
                         // chuyển activity
                         Intent intent = new Intent(LoginActivity.this, SelectHomeActivity.class);
                         startActivity(intent);

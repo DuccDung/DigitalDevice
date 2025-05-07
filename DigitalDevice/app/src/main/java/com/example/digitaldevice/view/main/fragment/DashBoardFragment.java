@@ -43,7 +43,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DashBoardFragment extends Fragment implements MqttHandler.MqttListener, RoomAdapter.OnRoomClickListener {
+public class DashBoardFragment extends Fragment implements RoomAdapter.OnRoomClickListener {
     private RoomAdapter roomAdapter;
     private RecyclerView rcvRooms;
     private DashBoardDeviceAdapter dashBoardDeviceAdapter;
@@ -51,10 +51,8 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
     private MqttHandler mqttHandler;
     private List<DeviceFunction> devicesDashboard = new ArrayList<>();
     private String roomId;
-    private final Handler handler = new Handler(Looper.getMainLooper());
     private SessionManager sessionManager;
 
-    // Tryền dữ liệu
 // =========================================================================
     @Override
     public void onStart() {
@@ -100,7 +98,7 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
                 // ConnectMQTT();
                 dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard, mqttHandler);
                 rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
-                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
+                dashBoardDeviceAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -108,11 +106,11 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
 
             }
         }, DataUserLocal.getInstance(requireContext()).getHomeId(), roomId);
+        mqttHandler.publish("device/request_status" , "STATUS");
     }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d("DashBoardFragment", "onCreateView called");
         View view = inflater.inflate(R.layout.dash_board_fragment, container, false);
         rcvRooms = view.findViewById(R.id.rcvRoomDashboard);
         rcvRooms.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -173,7 +171,6 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
             @Override
             public void onResponse(Call<List<DeviceFunction>> call, Response<List<DeviceFunction>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    Log.d("API Device", "Success");
                     List<DeviceFunction> devices = response.body();
                     devicesCallback.onSuccess(devices);
                 }
@@ -183,12 +180,6 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
             public void onFailure(Call<List<DeviceFunction>> call, Throwable t) {
                 Toast.makeText(requireContext(), "Connect Fail: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });
-    }
-    @Override
-    public void onMessageReceived(String topic, String payload) {
-        handler.post(() -> {
-            dashBoardDeviceAdapter.updateData(topic, payload);
         });
     }
     private void fetchData() {
@@ -236,14 +227,15 @@ public class DashBoardFragment extends Fragment implements MqttHandler.MqttListe
 
                 dashBoardDeviceAdapter = new DashBoardDeviceAdapter(devicesDashboard, mqttHandler);
                 rcvDashboardDevice.setAdapter(dashBoardDeviceAdapter);
-                dashBoardDeviceAdapter.notifyDataSetChanged(); // Cập nhật dữ liệu
+                dashBoardDeviceAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Throwable t) {
 
             }
-        }, dataUserLocal.getHomeId(), RoomId); // Xử lý lấy device trong room
+        }, dataUserLocal.getHomeId(), RoomId);
+        mqttHandler.publish("device/request_status" , "STATUS");
     }
     private void CheckToken() {
         sessionManager.CheckRefreshToken(); // check token , if token expired then refresh token

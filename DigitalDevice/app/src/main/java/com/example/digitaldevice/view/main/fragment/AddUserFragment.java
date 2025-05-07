@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.digitaldevice.AddUser.AddUserActivity;
+import com.example.digitaldevice.view.AddUser.AddUserActivity;
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;

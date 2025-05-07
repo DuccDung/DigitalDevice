@@ -20,14 +20,16 @@ import java.util.List;
 
 import okhttp3.OkHttpClient;
 
-public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder>{
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder> {
     public interface OnRoomClickListener {
         void onRoomClick(String roomId);
     }
+
     private List<Room> rooms;
 
     private OnRoomClickListener onRoomClickListener;
-    public RoomAdapter(OnRoomClickListener listener , List<Room > _rooms){
+
+    public RoomAdapter(OnRoomClickListener listener, List<Room> _rooms) {
         this.rooms = _rooms;
         this.onRoomClickListener = listener;
     }
@@ -36,7 +38,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder
     @Override
     public ItemRoomHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater Inflater = LayoutInflater.from(parent.getContext());
-        View view = Inflater.inflate(R.layout.item_room , parent,false);
+        View view = Inflater.inflate(R.layout.item_room, parent, false);
         return new ItemRoomHolder(view);
     }
 
@@ -58,13 +60,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder
                 }
             }
         });
-
-        OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
-
-             Glide.with(holder.itemView.getContext()).load(UrlImg)
-                        .placeholder(R.drawable.placeholder)
-                                .error(R.drawable.error).into(holder.imgRoom);
-
+        Glide.with(holder.itemView.getContext()).load(UrlImg)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error).into(holder.imgRoom);
         roomHolder.txtNameRoom.setText(room.getName());
     }
 
@@ -73,13 +71,14 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ItemRoomHolder
         return rooms.size();
     }
 
-    public class ItemRoomHolder extends RecyclerView.ViewHolder{
-    private TextView txtNameRoom;
-    private ImageView imgRoom;
-    public ItemRoomHolder(@NonNull View itemView) {
-        super(itemView);
-        txtNameRoom = itemView.findViewById(R.id.txtName_item_room);
-        imgRoom = itemView.findViewById(R.id.imgIcon_item_room);
+    public class ItemRoomHolder extends RecyclerView.ViewHolder {
+        private TextView txtNameRoom;
+        private ImageView imgRoom;
+
+        public ItemRoomHolder(@NonNull View itemView) {
+            super(itemView);
+            txtNameRoom = itemView.findViewById(R.id.txtName_item_room);
+            imgRoom = itemView.findViewById(R.id.imgIcon_item_room);
+        }
     }
-}
 }

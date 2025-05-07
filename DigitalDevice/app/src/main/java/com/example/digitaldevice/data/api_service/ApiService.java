@@ -34,7 +34,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
     //https://api.openweathermap.org/data/2.5/weather?q=Hanoi,VN&appid=db7e8be2cd9133533090f6e5c64f6
     // Base URL https://be0f-1-55-142-179.ngrok-free.app
-    String BASE_URL = "https://eab6-27-67-92-41.ngrok-free.app/";
+    String BASE_URL = "https://0f74-2405-4802-1b44-81a0-6ce2-4f47-3814-f97d.ngrok-free.app/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -75,42 +75,29 @@ public interface ApiService {
     Call<WeatherResponse> GetWeather();
     @GET("api/Users/GetUser")
     Call<Users> GetUser(@Header("Authorization") String token , @Query("UserID") String UserID);
-
     @GET("api/Users/GetUsersByHomeId")
     Call<List<Users>> GetUserByHomeID(@Header("Authorization") String token , @Query("homeId") String HomeID);
     @DELETE("api/Users/RemoveUserFromHome")
     Call<Void> DeleteUserByID(@Header("Authorization") String token , @Query("userId") String userId , @Query("homeId") String HomeID );
     @GET("api/Users/SearchUsers")
     Call<List<Users>> GetUserByID(@Header("Authorization") String token , @Query("keyword") String userId);
-
     @POST("api/Users/AddUserToHome")
     Call<Void> AddUser(@Header("Authorization") String token , @Query("HomeID") String homeId , @Query("UserID") String userID );
-
     @GET("/api/Devices/GetDevicesFunctionByRoomID")
-    Call<List<Device>> GetDevice(@Query("RoomID") String RoomID);
+    Call<List<Device>> GetDevice(@Header("Authorization") String token ,@Query("RoomID") String RoomID);
     @GET("/api/Devices/GetDevicesByRoomID")
-    Call<List<Device>> GetDevice_2(@Query("RoomID") String RoomID);
+    Call<List<Device>> GetDevice_2(@Header("Authorization") String token , @Query("RoomID") String RoomID);
     @POST("/api/Devices/CreateDevice")
-    Call<DeviceCreateResponse> CreateDevice(
-            @Query("Name") String Name,
-            @Query("RoomId") String RoomId,
-            @Query("FunctionId") String FunctionId
-    );
-
+    Call<DeviceCreateResponse> CreateDevice(@Header("Authorization") String token, @Query("Name") String Name, @Query("RoomId") String RoomId,@Query("FunctionId") String FunctionId);
     @POST("/api/Rooms/CreateRoom")
-    Call<RoomCreateResponse> CreateRoom(
-            @Query("Name") String Name,
-            @Query("HomeId") String HomeId,
-            @Query("PhotoPath") String PhotoPath
-    );
-
+    Call<RoomCreateResponse> CreateRoom( @Header("Authorization") String token, @Query("Name") String Name, @Query("HomeId") String HomeId,  @Query("PhotoPath") String PhotoPath);
     @Multipart
     @POST("/api/Rooms/UploadRoomImage")
-    Call<ImageUploadResponse> uploadRoomImage(@Part MultipartBody.Part file);
+    Call<ImageUploadResponse> uploadRoomImage(@Header("Authorization") String token,@Part MultipartBody.Part file);
     @GET("/api/Admin/RoomCount")
-    Call<Integer> GetRoomCount(@Query("homeId") String homeId);
+    Call<Integer> GetRoomCount(@Header("Authorization") String token , @Query("homeId") String homeId);
     @DELETE("/api/Rooms/DeleteRoom")
-    Call<ResponseBody> DeleteRoom(@Query("RoomId") String RoomId);
+    Call<ResponseBody> DeleteRoom(@Header("Authorization") String token , @Query("RoomId") String RoomId);
     @DELETE("/api/Devices/DeleteDevice")
-    Call<ResponseBody> DeleteDevice(@Query("DeviceId") String DeviceId);
+    Call<ResponseBody> DeleteDevice(@Header("Authorization") String token , @Query("DeviceId") String DeviceId);
 }
