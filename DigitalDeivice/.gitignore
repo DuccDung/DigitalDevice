@@ -4,8 +4,8 @@
 *.suo
 
 # Build results
-bin/
-obj/
+DigitalDeivice/bin/
+DigitalDeivice/obj/
 
 # Cache
 *.cache
