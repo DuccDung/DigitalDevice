@@ -35,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleOnClick, MqttHandler.MqttListener {
+public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleOnClick{
     private RecyclerView rcvVehicle;
     private VehicleAdapter vehicleAdapter;
     private final Handler handler = new Handler(Looper.getMainLooper());
@@ -121,13 +121,5 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
     @Override
     public void btnDetailOnClick(@NonNull double latitude, double longitude) {
         ((MainActivity) requireContext()).openMapFragment(latitude , longitude);
-    }
-
-    @Override
-    public void onMessageReceived(String topic, String payload) { // lắng nghe dữ liệu từ MQTT và truyền đến Adapter để cập nhật dữ liệu
-        handler.post(() -> {
-            // Log.d("MQTT", "Dữ liệu MQTT nhận được là: " + payload);
-            vehicleAdapter.updateData(topic, payload);
-        });
     }
 }

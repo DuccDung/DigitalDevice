@@ -1,12 +1,17 @@
 package com.example.digitaldevice.view.main.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +72,25 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         // real time load data
         DeviceVehicle deviceVehicle = devicesVehicle.get(position); // deviceVehicle
 
+        holder.switchMonitor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences prefs = holder.itemView.getContext().getSharedPreferences("monitor_prefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("monitor_" + deviceVehicle.getDeviceID(), isChecked);  // lưu theo deviceID
+                editor.apply();
+
+                if (isChecked) {
+
+                } else {
+
+                }
+            }
+        });
+        SharedPreferences prefs = holder.itemView.getContext().getSharedPreferences("monitor_prefs", Context.MODE_PRIVATE);
+        boolean isMonitored = prefs.getBoolean("monitor_" + deviceVehicle.getDeviceID(), false);
+        holder.switchMonitor.setChecked(isMonitored);
+
         holder.txtName.setText(deviceVehicle.getNameDevice());
         OkHttpClient client = SSLUtils.getUnsafeOkHttpClient();
 
@@ -87,21 +111,16 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
             double lat = jsonObject.getDouble("lat");
             double lng = jsonObject.getDouble("lng");
             int speed = (int) jsonObject.getDouble("speed");
+            int accel = (int) jsonObject.getDouble("accel");
             _lat = lat;
             _lng = lng;
             if (speed == 0) {
                 holder.txtSpeed.setText("stand still!");
                 // --------------disconnect----------------------
-                Glide.with(holder.itemView.getContext())
-                        .load(R.drawable.connect)
-                        .into(holder.imgCondition);
                 holder.overlayView.setVisibility(View.GONE);
             } else {
                 holder.txtSpeed.setText(speed + "km/h");
                 // --------------disconnect----------------------
-                Glide.with(holder.itemView.getContext())
-                        .load(R.drawable.connect)
-                        .into(holder.imgCondition);
                 holder.overlayView.setVisibility(View.GONE);
             }
             if (speed <= 50) {
@@ -114,6 +133,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
                 holder.txtSpeed.setTextColor(R.color.red);
                 holder.txtCondition.setText("Dangerous");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -144,8 +164,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
         private TextView txtCondition;
         private TextView txtSpeed;
         private LinearLayout btnDetail;
-        private ImageView imgCondition;
         private View overlayView;
+        private Switch switchMonitor;
 
         public VehicleHolder(@NonNull View itemView) {
             super(itemView);
@@ -154,8 +174,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
             txtCondition = itemView.findViewById(R.id.txtCondition);
             txtSpeed = itemView.findViewById(R.id.txtKm);
             btnDetail = itemView.findViewById(R.id.btnVehicleDetails);
-            imgCondition = itemView.findViewById(R.id.imgConditionConnect);
             overlayView = itemView.findViewById(R.id.overlayViewInVehicle);
+            switchMonitor = itemView.findViewById(R.id.switchMonitor);
         }
     }
 }

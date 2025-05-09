@@ -15,7 +15,7 @@ public class MqttHandler {
     private static MqttHandler instance;
     private MqttClient client;
     private MqttHandler() {} // private constructor
-
+    private MqttListener mqttListener;
     public interface MqttConnectionListener {
         void onDisconnected();
     }
@@ -74,6 +74,9 @@ public class MqttHandler {
 
                     synchronized (topicData) {
                         topicData.put(topic, payload);
+                    }
+                    if (mqttListener != null) {
+                        mqttListener.onMessageReceived(topic, payload);
                     }
                     EventBus.getDefault().post(new MqttEvent(topic, payload));
 
