@@ -1,0 +1,27 @@
+# Bỏ qua các file và thư mục tạm của Visual Studio
+.vs/
+*.user
+*.suo
+
+# Bỏ qua các thư mục build
+bin/
+obj/
+
+# Bỏ qua các file cache
+*.cache
+*.dbmdl
+*.log
+*.vsidx
+*.json
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio Code
+.vscode/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+.gradle/
+build/
+*.iml

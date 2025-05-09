@@ -86,7 +86,7 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
             // Thay thế fragment hiện tại bằng fragment mới
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, addNewDeviceFragment)
+                    .replace(R.id.fragment_container_setting, addNewDeviceFragment)
                     .addToBackStack(null) // Thêm vào back stack để có thể quay lại
                     .commit();
         });
