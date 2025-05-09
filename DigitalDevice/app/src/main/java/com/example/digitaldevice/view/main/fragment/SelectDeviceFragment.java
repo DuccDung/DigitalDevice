@@ -22,6 +22,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.data.model.DeviceFunction;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.utils.SessionManager;
 import com.example.digitaldevice.view.main.MainActivity;
 import com.example.digitaldevice.view.main.adapter.SelectDeviceAdapter;
@@ -41,6 +42,7 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
     private String roomId;
     private int deviceCount;
     private SessionManager sessionManager;
+    private MqttHandler mqttHandler;
 
     @Nullable
     @Override
@@ -49,6 +51,9 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
         if (requireContext() != null) {
             sessionManager = new SessionManager(requireContext());
         }
+
+        this.mqttHandler = ((MainActivity) requireContext()).getMqttHandler();
+
         // Lấy roomId và deviceCount từ SelectRoomFragment
         if (getArguments() != null) {
             roomId = getArguments().getString("roomId");
@@ -162,6 +167,8 @@ public class SelectDeviceFragment extends Fragment implements SelectDeviceAdapte
                                 Toast.makeText(requireContext(), "Xóa thiết bị thành công", Toast.LENGTH_SHORT).show();
                                 // Tải lại danh sách thiết bị
                                 loadDevices();
+
+                                mqttHandler.clearRetainedMessage(device.getDeviceID());
                             } else {
                                 try {
                                     String errorBody = response.errorBody() != null ? response.errorBody().string() : "Không có thông tin lỗi";

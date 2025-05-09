@@ -8,8 +8,8 @@
     <string name="my_map_api_key">AIzaSyAQuKmII-gquMp97Y9d7zWhVqT9TQ_hJvw</string>
 
     <string-array name="device_types">
-        <item>Air conditioner</item>
-        <item>Different device</item>
+        <item>Air Conditioner</item>
+        <item>Different Device</item>
         <item>Lamp</item>
     </string-array>
 

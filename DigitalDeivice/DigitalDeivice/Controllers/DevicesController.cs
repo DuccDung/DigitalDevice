@@ -23,9 +23,9 @@ namespace DigitalDeivice.Controllers
 		[HttpPost]
 		[Route("CreateDevice")]
 
-		public IActionResult CreateDevice(string Name, string RoomId, string FunctionId)
+		public IActionResult CreateDevice(string Name,string DeviceId, string RoomId, string FunctionId)
 		{
-			var DeviceId = "d_0" + _digitalDeviceContext.Devices.Count().ToString();
+			//var DeviceId = "d_0" + _digitalDeviceContext.Devices.Count().ToString();
 			//var isDevice = _digitalDeviceContext.Devices.Find(DeviceId);
 			var isRoom = _digitalDeviceContext.Rooms.Find(RoomId);
 			var isFunction = _digitalDeviceContext.DeviceFunctionalities.Find(FunctionId);

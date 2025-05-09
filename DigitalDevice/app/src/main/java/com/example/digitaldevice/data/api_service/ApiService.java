@@ -34,7 +34,7 @@ public interface ApiService {
     //https://192.168.0.107:7012/api/Leanners/get-leanners
     //https://api.openweathermap.org/data/2.5/weather?q=Hanoi,VN&appid=db7e8be2cd9133533090f6e5c64f6
     // Base URL https://be0f-1-55-142-179.ngrok-free.app
-    String BASE_URL = "https://0f74-2405-4802-1b44-81a0-6ce2-4f47-3814-f97d.ngrok-free.app/";
+    String BASE_URL = "https://84de-171-224-179-15.ngrok-free.app/";
     Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
@@ -88,7 +88,7 @@ public interface ApiService {
     @GET("/api/Devices/GetDevicesByRoomID")
     Call<List<Device>> GetDevice_2(@Header("Authorization") String token , @Query("RoomID") String RoomID);
     @POST("/api/Devices/CreateDevice")
-    Call<DeviceCreateResponse> CreateDevice(@Header("Authorization") String token, @Query("Name") String Name, @Query("RoomId") String RoomId,@Query("FunctionId") String FunctionId);
+    Call<DeviceCreateResponse> CreateDevice(@Header("Authorization") String token, @Query("Name") String Name, @Query("DeviceId") String DeviceId, @Query("RoomId") String RoomId,@Query("FunctionId") String FunctionId);
     @POST("/api/Rooms/CreateRoom")
     Call<RoomCreateResponse> CreateRoom( @Header("Authorization") String token, @Query("Name") String Name, @Query("HomeId") String HomeId,  @Query("PhotoPath") String PhotoPath);
     @Multipart

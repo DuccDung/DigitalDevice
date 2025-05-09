@@ -1,6 +1,7 @@
 package com.example.digitaldevice.view.main.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +23,15 @@ import androidx.fragment.app.Fragment;
 import com.example.digitaldevice.R;
 import com.example.digitaldevice.utils.SessionManager;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddNewDeviceFragment extends Fragment {
     private Spinner spinnerDeviceType;
-    private EditText edtDeviceName;
+    private EditText edtDeviceName, edtDeviceId;
     private Button btnSave, btnCancel;
     private ImageView imageDevicePhoto;
     private String roomId;
@@ -51,6 +54,7 @@ public class AddNewDeviceFragment extends Fragment {
         // Ánh xạ các view
         spinnerDeviceType = view.findViewById(R.id.spinnerDeviceType);
         edtDeviceName = view.findViewById(R.id.edtDeviceName);
+        edtDeviceId = view.findViewById(R.id.edtDeviceId);
         btnSave = view.findViewById(R.id.btnSave);
         btnCancel = view.findViewById(R.id.btnCancel);
         imageDevicePhoto = view.findViewById(R.id.imageDevicePhoto);
@@ -72,6 +76,7 @@ public class AddNewDeviceFragment extends Fragment {
         // Xử lý sự kiện click button Save
         btnSave.setOnClickListener(v -> {
             String deviceName = edtDeviceName.getText().toString();
+            String deviceId = edtDeviceId.getText().toString();
             String deviceType = spinnerDeviceType.getSelectedItem().toString();
             String deviceFunction;
 
@@ -98,7 +103,7 @@ public class AddNewDeviceFragment extends Fragment {
             }
 
             // Gọi hàm thêm thiết bị mới
-            addNewDevice(deviceName, deviceFunction, roomId, homeId);
+            addNewDevice(deviceName, deviceId, deviceFunction, roomId, homeId);
         });
 
         // Xử lý sự kiện click button Cancel
@@ -133,8 +138,8 @@ public class AddNewDeviceFragment extends Fragment {
         imageDevicePhoto.setImageResource(imageResource);
     }
 
-    private void addNewDevice(String deviceName, String deviceFunction, String roomId, String homeId) {
-        ApiService.apiService.CreateDevice("Bearer " + sessionManager.getToken(),deviceName, roomId, deviceFunction).enqueue(new Callback<DeviceCreateResponse>() {
+    private void addNewDevice(String deviceName, String deviceId, String deviceFunction, String roomId, String homeId) {
+        ApiService.apiService.CreateDevice("Bearer " + sessionManager.getToken(),deviceName, deviceId, roomId, deviceFunction).enqueue(new Callback<DeviceCreateResponse>() {
             @Override
             public void onResponse(Call<DeviceCreateResponse> call, Response<DeviceCreateResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -152,7 +157,12 @@ public class AddNewDeviceFragment extends Fragment {
                     // Quay lại Fragment trước đó
                     requireActivity().onBackPressed();
                 } else {
-                    Toast.makeText(requireContext(), "Không thể thêm thiết bị", Toast.LENGTH_SHORT).show();
+                    try {
+                        String errorMsg = response.errorBody().string();
+                        Log.e("API_ERROR", errorMsg);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 

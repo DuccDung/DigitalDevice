@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="#E7ECF0"
     >
+
+    <EditText
+        android:id="@+id/edtDeviceId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="60dp"
+        android:background="@null"
+        android:hint="Enter device id"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frameDeviceImage" />
+
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
@@ -46,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="5dp"
         android:background="@null"
         android:hint="Enter name device"
         android:inputType="text"
@@ -54,7 +70,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameDeviceImage" />
+        app:layout_constraintTop_toBottomOf="@id/edtDeviceId" />
 
     <View
         android:id="@+id/divider1"
@@ -118,7 +134,6 @@
             android:text="CANCEL"
             android:textColor="#FFFFFF" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,18 @@ public class MqttHandler {
                 @Override
                 public void connectionLost(Throwable cause) {
                     System.err.println("Mất kết nối với broker: " + cause.getMessage());
+                    // In ra thông tin chi tiết về lỗi
+                    Log.e("MQTT", "Mất kết nối với broker: " + cause.getMessage());
+                    cause.printStackTrace(); // In ra stack trace để xem chi tiết lỗi
+
+                    // Kiểm tra lỗi cụ thể
+                    if (cause instanceof java.io.EOFException) {
+                        Log.e("MQTT", "Lỗi EOFException: Kết nối bị ngắt giữa client và broker.");
+                    } else if (cause instanceof MqttException) {
+                        MqttException mqttException = (MqttException) cause;
+                        Log.e("MQTT", "Lỗi MqttException, mã lỗi: " + mqttException.getReasonCode());
+                    }
+
                 }
 
                 @Override
@@ -140,5 +152,21 @@ public class MqttHandler {
             return topicData.get(topic); // Lấy dữ liệu mới nhất của một topic
         }
     }
+
+    public void clearRetainedMessage(String topic) {
+        try {
+            if (client != null && client.isConnected()) {
+                MqttMessage emptyMessage = new MqttMessage(new byte[0]);
+                emptyMessage.setRetained(true); // ⚠️ rất quan trọng
+                client.publish(topic, emptyMessage);
+                Log.d("MQTT", "Đã xoá retained message của topic: " + topic);
+            } else {
+                Log.e("MQTT", "MQTT client chưa kết nối. Không thể xoá retained message.");
+            }
+        } catch (MqttException e) {
+            Log.e("MQTT", "Lỗi khi xoá retained message.", e);
+        }
+    }
+
 
 }
