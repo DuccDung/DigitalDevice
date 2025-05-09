@@ -131,7 +131,6 @@ public class DashBoardFragment extends Fragment implements RoomAdapter.OnRoomCli
             @Override
             public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // response.body().getMain().getTemp();
                     Log.d("weather", "hehehe");
                 }
             }

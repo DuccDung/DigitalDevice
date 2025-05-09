@@ -6,7 +6,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,6 +22,7 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.utils.DataUserLocal;
+import com.example.digitaldevice.utils.ForegroundMqttService;
 import com.example.digitaldevice.utils.MqttEvent;
 import com.example.digitaldevice.utils.MqttHandler;
 import com.example.digitaldevice.utils.SessionManager;
@@ -37,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity  implements MqttHandler.MqttListener{
+public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private MqttHandler mqttHandler;
     private SessionManager sessionManager;
@@ -156,40 +159,54 @@ public class MainActivity extends AppCompatActivity  implements MqttHandler.Mqtt
         });
     }
     private void ConnectMQTT( DataCallback<Boolean> callback,List<Device> devices) {
-        mqttHandler = new MqttHandler( MainActivity.this);
+        mqttHandler = MqttHandler.getInstance();
+        if (!ForegroundMqttService.isRunning) {
+            // Thông số kết nối
+            String brokerUrl = DataUserLocal.getInstance(MainActivity.this).getUrlMqtt();
+            int port = 8883;
+            String clientId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
+            String username = DataUserLocal.getInstance(MainActivity.this).getUserMqtt();
+            String password = DataUserLocal.getInstance(MainActivity.this).getPasswordMqtt();
 
-        // Thông số kết nối
-        String brokerUrl = DataUserLocal.getInstance(MainActivity.this).getUrlMqtt();
-        int port = 8883;
-        String clientId = DataUserLocal.getInstance(MainActivity.this).getHomeId();
-        String username = DataUserLocal.getInstance(MainActivity.this).getUserMqtt();
-        String password = DataUserLocal.getInstance(MainActivity.this).getPasswordMqtt();
+            mqttHandler.connect(brokerUrl, port, clientId, username, password);
 
-        mqttHandler.connect(brokerUrl, port, clientId, username, password);
-
-        if (devices == null || devices.isEmpty()) {
-            Log.e("MQTT", "Device list is empty, skipping subscription.");
-            return;
+            if (devices == null || devices.isEmpty()) {
+                Log.e("MQTT", "Device list is empty, skipping subscription.");
+                return;
+            }
+            for (Device device : devices) {
+                String topic = device.getDeviceID();
+                Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
+                mqttHandler.subscribe(topic);
+            }
+            mqttHandler.subscribe("device/status");
+            startMqttServiceIfConnected();
         }
-        for (Device device : devices) {
-            String topic = device.getDeviceID();
-            Log.d("MQTT", "Subscribing to topic: " + topic);  // Kiểm tra xem có đúng ID không
-            mqttHandler.subscribe(topic);
-        }
-        mqttHandler.subscribe("device/status");
+
         callback.onSuccess(true);
     }
     public MqttHandler getMqttHandler() {
         return mqttHandler;
     }
-    @Override
-    public void onMessageReceived(String topic, String payload) {
-        EventBus.getDefault().post(new MqttEvent(topic, payload));
-    }
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
+    private void startMqttServiceIfConnected() {
+        // Đảm bảo đã gọi mqttHandler.connect() trước đó
+        if (MqttHandler.getInstance().isConnected()) {
+            Intent serviceIntent = new Intent(this, ForegroundMqttService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(serviceIntent);
+            } else {
+                startService(serviceIntent);
+            }
+        } else {
+            Log.e("MQTT", "MQTT chưa được kết nối – không thể khởi service.");
+        }
+    }
+
     private void makeStatusBarTransparent() {
         Window window = getWindow();
 
