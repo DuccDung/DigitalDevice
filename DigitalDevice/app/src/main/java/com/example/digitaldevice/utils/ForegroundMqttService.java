@@ -3,8 +3,13 @@ package com.example.digitaldevice.utils;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.AudioAttributes;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
@@ -16,6 +21,12 @@ import com.example.digitaldevice.data.api_service.ApiService;
 import com.example.digitaldevice.data.api_service.DataCallback;
 import com.example.digitaldevice.data.model.Device;
 import com.example.digitaldevice.view.main.MainActivity;
+import com.example.digitaldevice.view.notification.NotifyActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -30,12 +41,16 @@ public class ForegroundMqttService extends Service implements MqttHandler.MqttCo
     public void onCreate() {
         super.onCreate();
         isRunning = true;
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     "mqtt_channel",
                     "MQTT Foreground Service",
                     NotificationManager.IMPORTANCE_LOW
             );
+
             NotificationManager manager = getSystemService(NotificationManager.class);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
@@ -51,7 +66,7 @@ public class ForegroundMqttService extends Service implements MqttHandler.MqttCo
                 .setContentText("Đang kết nối MQTT...")
                 .setSmallIcon(R.drawable.logo)
                 .build();
-
+        startForeground(1, notification);
         MqttHandler mqttHandler = MqttHandler.getInstance();
         MqttHandler.getInstance().setConnectionListener(this);
 
@@ -68,7 +83,6 @@ public class ForegroundMqttService extends Service implements MqttHandler.MqttCo
                 }
             });
         }
-        startForeground(1, notification);
         return START_STICKY;
     }
 
@@ -81,6 +95,9 @@ public class ForegroundMqttService extends Service implements MqttHandler.MqttCo
     public void onDestroy() {
         super.onDestroy();
         isRunning = false;
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
     }
     private void ReconnectAndResubscribe(DataCallback<Boolean> callback) {
         String homeId = DataUserLocal.getInstance(getApplicationContext()).getHomeId();
@@ -153,6 +170,124 @@ public class ForegroundMqttService extends Service implements MqttHandler.MqttCo
                 Log.e("lỗi ", "onFailure: Kết nối thất bại" );
             }
         });
+    }
+
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void onMqttMessageReceived(MqttEvent event) {
+        // Ví dụ: kiểm tra tai nạn và ghi log
+        try {
+            JSONObject json = new JSONObject(event.payload);
+            double accel = json.getDouble("accel");
+            double speed = json.getDouble("speed");
+
+            SharedPreferences prefs = getSharedPreferences("monitor_prefs", MODE_PRIVATE);
+            if (!prefs.getBoolean("monitor_" + event.topic, false)) return;
+            if (accel >= 80) {
+                sendAccidentNotification2(event.topic, speed, accel);
+            }
+            if (accel >= 2 && speed > 3) {
+                sendAccidentNotification(event.topic, speed, accel);
+            }
+        } catch (Exception e) {
+            Log.e("MQTT_PARSE", "Lỗi xử lý dữ liệu MQTT", e);
+        }
+    }
+    private void sendAccidentNotification(String topic, double speed, double accel) {
+        String channelId = "mqtt_channel_alert";
+
+        Intent intent = new Intent(this, NotifyActivity.class);
+        intent.putExtra("device_id", topic);
+        intent.putExtra("speed", speed);
+        intent.putExtra("accel", accel);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                this, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        // Tạo channel mới có âm thanh
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Cảnh báo xe",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setSound(soundUri, audioAttributes);
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("🚨 Cảnh báo xe di chuyển")
+                .setContentText("Xe " + topic + " có tốc độ " + speed + " km/h, gia tốc " + accel)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        if (manager != null) {
+            manager.notify((int) System.currentTimeMillis(), builder.build());
+        }
+    }
+
+    private void sendAccidentNotification2(String topic, double speed, double accel) {
+        String channelId = "mqtt_channel_alert";
+
+        Intent intent = new Intent(this, NotifyActivity.class);
+        intent.putExtra("device_id", topic);
+        intent.putExtra("speed", speed);
+        intent.putExtra("accel", accel);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                this, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        // Tạo channel mới có âm thanh
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Cảnh báo xe",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setSound(soundUri, audioAttributes);
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("🚨 Cảnh báo xe tai nạn")
+                .setContentText("Xe " + topic + " có tốc độ " + speed + " km/h, gia tốc " + accel)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        if (manager != null) {
+            manager.notify((int) System.currentTimeMillis(), builder.build());
+        }
     }
 }
 

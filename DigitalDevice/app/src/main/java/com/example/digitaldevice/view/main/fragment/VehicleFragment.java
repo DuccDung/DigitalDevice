@@ -87,7 +87,7 @@ public class VehicleFragment extends Fragment implements VehicleAdapter.VehicleO
         LoadData(new DataCallback<List<DeviceVehicle>>() {
             @Override
             public void onSuccess(List<DeviceVehicle> data) {
-                vehicleAdapter = new VehicleAdapter(VehicleFragment.this, data);
+                vehicleAdapter = new VehicleAdapter(requireContext(),VehicleFragment.this, data);
                 rcvVehicle.setAdapter(vehicleAdapter);
                 vehicleAdapter.notifyDataSetChanged();
             }

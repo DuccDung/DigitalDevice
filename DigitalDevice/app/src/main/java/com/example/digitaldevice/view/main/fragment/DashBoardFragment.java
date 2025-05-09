@@ -58,7 +58,6 @@ public class DashBoardFragment extends Fragment implements RoomAdapter.OnRoomCli
     public void onStart() {
         super.onStart();
         if (!EventBus.getDefault().isRegistered(this)) {
-            Log.d("VehicleFragment", "EventBus registered!");
             EventBus.getDefault().register(this);
         } else {
             Log.d("VehicleFragment", "EventBus already registered!");
@@ -70,7 +69,6 @@ public class DashBoardFragment extends Fragment implements RoomAdapter.OnRoomCli
         super.onStop();
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
-            Log.d("VehicleFragment", "EventBus unregistered!");
         }
     }
     // Nhận dữ liệu MQTT từ EventBus

@@ -41,16 +41,25 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleH
     private VehicleOnClick context;
     private Map<String, String> latestData = new HashMap<>();
     private MqttHandler mqttHandler; // MQTT Handler
-
+    private Context mContext;
     public void updateData(String topic, String data) {
-        Log.d("Dữ liệu từ vehicle", data);
+        SharedPreferences prefs = mContext.getSharedPreferences("monitor_prefs", Context.MODE_PRIVATE);
+        boolean isMonitored = prefs.getBoolean("monitor_" + topic, false);
+
+        if (isMonitored) {
+            Log.d("MQTT_MONITOR", "Đang theo dõi xe: " + topic);
+            notifyDataSetChanged();
+        } else {
+            Log.d("MQTT_MONITOR", "Không theo dõi xe: " + topic);
+        }
         latestData.put(topic, data);
-        notifyDataSetChanged(); // Update UI
     }
 
-    public VehicleAdapter(VehicleOnClick _context, List<DeviceVehicle> deviceVehicle) {
+
+    public VehicleAdapter(Context _mContext, VehicleOnClick _context, List<DeviceVehicle> deviceVehicle) {
         this.devicesVehicle = deviceVehicle;
         context = _context;
+        mContext = _mContext;
     }
 
     public interface VehicleOnClick {
